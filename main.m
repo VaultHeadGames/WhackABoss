@@ -3,10 +3,11 @@
 //  WhackABoss
 //
 //  Created by Jonathan Enzinna on 2/6/10.
-//  Copyright Apple Inc 2010. All rights reserved.
+//  Copyright Vault Head Games 2010. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 int main(int argc, char *argv[]) {
 	NSAutoreleasePool *pool = [NSAutoreleasePool new];

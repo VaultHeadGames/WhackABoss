@@ -3,12 +3,15 @@
 //  WhackABoss
 //
 //  Created by Jonathan Enzinna on 2/6/10.
-//  Copyright Apple Inc 2010. All rights reserved.
+//  Copyright Vault Head Games 2010. All rights reserved.
 //
 
 #import "WhackABossAppDelegate.h"
 #import "cocos2d.h"
-#import "HelloWorldScene.h"
+#import "SplashScene.h"
+#import "VariableStore.h"
+#import "Constants.h"
+#import "OFHandler.h"
 
 @implementation WhackABossAppDelegate
 
@@ -42,25 +45,26 @@
 	[CCTexture2D setDefaultAlphaPixelFormat:kTexture2DPixelFormat_RGBA8888];
 	
 	// before creating any layer, set the landscape mode
-	[[CCDirector sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
+	[[CCDirector sharedDirector] setDeviceOrientation:CCDeviceOrientationPortrait];
 	[[CCDirector sharedDirector] setAnimationInterval:1.0/60];
-	[[CCDirector sharedDirector] setDisplayFPS:YES];
+	[[CCDirector sharedDirector] setDisplayFPS:NO];
 	
 	// create an openGL view inside a window
 	[[CCDirector sharedDirector] attachInView:window];	
-	[window makeKeyAndVisible];		
-		
-		
-	[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];
+	[window makeKeyAndVisible];
+	
+	[[CCDirector sharedDirector] runWithScene: [Splash scene]];
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];
+	[[OFHandler sharedInstance] resignActive];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+	[[OFHandler sharedInstance] becomeActive];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -69,6 +73,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[[CCDirector sharedDirector] end];
+	// shutdown OpenFeint
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
