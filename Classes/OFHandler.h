@@ -13,9 +13,15 @@
 
 }
 
+- (bool) feintIsActive;
+
 - (void) resignActive;
 
 - (void) becomeActive;
+
+- (void) showLeaderboard;
+
+- (void) showAchievements;
 
 + (OFHandler*) sharedInstance;
 

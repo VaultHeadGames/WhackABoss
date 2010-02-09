@@ -17,4 +17,10 @@
 // returns a Scene that contains the HelloWorld as the only child
 +(id) scene;
 
+-(void) go_start_game:(id)e;
+-(void) go_leaderboard:(id)e;
+-(void) go_achievements:(id)e;
+-(void) go_settings:(id)e;
+-(void) go_about:(id)e;
+
 @end

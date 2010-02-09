@@ -40,12 +40,16 @@
 		splashSprite.anchorPoint = CGPointZero;
 		[self addChild:splashSprite];
 		
-		// Load variables and other needed things in here
-		[VariableStore sharedInstance].playerName = @"n00b";
-		
-		[self schedule:@selector(continueOn:) interval:.5];
+		// Load variables and other needed things
+		[[VariableStore sharedInstance] loadSettings:false withDelegate:self withSelector:@selector(onVariablesLoaded:)];
 	}
 	return self;
+}
+
+-(void) onVariablesLoaded:(id)e
+{
+	// we're good to continue on!
+	[self schedule:@selector(continueOn:) interval:.5];
 }
 
 - (void) continueOn:(ccTime)e

@@ -5,6 +5,8 @@
 //  Created by Jonathan Enzinna on 2/7/10.
 //  Copyright 2010 Vault Head Games. All rights reserved.
 //
+// This file "wraps" access to OpenFeint in an Objective-C++ file so we do not have to have every file that accesses OpenFeint be compiled
+// Obj-C++ (.mm file extensions)
 
 #import "OFHandler.h"
 #import "Constants.h"
@@ -21,12 +23,24 @@
 	[OpenFeint applicationDidBecomeActive];
 }
 
+-(void) showLeaderboard {
+	[OpenFeint launchDashboardWithListLeaderboardsPage];
+}
+
+-(void) showAchievements {
+	[OpenFeint launchDashboardWithAchievementsPage];
+}
+
+-(bool) feintIsActive {
+	return [OpenFeint isOnline];
+}
+
 -(id) init {
 	// always super.init
 	if( (self=[super init] )) {
 		NSDictionary* feintSettings = [NSDictionary dictionaryWithObjectsAndKeys:
 								  [NSNumber numberWithInt:UIInterfaceOrientationPortrait], OpenFeintSettingDashboardOrientation,
-								  @"ShortName", OpenFeintSettingShortDisplayName, 
+								  @"Whack-A-Boss", OpenFeintSettingShortDisplayName, 
 								  [NSNumber numberWithBool:NO], OpenFeintSettingEnablePushNotifications,
 								  [NSNumber numberWithBool:YES], OpenFeintSettingDisableUserGeneratedContent,
 								  nil

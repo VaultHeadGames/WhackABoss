@@ -9,6 +9,9 @@
 // Import the interfaces
 #import "MainMenuScene.h"
 #import "Constants.h"
+#import "OFHandler.h"
+#import "AboutScene.h"
+#import "SettingsScene.h"
 
 // HelloWorld implementation
 @implementation MainMenu
@@ -38,7 +41,19 @@
 		// create and initialize our labels
 		CCLabel* main_label = [CCLabel labelWithString:@"Whack-A-Boss" fontName:@"Marker Felt" fontSize:48];
 		CCLabel* version_label = [CCLabel labelWithString:[NSString stringWithFormat:@"v.%i.%i.%i",VERSION_MAJOR,VERSION_MINOR,VERSION_REV] fontName:@"Marker Felt" fontSize:12];
-
+		
+		[CCMenuItemFont setFontName:@"Marker Felt"];
+		[CCMenuItemFont setFontSize:28];
+		
+		CCMenuItem* mi_start_game = [CCMenuItemFont itemFromString:@"Start Game" target:self selector:@selector(go_start_game:)];
+		CCMenuItem* mi_leaderboards = [CCMenuItemFont itemFromString:@"Leaderboards" target:self selector:@selector(go_leaderboard:)];
+		CCMenuItem* mi_achievements = [CCMenuItemFont itemFromString:@"Achievements" target:self selector:@selector(go_achievements:)];
+		CCMenuItem* mi_settings = [CCMenuItemFont itemFromString:@"Settings" target:self selector:@selector(go_settings:)];
+		CCMenuItem* mi_about = [CCMenuItemFont itemFromString:@"About" target:self selector:@selector(go_about:)];
+		
+		CCMenu* main_menu = [CCMenu menuWithItems:mi_start_game,mi_leaderboards,mi_achievements,mi_settings,mi_about,nil];
+		[main_menu alignItemsVertically];
+		
 		// ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 	
@@ -49,8 +64,30 @@
 		// add the label as a child to this Layer
 		[self addChild: main_label];
 		[self addChild: version_label];
+		[self addChild: main_menu];
 	}
 	return self;
+}
+
+- (void) go_start_game:(id)e
+{
+	
+}
+- (void) go_leaderboard:(id)e
+{
+	[[OFHandler sharedInstance] showLeaderboard];
+}
+- (void) go_achievements:(id)e
+{
+	[[OFHandler sharedInstance] showAchievements];
+}
+- (void) go_settings:(id)e
+{
+	[[CCDirector sharedDirector] replaceScene: [CCPageTurnTransition transitionWithDuration:1.5 scene: [SettingsScene scene]]];
+}
+- (void) go_about:(id)e
+{
+	[[CCDirector sharedDirector] replaceScene: [CCZoomFlipYTransition transitionWithDuration:1.5 scene: [AboutScene scene]]];
 }
 
 // on "dealloc" you need to release all your retained objects

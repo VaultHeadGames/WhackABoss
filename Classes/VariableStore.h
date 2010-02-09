@@ -11,10 +11,18 @@
 
 @interface VariableStore : NSObject {
 	NSString* playerName;
+	NSUserDefaults* savedSettings;
+	NSNumber* soundEnabled;
+	NSNumber* musicEnabled;
 }
 
 + (VariableStore *)sharedInstance;
+-(void) loadSettings:(bool)overrideDefaults withDelegate:(id)target withSelector:(SEL)completionSelector;
+-(void) saveSettings;
 
 @property (nonatomic,retain) NSString* playerName;
+@property (nonatomic,retain) NSUserDefaults* savedSettings;
+@property (nonatomic,retain) NSNumber* soundEnabled;
+@property (nonatomic,retain) NSNumber* musicEnabled;
 
 @end

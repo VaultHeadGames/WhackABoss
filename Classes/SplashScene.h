@@ -14,7 +14,7 @@
 {
 }
 
-
+- (void) onVariablesLoaded:(id)e;
 - (void) continueOn:(ccTime)e;
 
 // returns a Scene that contains the HelloWorld as the only child
