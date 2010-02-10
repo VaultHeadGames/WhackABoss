@@ -7,11 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "SettingsUIView.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface SettingsScene : CCLayer {
-
+	SettingsUIView* uiView;
 }
 
 +(id) scene;

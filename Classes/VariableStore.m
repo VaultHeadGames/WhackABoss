@@ -21,10 +21,12 @@
 	// this is where we load stuffz
 	if ([[savedSettings stringForKey:@"use_defaults"] length] == 0) {
 		// we're using defaults
+		NSLog(@"	using defaults");
 		playerName = @"Lumberg";
-		musicEnabled = 1;
-		soundEnabled = 1;
+		musicEnabled = [NSNumber numberWithInt:0];
+		soundEnabled = [NSNumber numberWithInt:1];
 	} else {
+		NSLog(@"	using saved");
 		playerName = [savedSettings stringForKey:@"player_name"];
 		musicEnabled = [savedSettings valueForKey:@"music_on"];
 		soundEnabled = [savedSettings valueForKey:@"sound_on"];
@@ -38,6 +40,7 @@
 
 -(void) saveSettings
 {
+	NSLog(@"Saving settings");
 	[savedSettings setObject:musicEnabled forKey:@"music_on"];
 	[savedSettings setObject:soundEnabled forKey:@"sound_on"];
 	[savedSettings setObject:playerName forKey:@"player_name"];

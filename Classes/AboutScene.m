@@ -32,7 +32,7 @@
 
 // on "init" you need to initialize your instance
 -(id) init
-{
+{	
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init] )) {
@@ -51,6 +51,10 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		main_label.position =  ccp( size.width /2 , size.height - 24 );	
 		menu_back.position = ccp( 24, 16);
+		
+		CCLabel* fuck_yeh = [CCLabel labelWithString:@"Fuck Yeh Bitchez" fontName:@"Arial" fontSize:18];
+		fuck_yeh.position = ccp( size.width /2, size.height /2);
+		[self addChild: fuck_yeh];
 		
 		// add the label as a child to this Layer
 		[self addChild: main_label];

@@ -74,6 +74,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[[CCDirector sharedDirector] end];
 	// shutdown OpenFeint
+	[[OFHandler sharedInstance] dealloc];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {

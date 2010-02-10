@@ -65,6 +65,11 @@
 		[self addChild: main_label];
 		[self addChild: version_label];
 		[self addChild: main_menu];
+		
+		// display the background
+		CCSprite* background = [CCSprite spriteWithFile:@"mm_background.png"];
+		background.anchorPoint = CGPointZero;
+		[self addChild: background z:-1];
 	}
 	return self;
 }

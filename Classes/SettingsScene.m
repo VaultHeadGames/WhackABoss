@@ -7,6 +7,7 @@
 //
 
 #import "SettingsScene.h"
+#import "SettingsUIView.h"
 #import "MainMenuScene.h"
 #import "VariableStore.h"
 
@@ -21,14 +22,20 @@
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
-	
 	// return the scene
 	return scene;
 }
 
 -(void) backToMain:(id)e
 {
-	[[CCDirector sharedDirector] replaceScene: [CCPageTurnTransition transitionWithDuration:1.5 scene:[MainMenu scene]]];
+	[[uiView view] removeFromSuperview];
+	[[CCDirector sharedDirector] replaceScene: [CCPageTurnTransition transitionWithDuration:1.5 scene:[MainMenu scene] backwards:true]];
+}
+
+-(void) onEnterTransitionDidFinish
+{
+	[[[CCDirector sharedDirector] openGLView] addSubview: [uiView view]];
+	[super onEnterTransitionDidFinish];
 }
 
 // on "init" you need to initialize your instance
@@ -54,6 +61,8 @@
 		// add the label as a child to this Layer
 		[self addChild: main_label];
 		[self addChild: menu_back];
+		
+		uiView = [SettingsUIView new];
 	}
 	return self;
 }

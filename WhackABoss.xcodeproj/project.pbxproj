@@ -698,6 +698,10 @@
 		2F9A56551120FFFB006BC060 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A56541120FFFB006BC060 /* AboutScene.m */; };
 		2F9A5710112113D9006BC060 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A570F112113D9006BC060 /* SettingsScene.m */; };
 		2F9A571A112114A0006BC060 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A5719112114A0006BC060 /* SoundManager.m */; };
+		2FB2596E1122400000EACDB8 /* SettingsUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2596C1122400000EACDB8 /* SettingsUIView.m */; };
+		2FB2596F1122400000EACDB8 /* SettingsUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB2596D1122400000EACDB8 /* SettingsUIView.xib */; };
+		2FB259A81122502400EACDB8 /* post-it.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB259A71122502400EACDB8 /* post-it.png */; };
+		2FB259D111225D3A00EACDB8 /* mm_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB259D011225D3A00EACDB8 /* mm_background.png */; };
 		2FCC95C9111F2DE5009F6E3A /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC95C6111F2DE5009F6E3A /* SplashScene.m */; };
 		2FCC95CA111F2DE5009F6E3A /* VariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC95C8111F2DE5009F6E3A /* VariableStore.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
@@ -2033,6 +2037,11 @@
 		2F9A570F112113D9006BC060 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
 		2F9A5718112114A0006BC060 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		2F9A5719112114A0006BC060 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		2FB2596B1122400000EACDB8 /* SettingsUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsUIView.h; sourceTree = "<group>"; };
+		2FB2596C1122400000EACDB8 /* SettingsUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsUIView.m; sourceTree = "<group>"; };
+		2FB2596D1122400000EACDB8 /* SettingsUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsUIView.xib; sourceTree = "<group>"; };
+		2FB259A71122502400EACDB8 /* post-it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post-it.png"; sourceTree = "<group>"; };
+		2FB259D011225D3A00EACDB8 /* mm_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mm_background.png; sourceTree = "<group>"; };
 		2FCC95C5111F2DE5009F6E3A /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		2FCC95C6111F2DE5009F6E3A /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
 		2FCC95C7111F2DE5009F6E3A /* VariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableStore.h; sourceTree = "<group>"; };
@@ -2340,6 +2349,9 @@
 				2F9A56541120FFFB006BC060 /* AboutScene.m */,
 				2F9A570E112113D9006BC060 /* SettingsScene.h */,
 				2F9A570F112113D9006BC060 /* SettingsScene.m */,
+				2FB2596B1122400000EACDB8 /* SettingsUIView.h */,
+				2FB2596C1122400000EACDB8 /* SettingsUIView.m */,
+				2FB2596D1122400000EACDB8 /* SettingsUIView.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -5423,6 +5435,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FB259D011225D3A00EACDB8 /* mm_background.png */,
+				2FB259A71122502400EACDB8 /* post-it.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
@@ -5888,6 +5902,9 @@
 				2F1351AC111F37F900241F0F /* OFDashboardTabNowPlayingPortrait.png in Resources */,
 				2F1351AD111F37F900241F0F /* OFDashboardTabNowPlayingPortraitDisabled.png in Resources */,
 				2F1351AE111F37F900241F0F /* OFDashboardTabNowPlayingPortraitHit.png in Resources */,
+				2FB2596F1122400000EACDB8 /* SettingsUIView.xib in Resources */,
+				2FB259A81122502400EACDB8 /* post-it.png in Resources */,
+				2FB259D111225D3A00EACDB8 /* mm_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6294,6 +6311,7 @@
 				2F9A56551120FFFB006BC060 /* AboutScene.m in Sources */,
 				2F9A5710112113D9006BC060 /* SettingsScene.m in Sources */,
 				2F9A571A112114A0006BC060 /* SoundManager.m in Sources */,
+				2FB2596E1122400000EACDB8 /* SettingsUIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
