@@ -10,7 +10,6 @@
 
 @implementation VariableStore
 
-@synthesize playerName;
 @synthesize musicEnabled;
 @synthesize soundEnabled;
 @synthesize savedSettings;
@@ -22,12 +21,10 @@
 	if ([[savedSettings stringForKey:@"use_defaults"] length] == 0) {
 		// we're using defaults
 		NSLog(@"	using defaults");
-		playerName = @"Lumberg";
 		musicEnabled = [NSNumber numberWithInt:0];
 		soundEnabled = [NSNumber numberWithInt:1];
 	} else {
 		NSLog(@"	using saved");
-		playerName = [savedSettings stringForKey:@"player_name"];
 		musicEnabled = [savedSettings valueForKey:@"music_on"];
 		soundEnabled = [savedSettings valueForKey:@"sound_on"];
 	}
@@ -43,7 +40,6 @@
 	NSLog(@"Saving settings");
 	[savedSettings setObject:musicEnabled forKey:@"music_on"];
 	[savedSettings setObject:soundEnabled forKey:@"sound_on"];
-	[savedSettings setObject:playerName forKey:@"player_name"];
 	[savedSettings setObject:@"no" forKey:@"use_defaults"];
 	[savedSettings synchronize];
 }

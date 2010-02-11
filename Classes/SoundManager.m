@@ -21,11 +21,13 @@
 	return instance;
 }
 
--(bool) soundIsEnabled
++(bool) soundIsEnabled
 {
+	return [VariableStore sharedInstance].soundEnabled == [NSNumber numberWithInt:1];
 }
--(bool) musicIsEnabled
++(bool) musicIsEnabled
 {
+	return [VariableStore sharedInstance].musicEnabled == [NSNumber numberWithInt:1];
 }
 
 -(id) init

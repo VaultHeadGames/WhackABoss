@@ -702,6 +702,10 @@
 		2FB2596F1122400000EACDB8 /* SettingsUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB2596D1122400000EACDB8 /* SettingsUIView.xib */; };
 		2FB259A81122502400EACDB8 /* post-it.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB259A71122502400EACDB8 /* post-it.png */; };
 		2FB259D111225D3A00EACDB8 /* mm_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB259D011225D3A00EACDB8 /* mm_background.png */; };
+		2FBB84E81123BFD800CB2F3F /* WBCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB84E71123BFD800CB2F3F /* WBCreature.m */; };
+		2FBB84EB1123C01200CB2F3F /* CreatureStrikeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB84EA1123C01200CB2F3F /* CreatureStrikeHandler.m */; };
+		2FBB84EE1123C02F00CB2F3F /* GameRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB84ED1123C02F00CB2F3F /* GameRunner.m */; };
+		2FBB84F11123C04000CB2F3F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBB84F01123C04000CB2F3F /* GameScene.m */; };
 		2FCC95C9111F2DE5009F6E3A /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC95C6111F2DE5009F6E3A /* SplashScene.m */; };
 		2FCC95CA111F2DE5009F6E3A /* VariableStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC95C8111F2DE5009F6E3A /* VariableStore.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
@@ -2042,6 +2046,14 @@
 		2FB2596D1122400000EACDB8 /* SettingsUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsUIView.xib; sourceTree = "<group>"; };
 		2FB259A71122502400EACDB8 /* post-it.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post-it.png"; sourceTree = "<group>"; };
 		2FB259D011225D3A00EACDB8 /* mm_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mm_background.png; sourceTree = "<group>"; };
+		2FBB84E61123BFD800CB2F3F /* WBCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCreature.h; sourceTree = "<group>"; };
+		2FBB84E71123BFD800CB2F3F /* WBCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCreature.m; sourceTree = "<group>"; };
+		2FBB84E91123C01200CB2F3F /* CreatureStrikeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatureStrikeHandler.h; sourceTree = "<group>"; };
+		2FBB84EA1123C01200CB2F3F /* CreatureStrikeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatureStrikeHandler.m; sourceTree = "<group>"; };
+		2FBB84EC1123C02F00CB2F3F /* GameRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRunner.h; sourceTree = "<group>"; };
+		2FBB84ED1123C02F00CB2F3F /* GameRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameRunner.m; sourceTree = "<group>"; };
+		2FBB84EF1123C04000CB2F3F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		2FBB84F01123C04000CB2F3F /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		2FCC95C5111F2DE5009F6E3A /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
 		2FCC95C6111F2DE5009F6E3A /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
 		2FCC95C7111F2DE5009F6E3A /* VariableStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableStore.h; sourceTree = "<group>"; };
@@ -2334,6 +2346,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2FBB84E51123BFB200CB2F3F /* GameLogic */,
 				2F9A571711211480006BC060 /* Managers */,
 				2F26D33B111F607C00C99E6B /* OpenFeint */,
 				2FCC95C5111F2DE5009F6E3A /* SplashScene.h */,
@@ -2352,6 +2365,8 @@
 				2FB2596B1122400000EACDB8 /* SettingsUIView.h */,
 				2FB2596C1122400000EACDB8 /* SettingsUIView.m */,
 				2FB2596D1122400000EACDB8 /* SettingsUIView.xib */,
+				2FBB84EF1123C04000CB2F3F /* GameScene.h */,
+				2FBB84F01123C04000CB2F3F /* GameScene.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -5184,6 +5199,19 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		2FBB84E51123BFB200CB2F3F /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+				2FBB84E61123BFD800CB2F3F /* WBCreature.h */,
+				2FBB84E71123BFD800CB2F3F /* WBCreature.m */,
+				2FBB84E91123C01200CB2F3F /* CreatureStrikeHandler.h */,
+				2FBB84EA1123C01200CB2F3F /* CreatureStrikeHandler.m */,
+				2FBB84EC1123C02F00CB2F3F /* GameRunner.h */,
+				2FBB84ED1123C02F00CB2F3F /* GameRunner.m */,
+			);
+			name = GameLogic;
+			sourceTree = "<group>";
+		};
 		504DFBC710AF12E9006D82FE /* cocoslive */ = {
 			isa = PBXGroup;
 			children = (
@@ -6312,6 +6340,10 @@
 				2F9A5710112113D9006BC060 /* SettingsScene.m in Sources */,
 				2F9A571A112114A0006BC060 /* SoundManager.m in Sources */,
 				2FB2596E1122400000EACDB8 /* SettingsUIView.m in Sources */,
+				2FBB84E81123BFD800CB2F3F /* WBCreature.m in Sources */,
+				2FBB84EB1123C01200CB2F3F /* CreatureStrikeHandler.m in Sources */,
+				2FBB84EE1123C02F00CB2F3F /* GameRunner.m in Sources */,
+				2FBB84F11123C04000CB2F3F /* GameScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

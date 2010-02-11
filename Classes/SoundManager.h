@@ -14,7 +14,7 @@
 
 + (SoundManager*) sharedInstance;
 
--(bool) musicIsEnabled;
--(bool) soundIsEnabled;
++(bool) musicIsEnabled;
++(bool) soundIsEnabled;
 
 @end
