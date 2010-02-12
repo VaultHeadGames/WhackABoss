@@ -13,11 +13,13 @@
 
 @synthesize creatureType;
 
-+(id) initWithTexture:(CCTexture2D*)texture andPosition:(NSNumber*)pos
+-(id) init
 {
-	NSLog([NSString stringWithFormat:@"Initializing creature number %n",pos]);
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
-	return [super spriteWithTexture:texture];
+	if( (self=[super init] )) {
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
+	}
+	
+	return self;
 }
 
 -(bool) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event

@@ -9,6 +9,7 @@
 #import "CreatureStrikeHandler.h"
 #import "GameRunner.h"
 #import "WBCreature.h"
+#import "SoundManager.h"
 
 @implementation CreatureStrikeHandler
 
@@ -36,6 +37,9 @@
 			break;
 		case CREATURE_TYPE_CARL:
 			[GameRunner sharedInstance].carlHitCounts += 1;
+			break;
+		case CREATURE_TYPE_BRICK:
+			[GameRunner sharedInstance].brickHitCounts += 1;
 			break;
 		default:
 			NSLog(@"Unknown creature type struck");

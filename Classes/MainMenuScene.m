@@ -12,6 +12,7 @@
 #import "OFHandler.h"
 #import "AboutScene.h"
 #import "SettingsScene.h"
+#import "GameScene.h"
 
 // HelloWorld implementation
 @implementation MainMenu
@@ -76,8 +77,10 @@
 
 - (void) go_start_game:(id)e
 {
-	
+	[[CCDirector sharedDirector] replaceScene: [CCFadeTransition transitionWithDuration:1.5 scene: [GameScene scene] withColor: ccBLACK]]
+	[[GameRunner sharedInstance] startGame];
 }
+
 - (void) go_leaderboard:(id)e
 {
 	[[OFHandler sharedInstance] showLeaderboard];

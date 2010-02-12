@@ -7,6 +7,8 @@
 //
 
 #import "GameScene.h"
+#import "WBCreature.h"
+#import "GameRunner.h"
 
 @implementation GameScene
 
@@ -33,6 +35,15 @@
 		
 	}
 	return self;
+}
+
+-(void) setupCreatures
+{
+	for (WBCreature* c in [GameRunner sharedInstance].creatureArray) {
+		// place the creature
+		[self addChild: c];
+		
+	}
 }
 
 @end

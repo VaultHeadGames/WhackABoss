@@ -21,6 +21,4 @@
 
 @property (nonatomic,retain) NSNumber* creatureType;
 
-+(id) initWithTexture:(CCTexture2D*)texture andPosition:(NSNumber*)pos;
-
 @end

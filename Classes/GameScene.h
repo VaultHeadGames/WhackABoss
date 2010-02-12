@@ -14,4 +14,6 @@
 
 +(id) scene;
 
+-(void) setupCreatures;
+
 @end

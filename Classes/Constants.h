@@ -13,3 +13,5 @@
 #define VERSION_MINOR	0
 #define VERSION_REV		1
 #define VERSION_TAG		@"A"
+
+#define TARGET_FPS 29.97
