@@ -15,7 +15,7 @@
 #define CREATURE_TYPE_JOE	0x04
 #define CREATURE_TYPE_BRICK	0x05
 
-@interface WBCreature : CCSprite {
+@interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
 	NSNumber* creatureType;
 }
 

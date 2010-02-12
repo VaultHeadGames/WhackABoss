@@ -13,6 +13,7 @@
 #import "AboutScene.h"
 #import "SettingsScene.h"
 #import "GameScene.h"
+#import "GameRunner.h"
 
 // HelloWorld implementation
 @implementation MainMenu
@@ -77,7 +78,7 @@
 
 - (void) go_start_game:(id)e
 {
-	[[CCDirector sharedDirector] replaceScene: [CCFadeTransition transitionWithDuration:1.5 scene: [GameScene scene] withColor: ccBLACK]]
+	[[CCDirector sharedDirector] replaceScene: [CCFadeTransition transitionWithDuration:1.5 scene: [GameScene scene] withColor: ccBLACK]];
 	[[GameRunner sharedInstance] startGame];
 }
 

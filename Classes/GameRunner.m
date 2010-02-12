@@ -47,9 +47,9 @@
 	
 	// bring up the WBCreature classes
 	creatureArray = [[NSMutableArray alloc] init];
-	while ([creatureArray count] < 9)
-		[creatureArray addObject:[WBCreature initWithTexture: self.creatureSpriteMap]];
 	self.creatureSpriteMap = [[CCTextureCache sharedTextureCache] addImage: @"creature_spriteMap.png"];
+	while ([creatureArray count] < 9)
+		[creatureArray addObject:[WBCreature spriteWithTexture: self.creatureSpriteMap]];
 }
 
 -(void) endGame
@@ -63,11 +63,11 @@
 
 -(void) checkScoreAndSexyCounts
 {
-	if (self.sexyHitCounts == 3) {
+	if ((uintptr_t)self.sexyHitCounts == 3) {
 		// it's sexual harrassment time!
-	} else if (self.carlHitCounts == 5) {
+	} else if ((uintptr_t)self.carlHitCounts == 5) {
 		// let's go postal!
-	} else if (self.brickHitCounts == 7) {
+	} else if ((uintptr_t)self.brickHitCounts == 7) {
 		// what happens when we hit brick
 	}
 	// check for level advancement...
@@ -79,9 +79,9 @@
 }
 
 // this function returns the number of seconds a 'creature' remains up
--(NSNumber) creatureFadeOutTime
+-(double) creatureFadeOutTime
 {
-	
+	return 2;
 }
 
 -(id) init

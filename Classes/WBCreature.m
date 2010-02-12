@@ -22,10 +22,10 @@
 	return self;
 }
 
--(bool) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event
+-(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event
 {
 	// handle click
-	NSLog([NSString stringWithFormat:@"Creature registered touch"]);
+	NSLog(@"Creature registered touch");
 	[[CreatureStrikeHandler sharedInstance] creatureReportsTouch:self];
 	return true;
 }

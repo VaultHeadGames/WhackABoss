@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameRunner : NSObject {
+@interface GameRunner : CCNode {
 	NSNumber* currentScore;
 	NSNumber* sexyHitCounts;
 	NSNumber* carlHitCounts;
@@ -34,6 +34,6 @@
 -(void) checkScoreAndSexyCounts;
 -(void) tick:(id)e;
 
--(NSNumber) creatureFadeOutTime;
+-(double) creatureFadeOutTime;
 
 @end
