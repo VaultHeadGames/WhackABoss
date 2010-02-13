@@ -25,6 +25,8 @@
 
 -(void) creatureReportsTouch:(WBCreature*)reporter
 {
+	if (reporter.state == CREATURE_STATE_IDLE)
+		return; // this isn't a valid click
 	switch ((uintptr_t)reporter.creatureType) {
 		case CREATURE_TYPE_BOSS:
 			[GameRunner sharedInstance].currentScore += 1;

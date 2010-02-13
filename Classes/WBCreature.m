@@ -12,6 +12,7 @@
 @implementation WBCreature
 
 @synthesize creatureType;
+@synthesize state;
 
 -(id) init
 {
@@ -28,6 +29,15 @@
 	NSLog(@"Creature registered touch");
 	[[CreatureStrikeHandler sharedInstance] creatureReportsTouch:self];
 	return true;
+}
+
+-(void) registerForPopUp
+{
+	self.state = CREATURE_STATE_GOING_UP;
+}
+
+-(void) takeTick
+{
 }
 
 @end

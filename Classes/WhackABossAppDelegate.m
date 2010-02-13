@@ -12,6 +12,7 @@
 #import "VariableStore.h"
 #import "Constants.h"
 #import "OFHandler.h"
+#import "GameRunner.h"
 
 @implementation WhackABossAppDelegate
 
@@ -59,15 +60,18 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];
+	[[GameRunner sharedInstance] pauseGame];
 	[[OFHandler sharedInstance] resignActive];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+	[[GameRunner sharedInstance] resumeGame];
 	[[OFHandler sharedInstance] becomeActive];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+	NSLog(@"!!!!!!!!!!!!!!!!!! MEMORY WARNING !!!!!!!!!!!!!!!!!!");
 	[[CCTextureCache sharedTextureCache] removeUnusedTextures];
 }
 

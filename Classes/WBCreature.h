@@ -15,10 +15,20 @@
 #define CREATURE_TYPE_JOE	0x04
 #define CREATURE_TYPE_BRICK	0x05
 
+#define CREATURE_STATE_IDLE			0x00
+#define CREATURE_STATE_GOING_UP		0x01
+#define CREATURE_STATE_HOLDING		0x02
+#define CREATURE_STATE_GOING_DOWN	0x03
+
 @interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
 	NSNumber* creatureType;
+	NSNumber* state;
 }
 
 @property (nonatomic,retain) NSNumber* creatureType;
+@property (nonatomic,retain) NSNumber* state;
+
+-(void) registerForPopUp;
+-(void) takeTick;
 
 @end
