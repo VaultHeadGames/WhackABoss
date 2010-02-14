@@ -11,7 +11,7 @@
 
 @implementation WBCreature
 
-@synthesize creatureType;
+@synthesize type;
 @synthesize state;
 
 -(id) init
@@ -33,7 +33,7 @@
 
 -(void) registerForPopUp
 {
-	self.state = CREATURE_STATE_GOING_UP;
+	self.state = STATE_GOING_UP;
 }
 
 -(void) takeTick

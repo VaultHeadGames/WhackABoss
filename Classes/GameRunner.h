@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Constants.h"
 
 @interface GameRunner : CCNode {
 	NSNumber* currentScore;
@@ -38,6 +39,8 @@
 -(void) startGame;
 -(void) checkScoreAndSexyCounts;
 -(void) tick:(id)e;
+-(void) proceedToNextLevel;
+-(void) proceedToEndGame:(EndGameCondition)endCondition;
 
 -(double) creatureFadeOutTime;
 

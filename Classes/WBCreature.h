@@ -9,24 +9,30 @@
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
 
-#define CREATURE_TYPE_BOSS	0x01
-#define CREATURE_TYPE_SEXY	0x02
-#define CREATURE_TYPE_CARL	0x03
-#define CREATURE_TYPE_JOE	0x04
-#define CREATURE_TYPE_BRICK	0x05
+typedef enum
+{
+	BOSS_TYPE,
+	SEXY_TYPE,
+	CARL_TYPE,
+	JOE_TYPE,
+	BRICK_TYPE
+} CreatureType;
 
-#define CREATURE_STATE_IDLE			0x00
-#define CREATURE_STATE_GOING_UP		0x01
-#define CREATURE_STATE_HOLDING		0x02
-#define CREATURE_STATE_GOING_DOWN	0x03
+typedef enum
+{
+	STATE_IDLE,
+	STATE_GOING_UP,
+	STATE_HOLDING,
+	STATE_GOING_DOWN
+} CreatureState;
 
 @interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
-	NSNumber* creatureType;
-	NSNumber* state;
+	CreatureType* type;
+	CreatureState* state;
 }
 
-@property (nonatomic,retain) NSNumber* creatureType;
-@property (nonatomic,retain) NSNumber* state;
+@property (nonatomic) CreatureType* type;
+@property (nonatomic) CreatureState* state;
 
 -(void) registerForPopUp;
 -(void) takeTick;
