@@ -56,7 +56,7 @@
 	
 	// bring up the WBCreature classes
 	creatureArray = [[NSMutableArray alloc] init];
-	self.creatureSpriteMap = [[CCTextureCache sharedTextureCache] addImage: @"creature_spriteMap.png"];
+	self.creatureSpriteMap = [[CCTextureCache sharedTextureCache] addImage: @"Icon.png"];
 	while ([creatureArray count] < 9)
 		[creatureArray addObject:[WBCreature spriteWithTexture: self.creatureSpriteMap]];
 }
