@@ -200,6 +200,10 @@
 			2F76E7141129D1C40086DE06 /* PBXTextBookmark */ = 2F76E7141129D1C40086DE06 /* PBXTextBookmark */;
 			2F76E7151129D1C40086DE06 /* PBXBookmark */ = 2F76E7151129D1C40086DE06 /* PBXBookmark */;
 			2F76E7161129D1C40086DE06 /* PBXTextBookmark */ = 2F76E7161129D1C40086DE06 /* PBXTextBookmark */;
+			2F76E7191129E0B30086DE06 /* PBXTextBookmark */ = 2F76E7191129E0B30086DE06 /* PBXTextBookmark */;
+			2F76E71A1129E0B30086DE06 /* PBXTextBookmark */ = 2F76E71A1129E0B30086DE06 /* PBXTextBookmark */;
+			2F76E71B1129E0B30086DE06 /* PBXTextBookmark */ = 2F76E71B1129E0B30086DE06 /* PBXTextBookmark */;
+			2F76E71C1129E0B30086DE06 /* PBXTextBookmark */ = 2F76E71C1129E0B30086DE06 /* PBXTextBookmark */;
 			2F9A566111210163006BC060 = 2F9A566111210163006BC060 /* PBXTextBookmark */;
 			2F9A566411210163006BC060 = 2F9A566411210163006BC060 /* PBXTextBookmark */;
 			2F9A566511210163006BC060 = 2F9A566511210163006BC060 /* PlistBookmark */;
@@ -1358,6 +1362,46 @@
 		vrLen = 1663;
 		vrLoc = 0;
 	};
+	2F76E7191129E0B30086DE06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2F76E7041129D19F0086DE06 /* FontLabel.h */;
+		name = "FontLabel.h: 14";
+		rLen = 0;
+		rLoc = 352;
+		rType = 0;
+		vrLen = 1663;
+		vrLoc = 0;
+	};
+	2F76E71A1129E0B30086DE06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2FB2596C1122400000EACDB8 /* SettingsUIView.m */;
+		name = "SettingsUIView.m: 21";
+		rLen = 0;
+		rLoc = 426;
+		rType = 0;
+		vrLen = 1211;
+		vrLoc = 0;
+	};
+	2F76E71B1129E0B30086DE06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2FBB84F01123C04000CB2F3F /* GameScene.m */;
+		name = "GameScene.m: 34";
+		rLen = 0;
+		rLoc = 645;
+		rType = 0;
+		vrLen = 1262;
+		vrLoc = 402;
+	};
+	2F76E71C1129E0B30086DE06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2FBB84F01123C04000CB2F3F /* GameScene.m */;
+		name = "GameScene.m: 34";
+		rLen = 0;
+		rLoc = 645;
+		rType = 0;
+		vrLen = 1264;
+		vrLoc = 400;
+	};
 	2F9A56531120FFFB006BC060 /* AboutScene.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1409, 600}}";
@@ -1533,7 +1577,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1409, 728}}";
 			sepNavSelRange = "{426, 0}";
-			sepNavVisRange = "{0, 1337}";
+			sepNavVisRange = "{0, 1211}";
 		};
 	};
 	2FB259E31122607100EACDB8 /* PBXTextBookmark */ = {
@@ -1667,8 +1711,8 @@
 	2FBB84F01123C04000CB2F3F /* GameScene.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1409, 832}}";
-			sepNavSelRange = "{801, 0}";
-			sepNavVisRange = "{325, 1331}";
+			sepNavSelRange = "{645, 0}";
+			sepNavVisRange = "{400, 1264}";
 		};
 	};
 	2FBB84F21123C0E100CB2F3F /* PBXTextBookmark */ = {

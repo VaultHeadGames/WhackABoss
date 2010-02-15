@@ -5211,7 +5211,8 @@
 				2F76E70D1129D19F0086DE06 /* ZFont.h */,
 				2F76E70E1129D19F0086DE06 /* ZFont.m */,
 			);
-			path = FontLabel;
+			name = FontLabel;
+			path = libs/FontLabel;
 			sourceTree = "<group>";
 		};
 		2F9A571711211480006BC060 /* Managers */ = {
