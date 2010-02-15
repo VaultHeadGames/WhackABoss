@@ -701,6 +701,11 @@
 		2F76E6941129C6D30086DE06 /* office-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76E68F1129C6D30086DE06 /* office-02.png */; };
 		2F76E6951129C6D30086DE06 /* office-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76E6901129C6D30086DE06 /* office-03.png */; };
 		2F76E6961129C6D30086DE06 /* office-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76E6911129C6D30086DE06 /* office-04.png */; };
+		2F76E70F1129D19F0086DE06 /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7051129D19F0086DE06 /* FontLabel.m */; };
+		2F76E7101129D19F0086DE06 /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7071129D19F0086DE06 /* FontLabelStringDrawing.m */; };
+		2F76E7111129D19F0086DE06 /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7091129D19F0086DE06 /* FontManager.m */; };
+		2F76E7121129D19F0086DE06 /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E70B1129D19F0086DE06 /* ZAttributedString.m */; };
+		2F76E7131129D19F0086DE06 /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E70E1129D19F0086DE06 /* ZFont.m */; };
 		2F9A56551120FFFB006BC060 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A56541120FFFB006BC060 /* AboutScene.m */; };
 		2F9A5710112113D9006BC060 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A570F112113D9006BC060 /* SettingsScene.m */; };
 		2F9A571A112114A0006BC060 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A5719112114A0006BC060 /* SoundManager.m */; };
@@ -2036,6 +2041,17 @@
 		2F76E68F1129C6D30086DE06 /* office-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office-02.png"; sourceTree = "<group>"; };
 		2F76E6901129C6D30086DE06 /* office-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office-03.png"; sourceTree = "<group>"; };
 		2F76E6911129C6D30086DE06 /* office-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office-04.png"; sourceTree = "<group>"; };
+		2F76E7041129D19F0086DE06 /* FontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabel.h; sourceTree = "<group>"; };
+		2F76E7051129D19F0086DE06 /* FontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabel.m; sourceTree = "<group>"; };
+		2F76E7061129D19F0086DE06 /* FontLabelStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabelStringDrawing.h; sourceTree = "<group>"; };
+		2F76E7071129D19F0086DE06 /* FontLabelStringDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabelStringDrawing.m; sourceTree = "<group>"; };
+		2F76E7081129D19F0086DE06 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		2F76E7091129D19F0086DE06 /* FontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontManager.m; sourceTree = "<group>"; };
+		2F76E70A1129D19F0086DE06 /* ZAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedString.h; sourceTree = "<group>"; };
+		2F76E70B1129D19F0086DE06 /* ZAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAttributedString.m; sourceTree = "<group>"; };
+		2F76E70C1129D19F0086DE06 /* ZAttributedStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedStringPrivate.h; sourceTree = "<group>"; };
+		2F76E70D1129D19F0086DE06 /* ZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFont.h; sourceTree = "<group>"; };
+		2F76E70E1129D19F0086DE06 /* ZFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFont.m; sourceTree = "<group>"; };
 		2F9A56531120FFFB006BC060 /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		2F9A56541120FFFB006BC060 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		2F9A570E112113D9006BC060 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
@@ -5180,6 +5196,24 @@
 			name = OpenFeint;
 			sourceTree = "<group>";
 		};
+		2F76E7031129D19F0086DE06 /* FontLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2F76E7041129D19F0086DE06 /* FontLabel.h */,
+				2F76E7051129D19F0086DE06 /* FontLabel.m */,
+				2F76E7061129D19F0086DE06 /* FontLabelStringDrawing.h */,
+				2F76E7071129D19F0086DE06 /* FontLabelStringDrawing.m */,
+				2F76E7081129D19F0086DE06 /* FontManager.h */,
+				2F76E7091129D19F0086DE06 /* FontManager.m */,
+				2F76E70A1129D19F0086DE06 /* ZAttributedString.h */,
+				2F76E70B1129D19F0086DE06 /* ZAttributedString.m */,
+				2F76E70C1129D19F0086DE06 /* ZAttributedStringPrivate.h */,
+				2F76E70D1129D19F0086DE06 /* ZFont.h */,
+				2F76E70E1129D19F0086DE06 /* ZFont.m */,
+			);
+			path = FontLabel;
+			sourceTree = "<group>";
+		};
 		2F9A571711211480006BC060 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -5219,6 +5253,7 @@
 		506EDAA3102F461B00A389B3 /* cocos2d Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2F76E7031129D19F0086DE06 /* FontLabel */,
 				50E5F39511072E6800E3FCF5 /* cocos2d */,
 				504DFBC710AF12E9006D82FE /* cocoslive */,
 				50F41311106926B2002A0D5E /* TouchJSON */,
@@ -6320,6 +6355,11 @@
 				2FBB84EB1123C01200CB2F3F /* CreatureStrikeHandler.m in Sources */,
 				2FBB84EE1123C02F00CB2F3F /* GameRunner.m in Sources */,
 				2FBB84F11123C04000CB2F3F /* GameScene.m in Sources */,
+				2F76E70F1129D19F0086DE06 /* FontLabel.m in Sources */,
+				2F76E7101129D19F0086DE06 /* FontLabelStringDrawing.m in Sources */,
+				2F76E7111129D19F0086DE06 /* FontManager.m in Sources */,
+				2F76E7121129D19F0086DE06 /* ZAttributedString.m in Sources */,
+				2F76E7131129D19F0086DE06 /* ZFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

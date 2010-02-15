@@ -275,8 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>40</integer>
-									<integer>7</integer>
+									<integer>2</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -318,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GameScene.m</string>
+								<string>FontLabel.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GameScene.m</string>
+										<string>FontLabel.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2F76E7021129CF0F0086DE06</string>
+										<string>2F76E7161129D1C40086DE06</string>
 										<key>history</key>
 										<array>
 											<string>2F1341B7111F30CB00241F0F</string>
@@ -404,7 +404,8 @@
 											<string>2F76E6D71129CDA60086DE06</string>
 											<string>2F76E6F51129CE8B0086DE06</string>
 											<string>2F76E6FA1129CEE60086DE06</string>
-											<string>2F76E6FB1129CEE60086DE06</string>
+											<string>2F76E7141129D1C40086DE06</string>
+											<string>2F76E7151129D1C40086DE06</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
