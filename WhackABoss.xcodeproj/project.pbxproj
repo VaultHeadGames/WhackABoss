@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F3B9A2D0EF2145700286867 /* WhackABossAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* WhackABossAppDelegate.m */; };
+		2F12872B112C8C630066D543 /* boss-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F12872A112C8C630066D543 /* boss-test.png */; };
 		2F1349F4111F363D00241F0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F3111F363D00241F0F /* Security.framework */; };
 		2F1349F6111F363D00241F0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F5111F363D00241F0F /* SystemConfiguration.framework */; };
 		2F134A07111F373B00241F0F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F134A06111F373B00241F0F /* libsqlite3.dylib */; };
@@ -919,6 +920,7 @@
 		1F3B9A2C0EF2145700286867 /* WhackABossAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhackABossAppDelegate.h; path = Classes/WhackABossAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* WhackABoss_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhackABoss_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F12872A112C8C630066D543 /* boss-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boss-test.png"; sourceTree = "<group>"; };
 		2F1349F3111F363D00241F0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2F1349F5111F363D00241F0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2F134A06111F373B00241F0F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -5469,6 +5471,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F12872A112C8C630066D543 /* boss-test.png */,
 				2F76E68D1129C6D30086DE06 /* office-00.png */,
 				2F76E68E1129C6D30086DE06 /* office-01.png */,
 				2F76E68F1129C6D30086DE06 /* office-02.png */,
@@ -5945,6 +5948,7 @@
 				2F76E6941129C6D30086DE06 /* office-02.png in Resources */,
 				2F76E6951129C6D30086DE06 /* office-03.png in Resources */,
 				2F76E6961129C6D30086DE06 /* office-04.png in Resources */,
+				2F12872B112C8C630066D543 /* boss-test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

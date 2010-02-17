@@ -10,18 +10,17 @@
 #import "WBCreature.h"
 #import "SoundManager.h"
 #import "Constants.h"
+#import "GameScene.h"
 
 @implementation GameRunner
 
 @synthesize currentScore;
-@synthesize sexyHitCounts;
-@synthesize carlHitCounts;
-@synthesize brickHitCounts;
 @synthesize currentLevel;
-@synthesize creatureSpriteMap;
 @synthesize gameRunning;
 @synthesize gameHasStarted;
-@synthesize creatureArray;
+@synthesize sexyHitCounts;
+@synthesize brickHitCounts;
+@synthesize carlHitCounts;
 
 +(GameRunner*) sharedInstance
 {
@@ -36,51 +35,58 @@
 
 -(void) pauseGame
 {
-	self.gameRunning = false;
+	gameRunning = false;
 }
 -(void) resumeGame
 {
 	if (!self.gameHasStarted)
 		return;
-	self.gameRunning = true;
+	gameRunning = true;
 }
 
 -(void) startGame
 {
 	// reset the score!
-	self.currentScore = 0;
-	self.sexyHitCounts = 0;
-	self.carlHitCounts = 0;
-	self.brickHitCounts = 0;
-	self.currentLevel = 0;
-	
-	// bring up the WBCreature classes
-	creatureArray = [[NSMutableArray alloc] init];
-	self.creatureSpriteMap = [[CCTextureCache sharedTextureCache] addImage: @"Icon.png"];
-	while ([creatureArray count] < 9)
-		[creatureArray addObject:[WBCreature spriteWithTexture: self.creatureSpriteMap]];
+	currentScore = 0;
+	sexyHitCounts = 0;
+	carlHitCounts = 0;
+	brickHitCounts = 0;
+	currentLevel = 0;
+	gameRunning = true;
+	gameHasStarted = true;
+	[[GameScene node] startGame];
 }
 
 -(void) endGame
 {
-	self.gameRunning = false;
-	// release the creatures and sprite-map
-	for (WBCreature* c in creatureArray)
-		[c release];
-	[creatureArray release];
-	[self.creatureSpriteMap release];
-	self.gameHasStarted = false;
+	gameRunning = false;
+	gameHasStarted = false;
+	[[GameScene node] endGame];
+	[self unschedule:@selector(tick:)];
+}
+
+-(void) onEnter
+{
+	[super onEnter];
+	CCTimer *timer = nil;
+	
+	if( ! (timer = [scheduledSelectors objectForKey:NSStringFromSelector(@selector(tick:))])) {
+		NSLog(@"Scheduling selector...");
+		[self schedule:@selector(tick:) interval:(1/TARGET_FPS)];
+	}
 }
 
 -(void) checkScoreAndSexyCounts
 {
-	if ((uintptr_t)self.sexyHitCounts == 3) {
+	if (sexyHitCounts == 3) {
 		// it's sexual harrassment time!
 		[self proceedToEndGame:SEXUAL_HARASSMENT];
-	} else if ((uintptr_t)self.carlHitCounts == 5) {
+		return;
+	} else if (carlHitCounts == 5) {
 		// let's go postal!
 		[self proceedToEndGame:CARL_GOES_POSTAL];
-	} else if ((uintptr_t)self.brickHitCounts == 7) {
+		return;
+	} else if (brickHitCounts == 7) {
 		// what happens when we hit brick?
 	}
 	// check for level advancement...
@@ -92,6 +98,7 @@
 // this is the main 'loop' - this is where we let everything know to advance
 -(void) tick:(id)e
 {
+	NSLog(@"TICK-TOCK");
 	// don't continue unless we're running, obviously
 	if (!self.gameRunning || !self.gameHasStarted)
 		return;
@@ -99,7 +106,7 @@
 	// GO THE MAGIC!
 	int creaturesUp = 0;
 	
-	for (WBCreature* c in self.creatureArray) {
+	for (WBCreature* c in [[GameScene node] creatureArray]) {
 		// this is where we signal each creature to accept the game's main 'tick'
 		[c takeTick];
 		if (c.state != STATE_IDLE)
@@ -107,7 +114,7 @@
 	}
 	
 	int creatureMin = 1;
-	int creatureMax = 2 + floor(((int)self.currentLevel * MAXIMUM_CREATURE_LEVEL_MODIFIER));
+	int creatureMax = 2 + floor(currentLevel * MAXIMUM_CREATURE_LEVEL_MODIFIER);
 	int newCreatureProbability = 0;
 	
 	if (creaturesUp > creatureMax) {
@@ -115,20 +122,17 @@
 		if (creaturesUp > creatureMin)
 			newCreatureProbability = 1;
 		else
-			newCreatureProbability = (((creaturesUp / creatureMax) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * (int)self.currentLevel));
+			newCreatureProbability = (((creaturesUp / creatureMax) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * currentLevel));
 	}
 	
 	if (newCreatureProbability > (rand() / RAND_MAX)) {
 		// pick a new creature to popup!
 		int newCreatureIndex = round((rand() / RAND_MAX) * 8);
-		WBCreature* targetCreature = [self.creatureArray objectAtIndex:(uint)newCreatureIndex];
-		while (targetCreature.state != STATE_IDLE) {
-			newCreatureIndex = round((rand() / RAND_MAX) * 8);
-			targetCreature = [self.creatureArray objectAtIndex:(uint)newCreatureIndex];
-		}
+		[[[[GameScene node] creatureArray] objectAtIndex:(uint)newCreatureIndex] registerForPopUp];
 		NSLog(@"Creature index %d signaled to popup",newCreatureIndex);
-		[targetCreature registerForPopUp];
 	}
+	
+	[[GameScene node] takeTick];
 }
 
 -(void) proceedToNextLevel
@@ -162,7 +166,6 @@
 	if( (self=[super init] )) {
 		self.gameRunning = false;
 		self.gameHasStarted = false;
-		[self schedule:@selector(tick:) interval:(1/TARGET_FPS)];
 	}
 	return self;
 }

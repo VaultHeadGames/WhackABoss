@@ -11,7 +11,6 @@
 
 @implementation WBCreature
 
-@synthesize type;
 @synthesize state;
 
 -(id) init
@@ -29,6 +28,17 @@
 	NSLog(@"Creature registered touch");
 	[[CreatureStrikeHandler sharedInstance] creatureReportsTouch:self];
 	return true;
+}
+
+-(CreatureType) creatureType
+{
+	return _creatureType;
+}
+
+-(void) changeCreatureType:(CreatureType)targetType
+{
+	_creatureType = targetType;
+	[self updateTextureCoords: CGRectMake(targetType, 0, 48, 48)];
 }
 
 -(void) registerForPopUp

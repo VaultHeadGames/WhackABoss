@@ -11,26 +11,23 @@
 #import "Constants.h"
 
 @interface GameRunner : CCNode {
-	NSNumber* currentScore;
-	NSNumber* sexyHitCounts;
-	NSNumber* carlHitCounts;
-	NSNumber* brickHitCounts;
-	NSNumber* currentLevel;
+	long currentScore;
+	uint sexyHitCounts;
+	uint carlHitCounts;
+	uint brickHitCounts;
+	uint currentLevel;
 	BOOL gameRunning;
 	BOOL gameHasStarted;
-	CCTexture2D* creatureSpriteMap;
-	NSMutableArray* creatureArray;
 }
 
-@property (nonatomic,retain) NSNumber* currentScore;
-@property (nonatomic,retain) NSNumber* sexyHitCounts;
-@property (nonatomic,retain) NSNumber* carlHitCounts;
-@property (nonatomic,retain) NSNumber* brickHitCounts;
-@property (nonatomic,retain) NSMutableArray* creatureArray;
-@property (nonatomic,retain) NSNumber* currentLevel;
+@property (nonatomic,readwrite) long currentScore;
+@property (nonatomic,readwrite) uint currentLevel;
+@property (nonatomic,readwrite) uint sexyHitCounts;
+@property (nonatomic,readwrite) uint carlHitCounts;
+@property (nonatomic,readwrite) uint brickHitCounts;
 @property (nonatomic) BOOL gameRunning;
 @property (nonatomic) BOOL gameHasStarted;
-@property (nonatomic,retain) CCTexture2D* creatureSpriteMap;
+@property (nonatomic,retain) CCSpriteSheet* creatureSpriteMap;
 
 +(GameRunner*) sharedInstance;
 

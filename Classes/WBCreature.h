@@ -9,13 +9,15 @@
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
 
+#define CREATURE_ROW_SCALING 0.13
+
 typedef enum
 {
-	BOSS_TYPE,
-	SEXY_TYPE,
-	CARL_TYPE,
-	JOE_TYPE,
-	BRICK_TYPE
+	BOSS_TYPE = 0,
+	SEXY_TYPE = 48,
+	CARL_TYPE = 96,
+	JOE_TYPE = 144,
+	BRICK_TYPE = 192
 } CreatureType;
 
 typedef enum
@@ -27,13 +29,15 @@ typedef enum
 } CreatureState;
 
 @interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
-	CreatureType* type;
-	CreatureState* state;
+	CreatureState state;
+	@private
+	CreatureType _creatureType;
 }
 
-@property (nonatomic) CreatureType* type;
-@property (nonatomic) CreatureState* state;
+@property (nonatomic) CreatureState state;
+@property (nonatomic,readonly) CreatureType creatureType;
 
+-(void) changeCreatureType:(CreatureType)targetType;
 -(void) registerForPopUp;
 -(void) takeTick;
 

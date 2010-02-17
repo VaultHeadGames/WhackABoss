@@ -12,6 +12,9 @@
 
 @implementation GameScene
 
+@synthesize creatureArray;
+@synthesize creatureSpriteMap;
+
 +(id) scene
 {
 	// 'scene' is an autorelease object.
@@ -51,13 +54,37 @@
 	return self;
 }
 
--(void) setupCreatures
+-(void) onEnter
 {
-	for (WBCreature* c in [GameRunner sharedInstance].creatureArray) {
-		// place the creature
-		[self addChild: c];
-		
-	}
+	[super onEnter];
+	[[GameRunner sharedInstance] onEnter];
 }
 
+-(void) takeTick
+{
+}
+
+-(void) startGame
+{
+	// bring up the WBCreature classes
+	creatureArray = [[NSMutableArray alloc] init];
+	self.creatureSpriteMap = [CCSpriteSheet spriteSheetWithFile: @"boss-test.png"];
+	while ([creatureArray count] < 9)
+		[creatureArray addObject:[WBCreature spriteWithSpriteSheet: self.creatureSpriteMap rect: CGRectMake(0,0,48,48)]];
+	for (WBCreature* c in creatureArray) {
+		// Place 'em
+	}
+	
+}
+
+-(void) endGame
+{
+	// release the creatures and sprite-map
+	for (WBCreature* c in creatureArray) {
+		[self removeChild:c cleanup:true];
+		[c release];
+	}
+	[creatureArray release];
+	[creatureSpriteMap release];
+}
 @end

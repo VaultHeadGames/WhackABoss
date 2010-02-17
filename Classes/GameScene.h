@@ -9,11 +9,17 @@
 #import "cocos2d.h"
 
 @interface GameScene : CCLayer {
-	
+	CCSpriteSheet* creatureSpriteMap;
+	NSMutableArray* creatureArray;
 }
+
+@property (nonatomic,retain) CCSpriteSheet* creatureSpriteMap;
+@property (nonatomic,retain) NSMutableArray* creatureArray;
 
 +(id) scene;
 
--(void) setupCreatures;
+-(void) takeTick;
+-(void) startGame;
+-(void) endGame;
 
 @end

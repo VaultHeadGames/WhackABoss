@@ -27,7 +27,7 @@
 {
 	if (reporter.state == STATE_IDLE)
 		return; // this isn't a valid click
-	switch ((CreatureType)reporter.type) {
+	switch ((CreatureType)reporter.creatureType) {
 		case BOSS_TYPE:
 			[GameRunner sharedInstance].currentScore += 1;
 			break;

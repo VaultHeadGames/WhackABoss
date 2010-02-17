@@ -73,6 +73,7 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 	NSLog(@"!!!!!!!!!!!!!!!!!! MEMORY WARNING !!!!!!!!!!!!!!!!!!");
 	[[CCTextureCache sharedTextureCache] removeUnusedTextures];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFrames];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
