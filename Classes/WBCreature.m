@@ -27,9 +27,16 @@
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event
 {
 	// handle click
-	NSLog(@"Creature registered touch");
-	[[CreatureStrikeHandler sharedInstance] creatureReportsTouch:self];
-	return true;
+	CGPoint touchLocation = [touch locationInView: [touch view]];
+	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];
+	CGRect myRect = CGRectMake(self.position.x, self.position.y, self.contentSize.width, self.contentSize.height);
+	// are we actually being clicked?
+	if (CGRectContainsPoint(myRect, location)) {
+		NSLog(@"Ceature reports touch");
+		[[CreatureStrikeHandler sharedInstance] creatureReportsTouch: self];
+		return true; // let the delegate know we're handing this event
+	}
+	return false;
 }
 
 -(CreatureType) creatureType

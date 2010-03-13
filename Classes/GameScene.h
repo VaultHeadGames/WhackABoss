@@ -11,12 +11,18 @@
 @interface GameScene : CCLayer {
 	CCSpriteSheet* creatureSpriteMap;
 	NSMutableArray* creatureArray;
+	
+	CCLabelAtlas* levelLabel;
+	CCLabelAtlas* scoreLabel;
 }
 
 @property (nonatomic,retain) CCSpriteSheet* creatureSpriteMap;
 @property (nonatomic,retain) NSMutableArray* creatureArray;
 
 +(id) scene;
+
+-(void) updateScore;
+-(void) updateLevel;
 
 -(void) startGame;
 -(void) endGame;

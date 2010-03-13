@@ -25,22 +25,27 @@
 
 -(void) creatureReportsTouch:(WBCreature*)reporter
 {
-	if (reporter.state == STATE_IDLE)
-		return; // this isn't a valid click
+	/*if (reporter.state == STATE_IDLE)
+		return; // this isn't a valid click*/
 	switch ((CreatureType)reporter.creatureType) {
 		case BOSS_TYPE:
+			NSLog(@"Struck BOSS_TYPE");
 			[GameRunner sharedInstance].currentScore += 1;
 			break;
 		case JOE_TYPE:
+			NSLog(@"Struck JOE_TYPE");
 			[GameRunner sharedInstance].currentScore -= 1;
 			break;
 		case SEXY_TYPE:
+			NSLog(@"Struck SEXY_TYPE");
 			[GameRunner sharedInstance].sexyHitCounts += 1;
 			break;
 		case CARL_TYPE:
+			NSLog(@"Struck CARL_TYPE");
 			[GameRunner sharedInstance].carlHitCounts += 1;
 			break;
 		case BRICK_TYPE:
+			NSLog(@"Struck BRICK_TYPE");
 			[GameRunner sharedInstance].brickHitCounts += 1;
 			break;
 		default:

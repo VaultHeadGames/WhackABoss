@@ -9,8 +9,8 @@
 #import "cocos2d.h"
 #import "Constants.h"
 
-@interface GameRunner : CCLayer {
-	long currentScore;
+@interface GameRunner : CCNode {
+	uint currentScore;
 	uint sexyHitCounts;
 	uint carlHitCounts;
 	uint brickHitCounts;
@@ -19,14 +19,13 @@
 	BOOL gameHasStarted;
 }
 
-@property (nonatomic,readwrite) long currentScore;
+@property (nonatomic,readwrite) uint currentScore;
 @property (nonatomic,readwrite) uint currentLevel;
 @property (nonatomic,readwrite) uint sexyHitCounts;
 @property (nonatomic,readwrite) uint carlHitCounts;
 @property (nonatomic,readwrite) uint brickHitCounts;
 @property (nonatomic) BOOL gameRunning;
 @property (nonatomic) BOOL gameHasStarted;
-@property (nonatomic,retain) CCSpriteSheet* creatureSpriteMap;
 
 +(GameRunner*) sharedInstance;
 

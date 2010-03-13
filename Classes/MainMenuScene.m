@@ -79,7 +79,6 @@
 - (void) go_start_game:(id)e
 {
 	[[CCDirector sharedDirector] replaceScene: [CCFadeTransition transitionWithDuration:1.5 scene: [GameScene scene] withColor: ccBLACK]];
-	[[GameRunner sharedInstance] startGame];
 }
 
 - (void) go_leaderboard:(id)e
