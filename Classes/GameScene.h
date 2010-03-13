@@ -18,7 +18,6 @@
 
 +(id) scene;
 
--(void) takeTick;
 -(void) startGame;
 -(void) endGame;
 

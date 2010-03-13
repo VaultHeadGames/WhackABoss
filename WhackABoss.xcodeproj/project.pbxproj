@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F3B9A2D0EF2145700286867 /* WhackABossAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* WhackABossAppDelegate.m */; };
+		2F03BE12114B2EFB0069BA62 /* CreatureMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F03BE11114B2EFB0069BA62 /* CreatureMoveAction.m */; };
 		2F12872B112C8C630066D543 /* boss-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F12872A112C8C630066D543 /* boss-test.png */; };
 		2F1349F4111F363D00241F0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F3111F363D00241F0F /* Security.framework */; };
 		2F1349F6111F363D00241F0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F5111F363D00241F0F /* SystemConfiguration.framework */; };
@@ -920,6 +921,8 @@
 		1F3B9A2C0EF2145700286867 /* WhackABossAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhackABossAppDelegate.h; path = Classes/WhackABossAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* WhackABoss_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhackABoss_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F03BE10114B2EFB0069BA62 /* CreatureMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatureMoveAction.h; sourceTree = "<group>"; };
+		2F03BE11114B2EFB0069BA62 /* CreatureMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatureMoveAction.m; sourceTree = "<group>"; };
 		2F12872A112C8C630066D543 /* boss-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boss-test.png"; sourceTree = "<group>"; };
 		2F1349F3111F363D00241F0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2F1349F5111F363D00241F0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -5235,6 +5238,8 @@
 				2FBB84EA1123C01200CB2F3F /* CreatureStrikeHandler.m */,
 				2FBB84EC1123C02F00CB2F3F /* GameRunner.h */,
 				2FBB84ED1123C02F00CB2F3F /* GameRunner.m */,
+				2F03BE10114B2EFB0069BA62 /* CreatureMoveAction.h */,
+				2F03BE11114B2EFB0069BA62 /* CreatureMoveAction.m */,
 			);
 			name = GameLogic;
 			sourceTree = "<group>";
@@ -6365,6 +6370,7 @@
 				2F76E7111129D19F0086DE06 /* FontManager.m in Sources */,
 				2F76E7121129D19F0086DE06 /* ZAttributedString.m in Sources */,
 				2F76E7131129D19F0086DE06 /* ZFont.m in Sources */,
+				2F03BE12114B2EFB0069BA62 /* CreatureMoveAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

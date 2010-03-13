@@ -39,6 +39,6 @@ typedef enum
 
 -(void) changeCreatureType:(CreatureType)targetType;
 -(void) registerForPopUp;
--(void) takeTick;
+-(void) goDown:(id)sender;
 
 @end

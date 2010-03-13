@@ -54,16 +54,6 @@
 	return self;
 }
 
--(void) onEnter
-{
-	[super onEnter];
-	[[GameRunner sharedInstance] onEnter];
-}
-
--(void) takeTick
-{
-}
-
 -(void) startGame
 {
 	// bring up the WBCreature classes
@@ -74,7 +64,6 @@
 	for (WBCreature* c in creatureArray) {
 		// Place 'em
 	}
-	
 }
 
 -(void) endGame

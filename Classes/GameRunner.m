@@ -46,6 +46,8 @@
 
 -(void) startGame
 {
+	NSLog(@"START GAME");
+	[self schedule:@selector(tick:) interval:1];
 	// reset the score!
 	currentScore = 0;
 	sexyHitCounts = 0;
@@ -63,17 +65,6 @@
 	gameHasStarted = false;
 	[[GameScene node] endGame];
 	[self unschedule:@selector(tick:)];
-}
-
--(void) onEnter
-{
-	[super onEnter];
-	CCTimer *timer = nil;
-	
-	if( ! (timer = [scheduledSelectors objectForKey:NSStringFromSelector(@selector(tick:))])) {
-		NSLog(@"Scheduling selector...");
-		[self schedule:@selector(tick:) interval:(1/TARGET_FPS)];
-	}
 }
 
 -(void) checkScoreAndSexyCounts
@@ -96,9 +87,10 @@
 }
 
 // this is the main 'loop' - this is where we let everything know to advance
--(void) tick:(id)e
+-(void) tick:(ccTime)dt
 {
-	NSLog(@"TICK-TOCK");
+	NSLog(@"TICK");
+	
 	// don't continue unless we're running, obviously
 	if (!self.gameRunning || !self.gameHasStarted)
 		return;
@@ -106,12 +98,11 @@
 	// GO THE MAGIC!
 	int creaturesUp = 0;
 	
-	for (WBCreature* c in [[GameScene node] creatureArray]) {
+/*	for (WBCreature* c in [[GameScene node] creatureArray]) {
 		// this is where we signal each creature to accept the game's main 'tick'
-		[c takeTick];
 		if (c.state != STATE_IDLE)
 			++creaturesUp;
-	}
+	}*/
 	
 	int creatureMin = 1;
 	int creatureMax = 2 + floor(currentLevel * MAXIMUM_CREATURE_LEVEL_MODIFIER);
@@ -128,11 +119,9 @@
 	if (newCreatureProbability > (rand() / RAND_MAX)) {
 		// pick a new creature to popup!
 		int newCreatureIndex = round((rand() / RAND_MAX) * 8);
-		[[[[GameScene node] creatureArray] objectAtIndex:(uint)newCreatureIndex] registerForPopUp];
+//		[[[[GameScene node] creatureArray] objectAtIndex:(uint)newCreatureIndex] registerForPopUp];
 		NSLog(@"Creature index %d signaled to popup",newCreatureIndex);
 	}
-	
-	[[GameScene node] takeTick];
 }
 
 -(void) proceedToNextLevel

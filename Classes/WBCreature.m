@@ -8,6 +8,8 @@
 
 #import "WBCreature.h"
 #import "CreatureStrikeHandler.h"
+#import "CreatureMoveAction.h"
+#import "GameRunner.h"
 
 @implementation WBCreature
 
@@ -38,16 +40,19 @@
 -(void) changeCreatureType:(CreatureType)targetType
 {
 	_creatureType = targetType;
-	[self updateTextureCoords: CGRectMake(targetType, 0, 48, 48)];
+	self.textureRect = CGRectMake(targetType, 0, 48, 48);
 }
 
 -(void) registerForPopUp
 {
-	self.state = STATE_GOING_UP;
+	[CreatureMoveAction initWithTarget: self andTargetState: STATE_HOLDING];
+	[self schedule:@selector(goDown:) interval:[[GameRunner sharedInstance] creatureFadeOutTime]];
 }
 
--(void) takeTick
+-(void) goDown: (id)sender
 {
+	[self unschedule:@selector(goDown:)];
+	[CreatureMoveAction initWithTarget: self andTargetState: STATE_IDLE];
 }
 
 @end

@@ -14,7 +14,7 @@
 #define VERSION_REV		1
 #define VERSION_TAG		@"A"
 
-#define TARGET_FPS 29.97
+#define TARGET_FPS 10
 
 /*
  BASE_DELAY = DIFF_MOD log <TARGET LAST LEVEL>

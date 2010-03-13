@@ -6,11 +6,10 @@
 //  Copyright 2010 Vault Head Games. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Constants.h"
 
-@interface GameRunner : CCNode {
+@interface GameRunner : CCLayer {
 	long currentScore;
 	uint sexyHitCounts;
 	uint carlHitCounts;
@@ -35,10 +34,9 @@
 -(void) resumeGame;
 -(void) startGame;
 -(void) checkScoreAndSexyCounts;
--(void) tick:(id)e;
 -(void) proceedToNextLevel;
 -(void) proceedToEndGame:(EndGameCondition)endCondition;
-
+-(void) tick:(ccTime)dt;
 -(double) creatureFadeOutTime;
 
 @end
