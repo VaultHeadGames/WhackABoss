@@ -58,7 +58,7 @@
 	gameHasStarted = true;
 	[[GameScene node] startGame];
 	NSLog(@"<GameRunner> SCHEDULING TICK: SELECTOR");
-	[self schedule: @selector(tick:) interval: 5];
+	[self schedule: @selector(tick:) interval: 3];
 }
 
 -(void) endGame
@@ -121,11 +121,11 @@
 	
 	NSLog(@"<GameRunner> Current probability to popup new creature is %d", newCreatureProbability);
 	
-	if (newCreatureProbability > (rand() / RAND_MAX)) {
+	if (newCreatureProbability * 10 > (arc4random() % 10)) {
 		// pick a new creature to popup!
-		int newCreatureIndex = round((rand() / RAND_MAX) * 8);
+		int newCreatureIndex = round(arc4random() % 8);
 		[[[[GameScene node] creatureArray] objectAtIndex:(uint)newCreatureIndex] registerForPopUp];
-		NSLog(@"Creature index %d signaled to popup",newCreatureIndex);
+		NSLog(@"<GameRunner> Creature index %d signaled to popup",newCreatureIndex);
 	}
 }
 

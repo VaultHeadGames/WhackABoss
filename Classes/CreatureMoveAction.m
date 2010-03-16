@@ -11,8 +11,6 @@
 
 @implementation CreatureMoveAction
 
-@synthesize target;
-
 +(CreatureMoveAction*) initWithTarget: (WBCreature*) tgt andTargetState: (CreatureState) tgtState
 {
 	return [[[[CreatureMoveAction alloc] init] setTarget: tgt setTargetState: tgtState] autorelease];
@@ -65,7 +63,6 @@
 		} else {
 			newPosition = ccp(currentPosition.x	- 1, currentPosition.y);
 		}
-		[self target].position = newPosition;
 	}
 }
 

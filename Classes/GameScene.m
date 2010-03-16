@@ -61,10 +61,12 @@
 
 -(void) updateScore
 {
-	NSString* str = [[NSString alloc] initWithFormat:@"%d", [[GameRunner sharedInstance] currentScore]];
+	NSString* str = [[NSString alloc] initWithFormat:@"%i", [[GameRunner sharedInstance] currentScore]];
 	[scoreLabel setString: str];
+	NSLog([[NSString alloc] initWithFormat:@"<GameScene> Score is now %@", str]);
 	[str release];
 	[scoreLabel draw];
+	[self draw];
 }
 
 -(void) updateLevel
@@ -73,6 +75,7 @@
 	[levelLabel setString: str];
 	[str release];
 	[levelLabel draw];
+	[self draw];
 }
 
 -(void) startGame

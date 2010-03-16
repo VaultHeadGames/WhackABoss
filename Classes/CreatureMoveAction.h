@@ -22,6 +22,4 @@
 
 -(CreatureMoveAction*) setTarget: (WBCreature*) tgt setTargetState: (CreatureState) tgtState;
 
-@property (nonatomic,readonly) WBCreature* target;
-
 @end
