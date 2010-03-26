@@ -12,6 +12,7 @@
 #import "WhackABossAppDelegate.h"
 #import "ScoreManager.h"
 #import "Constants.h"
+#import "EndGameLayer.h"
 
 @implementation GameLayer
 
@@ -145,7 +146,7 @@
 		if (creaturesUp < creatureMin)
 			newCreatureProbability = 1;
 		else
-			newCreatureProbability = (((creaturesUp / creatureMax) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * [[[ScoreManager get] level] intValue]));
+			newCreatureProbability = (((creatureMax / creaturesUp) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * [[[ScoreManager get] level] intValue]));
 	}
 	
 	NSLog(@"<GameRunner> Current probability to popup new creature is %d", newCreatureProbability);
@@ -172,38 +173,56 @@
 		}
 		switch (newCreatureIndex) {
 			case 0:
+				if (c11.state != STATE_IDLE)
+					break;
 				[c11 changeCreatureType:newCreatureType];
 				[c11 registerForPopUp];
 				break;
 			case 1:
+				if (c12.state != STATE_IDLE)
+					break;
 				[c12 changeCreatureType:newCreatureType];
 				[c12 registerForPopUp];
 				break;
 			case 2:
+				if (c13.state != STATE_IDLE)
+					break;
 				[c13 changeCreatureType:newCreatureType];
 				[c13 registerForPopUp];
 				break;
 			case 3:
+				if (c21.state != STATE_IDLE)
+					break;
 				[c21 changeCreatureType:newCreatureType];
 				[c21 registerForPopUp];
 				break;
 			case 4:
+				if (c22.state != STATE_IDLE)
+					break;
 				[c22 changeCreatureType:newCreatureType];
 				[c22 registerForPopUp];
 				break;
 			case 5:
+				if (c23.state != STATE_IDLE)
+					break;
 				[c23 changeCreatureType:newCreatureType];
 				[c23 registerForPopUp];
 				break;
 			case 6:
+				if (c31.state != STATE_IDLE)
+					break;
 				[c31 changeCreatureType:newCreatureType];
 				[c31 registerForPopUp];
 				break;
 			case 7:
+				if (c32.state != STATE_IDLE)
+					break;
 				[c32 changeCreatureType:newCreatureType];
 				[c32 registerForPopUp];
 				break;
 			case 8:
+				if (c33.state != STATE_IDLE)
+					break;
 				[c33 changeCreatureType:newCreatureType];
 				[c33 registerForPopUp];
 				break;
@@ -211,6 +230,18 @@
 				break;
 		}
 	}
+}
+
+-(void) doEndGame:(EndGameCondition)condition
+{
+	CCScene *scene = [[CCScene alloc] init];
+	EndGameLayer *layer = [[EndGameLayer alloc] initWithEndGame:condition];
+	
+	[scene addChild:layer];
+
+	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:scene withColor:ccBLACK];
+	
+	[[CCDirector sharedDirector] replaceScene:trans];
 }
 
 @end

@@ -11,11 +11,11 @@
 
 typedef enum
 {
-	BOSS_TYPE = 0,
-	SEXY_TYPE = 48,
-	CARL_TYPE = 96,
-	JOE_TYPE = 144,
-	BRICK_TYPE = 192
+	BOSS_TYPE,
+	SEXY_TYPE,
+	CARL_TYPE,
+	JOE_TYPE
+//	BRICK_TYPE
 } CreatureType;
 
 typedef enum

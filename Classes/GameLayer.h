@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 #import "ScoreLayer.h"
 #import "WBCreature.h"
+#import "EndGameLayer.h"
 
 #define ROW_ONE_SCALE (135.5/150)
 #define ROW_ONE_X_BOTTOM 164
@@ -16,6 +17,15 @@
 #define ROW_TWO_X_BOTTOM 268
 #define ROW_THREE_SCALE (103.5/150)
 #define ROW_THREE_X_BOTTOM 345
+
+typedef enum {
+	GAMESTATE_STOPPED,
+	GAMESTATE_STARTUP,
+	GAMESTATE_RUNNING,
+	GAMESTATE_PAUSED,
+	GAMESTATE_LEVELCHANGE,
+	GAMESTATE_END
+} GameStates;
 
 @interface GameLayer : CCLayer {
 	ScoreLayer *scoreLayer;
@@ -42,5 +52,7 @@
 -(void) reset;
 
 -(void) mainTick:(ccTime)dt;
+
+-(void) doEndGame:(EndGameCondition)condition;
 
 @end
