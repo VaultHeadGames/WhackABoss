@@ -28,6 +28,11 @@
 	return [[[self alloc] initWithString:string charMapFile:charmapfile itemWidth:w itemHeight:h startCharMap:c] autorelease];
 }
 
+-(NSString*) currentString
+{
+	return string_;
+}
+
 
 -(id) initWithString:(NSString*) theString charMapFile: (NSString*) charmapfile itemWidth:(int)w itemHeight:(int)h startCharMap:(char)c
 {

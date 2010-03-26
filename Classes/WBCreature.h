@@ -9,8 +9,6 @@
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
 
-#define CREATURE_ROW_SCALING 0.13
-
 typedef enum
 {
 	BOSS_TYPE = 0,
@@ -30,8 +28,10 @@ typedef enum
 
 @interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
 	CreatureState state;
+
 	@private
 	CreatureType _creatureType;
+	CCSprite *_creatureSprite;
 }
 
 @property (nonatomic) CreatureState state;

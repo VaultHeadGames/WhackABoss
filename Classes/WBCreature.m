@@ -7,9 +7,6 @@
 //
 
 #import "WBCreature.h"
-#import "CreatureStrikeHandler.h"
-#import "CreatureMoveAction.h"
-#import "GameRunner.h"
 
 @implementation WBCreature
 
@@ -19,6 +16,8 @@
 {
 	if( (self=[super init] )) {
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
+		_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_normal.png"];
+		[self addChild:_creatureSprite];
 	}
 	
 	return self;
@@ -29,11 +28,10 @@
 	// handle click
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];
-	CGRect myRect = CGRectMake(self.position.x, self.position.y, self.contentSize.width, self.contentSize.height);
+	CGRect myRect = CGRectMake(self.position.x - (self.contentSize.width * self.scale) / 2, self.position.y - (self.contentSize.height * self.scale) / 2, (self.contentSize.width * self.scale), (self.contentSize.height * self.scale));
 	// are we actually being clicked?
 	if (CGRectContainsPoint(myRect, location)) {
 		NSLog(@"Ceature reports touch");
-		[[CreatureStrikeHandler sharedInstance] creatureReportsTouch: self];
 		return true; // let the delegate know we're handing this event
 	}
 	return false;
@@ -44,22 +42,27 @@
 	return _creatureType;
 }
 
+-(void) setScale:(float)s
+{
+	// make sure we pass scale down to the creature scale
+	[_creatureSprite setScale:s];
+	[super setScale:s];
+}
+
 -(void) changeCreatureType:(CreatureType)targetType
 {
 	_creatureType = targetType;
-	self.textureRect = CGRectMake(targetType, 0, 48, 48);
+
 }
 
 -(void) registerForPopUp
 {
-	[CreatureMoveAction initWithTarget: self andTargetState: STATE_HOLDING];
-	[self schedule:@selector(goDown:) interval:[[GameRunner sharedInstance] creatureFadeOutTime]];
+	
 }
 
 -(void) goDown: (id)sender
 {
-	[self unschedule:@selector(goDown:)];
-	[CreatureMoveAction initWithTarget: self andTargetState: STATE_IDLE];
+	
 }
 
 @end

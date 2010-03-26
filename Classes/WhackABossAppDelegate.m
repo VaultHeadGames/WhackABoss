@@ -2,21 +2,23 @@
 //  WhackABossAppDelegate.m
 //  WhackABoss
 //
-//  Created by Jonathan Enzinna on 2/6/10.
+//  Created by Jonathan Enzinna on 3/24/10.
 //  Copyright Vault Head Games 2010. All rights reserved.
 //
 
 #import "WhackABossAppDelegate.h"
 #import "cocos2d.h"
-#import "SplashScene.h"
-#import "VariableStore.h"
+#import "Splash.h"
+#import "MenuLayer.h"
 #import "Constants.h"
 #import "OFHandler.h"
-#import "GameRunner.h"
+#import "GameLayer.h"
+#import "AboutLayer.h"
+#import "SettingsLayer.h"
 
 @implementation WhackABossAppDelegate
 
-@synthesize window;
+@synthesize menuLayer, gameLayer, aboutLayer, settingsLayer;
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
@@ -38,7 +40,7 @@
 	
 	// Create a depth buffer of 16 bits
 	// Enable it if you are going to use 3D transitions or 3d objects
-//	[[CCDirector sharedDirector] setDepthBufferFormat:kDepthBuffer16];
+	//	[[CCDirector sharedDirector] setDepthBufferFormat:kDepthBuffer16];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
@@ -54,32 +56,75 @@
 	[[CCDirector sharedDirector] attachInView:window];	
 	[window makeKeyAndVisible];
 	
-	[[CCDirector sharedDirector] runWithScene: [Splash scene]];
+	CCScene *splashScene = [[CCScene node] retain];
+	CCSprite *splash = [Splash node];
+	[splashScene addChild:splash];
+	
+	menuLayer = [[MenuLayer alloc] init];
+	gameLayer = [[GameLayer alloc] init];
+	
+	[[CCDirector sharedDirector] replaceScene:splashScene];
+	do {
+#if ! TARGET_IPHONE_SIMULATOR
+        @try {
+#endif
+            [[CCDirector sharedDirector] startAnimation];
+#if ! TARGET_IPHONE_SIMULATOR
+        }
+        @catch (NSException * e) {
+            NSLog(@"=== Exception Occurred! ===");
+            NSLog(@"Name: %@; Reason: %@; Context: %@.\n", [e name], [e reason], [e userInfo]);
+			// perhaps there shoudl be something here to alert the user that something bad happened?
+        }
+#endif
+    } while ([[CCDirector sharedDirector] runningScene]);
 }
 
++ (WhackABossAppDelegate *) get
+{
+	return (WhackABossAppDelegate *) [[UIApplication sharedApplication] delegate];
+}
+
+- (AboutLayer *) aboutLayer
+{
+	if (!aboutLayer)
+		aboutLayer = [[AboutLayer alloc] init];
+	
+	return aboutLayer;
+}
+
+- (SettingsLayer *) settingsLayer
+{
+	if (!settingsLayer)
+		settingsLayer = [[SettingsLayer alloc] init];
+	
+	return settingsLayer;
+}
+
+- (CCSpriteSheet *) spriteSheet
+{
+	if (!spriteSheet) {
+		spriteSheet = [[CCSpriteSheet spriteSheetWithFile:@"character_sheet.png" capacity:12] retain];
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"character_sheet.plist"];
+	}
+	
+	return spriteSheet;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];
-	[[GameRunner sharedInstance] pauseGame];
-	[[OFHandler sharedInstance] resignActive];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
-	[[GameRunner sharedInstance] resumeGame];
-	[[OFHandler sharedInstance] becomeActive];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-	NSLog(@"!!!!!!!!!!!!!!!!!! MEMORY WARNING !!!!!!!!!!!!!!!!!!");
 	[[CCTextureCache sharedTextureCache] removeUnusedTextures];
-	[[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFrames];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[[CCDirector sharedDirector] end];
-	// shutdown OpenFeint
-	[[OFHandler sharedInstance] dealloc];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
