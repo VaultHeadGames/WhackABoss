@@ -717,6 +717,7 @@
 		2F5A355C115B155D008C548A /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A355B115B155D008C548A /* AudioController.m */; };
 		2F5A3568115B164D008C548A /* WABSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A3567115B164D008C548A /* WABSlider.m */; };
 		2F5CC09C115C3BA500D65780 /* character_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5CC09B115C3BA500D65780 /* character_sheet.plist */; };
+		2F5CC19B115C54D600D65780 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5CC19A115C54D600D65780 /* ScoreManager.m */; };
 		2F76E70F1129D19F0086DE06 /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7051129D19F0086DE06 /* FontLabel.m */; };
 		2F76E7101129D19F0086DE06 /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7071129D19F0086DE06 /* FontLabelStringDrawing.m */; };
 		2F76E7111129D19F0086DE06 /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7091129D19F0086DE06 /* FontManager.m */; };
@@ -2085,6 +2086,8 @@
 		2F5A3566115B164D008C548A /* WABSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WABSlider.h; sourceTree = "<group>"; };
 		2F5A3567115B164D008C548A /* WABSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WABSlider.m; sourceTree = "<group>"; };
 		2F5CC09B115C3BA500D65780 /* character_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_sheet.plist; sourceTree = "<group>"; };
+		2F5CC199115C54D600D65780 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
+		2F5CC19A115C54D600D65780 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
 		2F76E7041129D19F0086DE06 /* FontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabel.h; sourceTree = "<group>"; };
 		2F76E7051129D19F0086DE06 /* FontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabel.m; sourceTree = "<group>"; };
 		2F76E7061129D19F0086DE06 /* FontLabelStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabelStringDrawing.h; sourceTree = "<group>"; };
@@ -5287,6 +5290,8 @@
 		2F5A3562115B15E9008C548A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				2F5CC199115C54D600D65780 /* ScoreManager.h */,
+				2F5CC19A115C54D600D65780 /* ScoreManager.m */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -6488,6 +6493,7 @@
 				2F168440115C082B00492CF8 /* AboutLayer.m in Sources */,
 				2F168489115C0CC400492CF8 /* SettingsLayer.m in Sources */,
 				2F168492115C0E4600492CF8 /* WABSettings.m in Sources */,
+				2F5CC19B115C54D600D65780 /* ScoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

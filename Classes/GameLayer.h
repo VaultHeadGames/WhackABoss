@@ -18,11 +18,11 @@
 #define ROW_THREE_X_BOTTOM 345
 
 @interface GameLayer : CCLayer {
+	ScoreLayer *scoreLayer;
 	
 @private
 	BOOL isPaused;
 	BOOL isRunning;
-	ScoreLayer *scoreLayer;
 	
 	WBCreature *c11;
 	WBCreature *c12;
@@ -37,10 +37,10 @@
 
 @property (nonatomic, readwrite) BOOL isPaused;
 @property (nonatomic, readonly) BOOL isRunning;
-@property (nonatomic, readonly) ScoreLayer *scoreLayer;
-
--(void) updateScore:(ccTime)dt;
+@property (nonatomic, retain) ScoreLayer *scoreLayer;
 
 -(void) reset;
+
+-(void) mainTick:(ccTime)dt;
 
 @end

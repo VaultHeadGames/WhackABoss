@@ -29,7 +29,7 @@ typedef enum
 @interface WBCreature : CCSprite <CCTargetedTouchDelegate> {
 	CreatureState state;
 
-	@private
+@private
 	CreatureType _creatureType;
 	CCSprite *_creatureSprite;
 }
@@ -39,6 +39,10 @@ typedef enum
 
 -(void) changeCreatureType:(CreatureType)targetType;
 -(void) registerForPopUp;
+-(void) upCompleted:(id)sender;
+-(void) completeStrikeDown:(id)sender;
+-(void) strikeDown:(id)sender;
 -(void) goDown:(id)sender;
+-(void) downCompleted: (id)sender;
 
 @end

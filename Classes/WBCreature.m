@@ -7,6 +7,7 @@
 //
 
 #import "WBCreature.h"
+#import "ScoreManager.h"
 
 @implementation WBCreature
 
@@ -16,7 +17,9 @@
 {
 	if( (self=[super init] )) {
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
-		_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_normal.png"];
+		_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_normal.png"];
+		_creatureType = JOE_TYPE;
+		state = STATE_HOLDING;
 		[self addChild:_creatureSprite];
 	}
 	
@@ -26,15 +29,79 @@
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event
 {
 	// handle click
+	if (state == STATE_IDLE)
+		return false;
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];
-	CGRect myRect = CGRectMake(self.position.x - (self.contentSize.width * self.scale) / 2, self.position.y - (self.contentSize.height * self.scale) / 2, (self.contentSize.width * self.scale), (self.contentSize.height * self.scale));
+	CGRect myRect = CGRectMake(self.position.x - (_creatureSprite.contentSize.width * self.scale) / 2, self.position.y - (_creatureSprite.contentSize.height * self.scale) / 2, (_creatureSprite.contentSize.width * self.scale), (_creatureSprite.contentSize.height * self.scale));
 	// are we actually being clicked?
 	if (CGRectContainsPoint(myRect, location)) {
 		NSLog(@"Ceature reports touch");
+		[[ScoreManager get] tallyScoreChange:_creatureType];
+		switch (_creatureType) {
+			case BOSS_TYPE:
+				[self removeChild:_creatureSprite cleanup:TRUE];
+				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"boss_strike.png"];
+				[self addChild:_creatureSprite];
+				break;
+			case SEXY_TYPE:
+				[self removeChild:_creatureSprite cleanup:TRUE];
+				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"intern_strike.png"];
+				[self addChild:_creatureSprite];
+				break;
+			case JOE_TYPE:
+				[self removeChild:_creatureSprite cleanup:TRUE];
+				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_strike.png"];
+				[self addChild:_creatureSprite];
+				break;
+			case CARL_TYPE:
+				[self removeChild:_creatureSprite cleanup:TRUE];
+				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_strike.png"];
+				[self addChild:_creatureSprite];
+				break;
+			default:
+				break;
+		}
+		state = STATE_GOING_DOWN;
+		[self schedule:@selector(strikeDown:) interval:0.1];
 		return true; // let the delegate know we're handing this event
 	}
 	return false;
+}
+
+-(void) strikeDown:(id)sender
+{
+	
+	switch (_creatureType) {
+		case BOSS_TYPE:
+			[self removeChild:_creatureSprite cleanup:TRUE];
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"boss_struck.png"];
+			[self addChild:_creatureSprite];
+			break;
+		case SEXY_TYPE:
+			[self removeChild:_creatureSprite cleanup:TRUE];
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"intern_struck.png"];
+			[self addChild:_creatureSprite];
+			break;
+		case JOE_TYPE:
+			[self removeChild:_creatureSprite cleanup:TRUE];
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_struck.png"];
+			[self addChild:_creatureSprite];
+			break;
+		case CARL_TYPE:
+			[self removeChild:_creatureSprite cleanup:TRUE];
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_struck.png"];
+			[self addChild:_creatureSprite];
+			break;
+		default:
+			break;
+	}
+	[self schedule:@selector(completeStrikeDown:) interval:0.45];
+}
+
+-(void) completeStrikeDown:(id)sender
+{	
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.25 position:ccp(self.position.x, self.position.y - (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
 }
 
 -(CreatureType) creatureType
@@ -52,17 +119,50 @@
 -(void) changeCreatureType:(CreatureType)targetType
 {
 	_creatureType = targetType;
-
+	[self removeChild:_creatureSprite cleanup:TRUE];
+	switch (_creatureType) {
+		case BOSS_TYPE:
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"boss_normal.png"];
+			break;
+		case SEXY_TYPE:
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"intern_normal.png"];
+			break;
+		case CARL_TYPE:
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_normal.png"];
+			break;
+		case JOE_TYPE:
+			_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_normal.png"];
+			break;
+	}
+	[self addChild:_creatureSprite];
 }
 
 -(void) registerForPopUp
 {
-	
+	if (state != STATE_IDLE)
+		return;
+	state = STATE_GOING_UP;
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:ccp(self.position.x, self.position.y + (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(upCompleted:)], nil]];
+}
+
+-(void) upCompleted:(id)sender
+{
+	state = STATE_HOLDING;
+	[self schedule:@selector(goDown:) interval:[[ScoreManager get] creatureFadeOutTime]];
 }
 
 -(void) goDown: (id)sender
 {
-	
+	[self unschedule:@selector(goDown:)];
+	if (state != STATE_HOLDING)
+		return;
+	state = STATE_GOING_DOWN;
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:ccp(self.position.x, self.position.y - (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
+}
+
+-(void) downCompleted: (id)sender
+{
+	state = STATE_IDLE;
 }
 
 @end
