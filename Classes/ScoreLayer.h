@@ -14,6 +14,6 @@
 }
 
 -(void) updateScore:(NSNumber *)score;
-
+-(void) updateLevel:(NSNumber *)level;
 
 @end

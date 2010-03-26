@@ -15,16 +15,16 @@
 	if ((self == [super init])) {
 		switch (condition) {
 			case ENDGAME_WIN:
-				CCSprite *egSprite = [CCSprite spriteWithFile:@"endGame_win.png"];
+				egSprite = [CCSprite spriteWithFile:@"endGame_win.png"];
 				break;
 			case ENDGAME_FAIL:
-				CCSprite *egSprite = [CCSprite spriteWithFile:@"endGame_fired.png"];
+				egSprite = [CCSprite spriteWithFile:@"endGame_fired.png"];
 				break;
 			case ENDGAME_POSTAL:
-				CCSprite *egSprite = [CCSprite spriteWithFile:@"endGame_postal.png"];
+				egSprite = [CCSprite spriteWithFile:@"endGame_postal.png"];
 				break;
 			case ENDGAME_SEXY:
-				CCSprite *egSprite = [CCSprite spriteWithFile:@"endGame_harassment.png"];
+				egSprite = [CCSprite spriteWithFile:@"endGame_harassment.png"];
 				break;
 			default:
 				break;

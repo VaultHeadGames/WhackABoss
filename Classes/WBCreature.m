@@ -16,7 +16,7 @@
 -(id) init
 {
 	if( (self=[super init] )) {
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
 		_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_normal.png"];
 		_creatureType = JOE_TYPE;
 		state = STATE_HOLDING;

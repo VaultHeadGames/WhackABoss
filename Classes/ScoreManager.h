@@ -26,6 +26,9 @@
 +(ScoreManager *) get;
 
 -(void) tallyScoreChange:(CreatureType) cType;
+-(void) levelUp;
 -(double) creatureFadeOutTime;
+
+-(void) reset;
 
 @end

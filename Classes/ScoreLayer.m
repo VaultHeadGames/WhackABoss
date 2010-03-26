@@ -31,7 +31,12 @@
 
 -(void) updateScore:(NSNumber *)score
 {
-	[scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
+	[scoreLabel setString:[NSString stringWithFormat:@"%i",[score intValue]]];
+}
+
+-(void) updateLevel:(NSNumber *)level
+{
+	[levelLabel setString:[NSString stringWithFormat:@"%i",[level intValue]]];
 }
 
 @end

@@ -28,8 +28,8 @@
 -(id) init
 {
 	if ((self = [super init])) {
-		score = 0;
-		level = 0;
+		score = [NSNumber numberWithInt:0];
+		level = [NSNumber numberWithInt:1];
 	}
 	return self;
 }
@@ -39,11 +39,12 @@
 	switch (cType) {
 		case BOSS_TYPE:
 			NSLog(@"Struck BOSS_TYPE");
-			score += 1;
+			score = [NSNumber numberWithInt:[score intValue] + 1];
 			break;
 		case JOE_TYPE:
 			NSLog(@"Struck JOE_TYPE");
-			score -= 1;
+			if ([score intValue] != 0)
+				score = [NSNumber numberWithInt:[score intValue] - 1];
 			break;
 		case SEXY_TYPE:
 			NSLog(@"Struck SEXY_TYPE");
@@ -57,14 +58,27 @@
 			NSLog(@"Unknown creature type struck");
 			break;
 	}
-	if (score < 0)
-		score = 0;
+	
 	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
+}
+
+-(void) levelUp
+{
+	level = [NSNumber numberWithInt:[level intValue] + 1];
+	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
 }
 
 -(double) creatureFadeOutTime
 {
-	return 2;
+	return 3 - ((([level intValue] * BASELINE_DIFFICULTY_MODIFIER) * ([level intValue] * BASELINE_DIFFICULTY_MODIFIER)) / (BASELINE_DIFFICULTY_MODIFIER * 10));
+}
+
+-(void) reset
+{
+	score = [NSNumber numberWithInt:0];
+	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
+	level = [NSNumber numberWithInt:1];
+	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
 }
 
 @end

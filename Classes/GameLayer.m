@@ -16,7 +16,7 @@
 
 @implementation GameLayer
 
-@synthesize isPaused, isRunning, scoreLayer;
+@synthesize gState, scoreLayer;
 
 -(id) init
 {
@@ -90,6 +90,8 @@
 		[c32 goDown:self];
 		[c33 goDown:self];
 		
+		gState = GAMESTATE_STOPPED;
+		levelTickCounts = 0;
 		[self schedule:@selector(mainTick:) interval:1];
 	}
 	
@@ -111,9 +113,35 @@
 	[c33 goDown:self];
 }
 
+-(void) scheduleStart
+{
+	[self schedule:@selector(doScheduledStart:) interval:4];
+	// TODO - flash a message to start
+	gState = GAMESTATE_STARTUP;
+}
+
+-(void) doScheduledStart:(id)sender
+{
+	[self unschedule:@selector(doScheduledStart:)];
+	gState = GAMESTATE_RUNNING;
+}
+
 -(void) mainTick:(ccTime)dt
 {
+	if (gState != GAMESTATE_RUNNING)
+		return;
+	
 	// GO THE MAGIC!
+	++levelTickCounts;
+	
+	//long nextLevelTick = ((([[[ScoreManager get] level] intValue] - 1) * LEVEL_TICK_MIGRATION_MODIFIER) + 30);
+	
+	if (levelTickCounts >= 30) {
+		gState = GAMESTATE_LEVELCHANGE;
+		[self doLevelChange];
+		return;
+	}
+	
 	int creaturesUp = 0;
 	
 	if (c11.state != STATE_IDLE)
@@ -135,9 +163,11 @@
 	if (c33.state != STATE_IDLE)
 		creaturesUp += 1;
 	
+	NSLog(@"<GameRunner> Tick %i", levelTickCounts);
+	
 	NSLog(@"<GameRunner> Currently have %d creatures up", creaturesUp);
 	
-	int creatureMin = 1;
+	int creatureMin = 1 + (floor([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER) / 2);
 	int creatureMax = 2 + floor([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER);
 	int newCreatureProbability = 0;
 	
@@ -232,14 +262,42 @@
 	}
 }
 
+-(void) doLevelChange
+{
+	if ([[[ScoreManager get] level] intValue] == 15) {
+		NSLog(@"LAST LEVEL! WE WIN!");
+		[self doEndGame:ENDGAME_WIN];
+		return;
+	}
+	NSLog(@"LEVEL CHANGE");
+	//[self reset];
+	//overlaySprite = [CCSprite spriteWithFile:@"message_level_up.png"];
+	//overlaySprite.position = ccp(120,160); // center screen
+	//overlaySprite.opacity = 0;
+	//[self addChild:overlaySprite z:20];
+	//[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCFadeTo actionWithDuration:2 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
+	[[ScoreManager get] levelUp];
+	[self schedule:@selector(completeLevelChange:) interval:3];
+}
+
+-(void) completeLevelChange:(id)sender
+{
+	//[self removeChild:overlaySprite cleanup:TRUE];
+	levelTickCounts = 0;
+	[self unschedule:@selector(completeLevelChange:)];
+	gState = GAMESTATE_RUNNING;
+}
+
 -(void) doEndGame:(EndGameCondition)condition
 {
+	gState = GAMESTATE_END;
+	
 	CCScene *scene = [[CCScene alloc] init];
 	EndGameLayer *layer = [[EndGameLayer alloc] initWithEndGame:condition];
 	
 	[scene addChild:layer];
 
-	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:scene withColor:ccBLACK];
+	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.2 scene:scene withColor:ccBLACK];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 }

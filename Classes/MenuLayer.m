@@ -61,6 +61,7 @@
 	
 	[[CCDirector sharedDirector] pushScene:trans];
 	
+	[[[WhackABossAppDelegate get] gameLayer] scheduleStart];
 }
 
 - (void) go_leaderboard:(id)e

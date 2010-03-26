@@ -17,7 +17,9 @@ typedef enum
 } EndGameCondition;
 
 @interface EndGameLayer : CCLayer {
-
+	
+@private
+	CCSprite *egSprite;
 }
 
 -(id) initWithEndGame:(EndGameCondition)condition;

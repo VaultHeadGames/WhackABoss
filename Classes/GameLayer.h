@@ -25,15 +25,15 @@ typedef enum {
 	GAMESTATE_PAUSED,
 	GAMESTATE_LEVELCHANGE,
 	GAMESTATE_END
-} GameStates;
+} GameState;
 
 @interface GameLayer : CCLayer {
 	ScoreLayer *scoreLayer;
 	
 @private
-	BOOL isPaused;
-	BOOL isRunning;
-	
+	CCSprite *overlaySprite;
+	GameState gState;
+	uint levelTickCounts;
 	WBCreature *c11;
 	WBCreature *c12;
 	WBCreature *c13;
@@ -45,14 +45,17 @@ typedef enum {
 	WBCreature *c33;
 }
 
-@property (nonatomic, readwrite) BOOL isPaused;
-@property (nonatomic, readonly) BOOL isRunning;
+@property (nonatomic, readonly) GameState gState;
 @property (nonatomic, retain) ScoreLayer *scoreLayer;
 
 -(void) reset;
+-(void) scheduleStart;
+-(void) doScheduledStart:(id)sender;
 
 -(void) mainTick:(ccTime)dt;
 
+-(void) doLevelChange;
+-(void) completeLevelChange:(id)sender;
 -(void) doEndGame:(EndGameCondition)condition;
 
 @end
