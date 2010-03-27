@@ -7,6 +7,7 @@
 //
 
 #import "EndGameLayer.h"
+#import "WhackABossAppDelegate.h"
 
 @implementation EndGameLayer
 
@@ -40,7 +41,8 @@
 -(void) finish:(id)sender
 {
 	[self unschedule:@selector(finish:)];
-	[[CCDirector sharedDirector] popScene];
+	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+	[[CCDirector sharedDirector] replaceScene:transition];
 }
 
 @end

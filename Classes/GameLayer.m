@@ -274,8 +274,7 @@
 	NSLog(@"LEVEL CHANGE");
 	//[self reset];
 	overlaySprite = [CCSprite spriteWithFile:@"message_level_up.png"];
-	overlaySprite.anchorPoint = ccp(0.5,0.5);
-	overlaySprite.position = ccp(160,240); // center screen
+	overlaySprite.anchorPoint = CGPointZero;
 	overlaySprite.opacity = 0;
 	[self addChild:overlaySprite z:20];
 	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;

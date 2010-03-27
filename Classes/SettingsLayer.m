@@ -8,6 +8,7 @@
 
 #import "SettingsLayer.h"
 #import "WABSettings.h"
+#import "WhackABossAppDelegate.h"
 
 @implementation SettingsLayer
 
@@ -35,14 +36,21 @@
 		awesomeSlider.position = ccp(222,224);
 		[awesomeSlider setValue: [[WABSettings get] awesomeEnabled]];
 		[self addChild:awesomeSlider z:0];
+		
+		backButton = [CCMenuItemImage itemFromNormalImage:@"settingsBack.png" selectedImage:@"settingsBackSel.png" target:self selector:@selector(backToMainMenu:)];
+		backButton.anchorPoint = CGPointZero;
+		backMenu = [CCMenu menuWithItems:backButton,nil];
+		backMenu.position = CGPointZero;
+		[self addChild:backMenu z:1];
 	}
 	
 	return self;
 }
 
--(void) backToMainMenu
+-(void) backToMainMenu:(id)sender
 {
-	[[CCDirector sharedDirector] popScene];
+	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+	[[CCDirector sharedDirector] replaceScene:transition];
 }
 
 @end

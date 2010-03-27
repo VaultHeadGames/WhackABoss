@@ -21,6 +21,7 @@
 	AboutLayer *aboutLayer;
 	SettingsLayer *settingsLayer;
 	CCSpriteSheet *spriteSheet;
+	CCScene *gameScene, *settingsScene, *aboutScene, *menuScene;
 }
 
 @property (nonatomic,readonly) MenuLayer *menuLayer;
@@ -28,6 +29,10 @@
 @property (nonatomic,readonly) AboutLayer *aboutLayer;
 @property (nonatomic,readonly) SettingsLayer *settingsLayer;
 @property (nonatomic,readonly) CCSpriteSheet *spriteSheet;
+@property (nonatomic,readonly) CCScene *gameScene;
+@property (nonatomic,readonly) CCScene *settingsScene;
+@property (nonatomic,readonly) CCScene *aboutScene;
+@property (nonatomic,readonly) CCScene *menuScene;
 
 +(WhackABossAppDelegate *) get;
 

@@ -53,13 +53,10 @@
 }
 
 - (void) go_start_game:(id)e
-{
-	CCScene *scene = [[CCScene alloc] init];
-	[scene addChild:[[WhackABossAppDelegate get] gameLayer]];
+{	
+	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:[[WhackABossAppDelegate get] gameScene] withColor:ccWHITE];
 	
-	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:scene withColor:ccWHITE];
-	
-	[[CCDirector sharedDirector] pushScene:trans];
+	[[CCDirector sharedDirector] replaceScene:trans];
 	
 	[[[WhackABossAppDelegate get] gameLayer] scheduleStart];
 }
@@ -75,23 +72,17 @@
 }
 
 - (void) go_settings:(id)e
-{
-	CCScene *scene = [[CCScene alloc] init];
-	[scene addChild:[[WhackABossAppDelegate get] settingsLayer]];
+{	
+	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] settingsScene]];
 	
-	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:scene];
-	
-	[[CCDirector sharedDirector] pushScene:trans];
+	[[CCDirector sharedDirector] replaceScene:trans];
 }
 
 - (void) go_about:(id)e
-{
-	CCScene *scene = [[CCScene alloc] init];
-	[scene addChild:[[WhackABossAppDelegate get] aboutLayer]];
+{	
+	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] aboutScene]];
 	
-	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:scene];
-	
-	[[CCDirector sharedDirector] pushScene:trans];
+	[[CCDirector sharedDirector] replaceScene:trans];
 }
 
 @end

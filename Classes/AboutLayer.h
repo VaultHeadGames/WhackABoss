@@ -12,8 +12,10 @@
 
 @private
 	CCLabel *aboutInformation;
+	CCMenu *backMenu;
+	CCMenuItem *backButton;
 }
 
--(void) backToMainMenu;
+-(void) backToMainMenu:(id)sender;
 
 @end

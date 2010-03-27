@@ -8,11 +8,6 @@
 
 #import "cocos2d.h"
 
-@interface SplashTransition : CCCrossFadeTransition {
-
-}
-@end
-
 @interface Splash : CCSprite {
 
 @private

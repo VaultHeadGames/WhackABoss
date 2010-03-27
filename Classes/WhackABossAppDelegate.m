@@ -18,7 +18,7 @@
 
 @implementation WhackABossAppDelegate
 
-@synthesize menuLayer, gameLayer, aboutLayer, settingsLayer;
+@synthesize menuLayer, gameLayer, aboutLayer, settingsLayer, gameScene, aboutScene, settingsScene, menuScene;
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
@@ -63,6 +63,9 @@
 	menuLayer = [[MenuLayer alloc] init];
 	gameLayer = [[GameLayer alloc] init];
 	
+	menuScene = [[CCScene alloc] init];
+	[menuScene addChild:[self menuLayer]];
+	
 	NSLog([NSString stringWithFormat:@"Logged In To Feint? %i",[[OFHandler sharedInstance] feintIsActive]]);
 	
 	[[CCDirector sharedDirector] replaceScene:splashScene];
@@ -101,6 +104,36 @@
 		settingsLayer = [[SettingsLayer alloc] init];
 	
 	return settingsLayer;
+}
+
+- (CCScene *) aboutScene
+{
+	if (!aboutScene) {
+		aboutScene = [[CCScene alloc] init];
+		[aboutScene addChild:[self aboutLayer]];
+	}
+		
+	return aboutScene;
+}
+
+- (CCScene *) settingsScene
+{
+	if (!settingsScene) {
+		settingsScene = [[CCScene alloc] init];
+		[settingsScene addChild:[self settingsLayer]];
+	}
+	
+	return settingsScene;
+}
+
+- (CCScene *) gameScene
+{
+	if (!gameScene) {
+		gameScene = [[CCScene alloc] init];
+		[gameScene addChild:[self gameLayer]];
+	}
+	
+	return gameScene;
 }
 
 - (CCSpriteSheet *) spriteSheet

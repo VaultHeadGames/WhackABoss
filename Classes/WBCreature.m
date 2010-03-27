@@ -8,6 +8,7 @@
 
 #import "WBCreature.h"
 #import "ScoreManager.h"
+#import "WhackABossAppDelegate.h"
 
 @implementation WBCreature
 
@@ -29,7 +30,7 @@
 -(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent*)event
 {
 	// handle click
-	if (state == STATE_IDLE)
+	if ((state == STATE_IDLE) || ([[[WhackABossAppDelegate get] gameLayer] gState] != GAMESTATE_RUNNING))
 		return false;
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];

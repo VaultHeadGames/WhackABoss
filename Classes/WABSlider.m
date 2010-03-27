@@ -19,7 +19,7 @@
 		_currentState = FALSE;
 		_moving = FALSE;
 		_slider.position = ccp(((contentSize_.width - _slider.contentSize.width) / 2),0);
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:false];
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
 		[self addChild:_sliderBg z:0];
 		[self addChild:_slider z:1];
 	}

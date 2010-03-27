@@ -10,16 +10,6 @@
 #import "WhackABossAppDelegate.h"
 #import "WABSettings.h"
 
-@implementation SplashTransition
-- (id)initWithGameScene:(CCScene *)gameScene {
-	
-    if (!(self = [super initWithDuration:0.5 scene:gameScene]))
-        return nil;
-    
-    return self;
-}
-@end
-
 @implementation Splash
 
 -(id) init
@@ -44,16 +34,11 @@
 		if (is_fading)
 			return;
 		is_fading = TRUE;
-		
-		CCScene *menuScene = [[CCScene alloc] init];
-		[menuScene addChild:[[WhackABossAppDelegate get] menuLayer]];
-		
-		CCTransitionScene *transition = [[SplashTransition alloc] initWithGameScene:menuScene];
-		
-		[menuScene release];
-		
+				
+		CCTransitionScene *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+				
 		[[CCDirector sharedDirector] replaceScene:transition];
-		[transition release];
+//		[transition release];
 	}
 }
 

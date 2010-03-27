@@ -7,6 +7,7 @@
 //
 
 #import "AboutLayer.h"
+#import "WhackABossAppDelegate.h"
 
 @implementation AboutLayer
 
@@ -22,6 +23,14 @@
 		foreground.anchorPoint = CGPointZero;
 		[self addChild: background z:-1];
 		[self addChild: foreground z: 2];
+		
+		
+		backButton = [CCMenuItemImage itemFromNormalImage:@"aboutBack.png" selectedImage:@"aboutBackSel.png" target:self selector:@selector(backToMainMenu:)];
+		backButton.anchorPoint = CGPointZero;
+		backButton.position = ccp(33.5,74.5);
+		backMenu = [CCMenu menuWithItems:backButton,nil];
+		backMenu.position = CGPointZero;
+		[self addChild:backMenu z:4];
 	}
 	
 	return self;
@@ -32,9 +41,10 @@
 	// this is where we should do some sort of logic to pop up messages on the about screen
 }
 
--(void) backToMainMenu
+-(void) backToMainMenu:(id)sender
 {
-	[[CCDirector sharedDirector] popScene];
+	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+	[[CCDirector sharedDirector] replaceScene:transition];
 }
 
 @end

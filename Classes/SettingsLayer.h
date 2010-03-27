@@ -15,6 +15,10 @@
 	WABSlider *vibrateSlider;
 	WABSlider *soundSlider;
 	WABSlider *awesomeSlider;
+	CCMenu *backMenu;
+	CCMenuItem *backButton;
 }
+
+-(void) backToMainMenu:(id)sender;
 
 @end
