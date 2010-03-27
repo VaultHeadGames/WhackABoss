@@ -63,6 +63,8 @@
 	menuLayer = [[MenuLayer alloc] init];
 	gameLayer = [[GameLayer alloc] init];
 	
+	NSLog([NSString stringWithFormat:@"Logged In To Feint? %i",[[OFHandler sharedInstance] feintIsActive]]);
+	
 	[[CCDirector sharedDirector] replaceScene:splashScene];
 	do {
 #if ! TARGET_IPHONE_SIMULATOR
@@ -113,10 +115,12 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];
+	[[OFHandler sharedInstance] resignActive];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+	[[OFHandler sharedInstance] becomeActive];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -125,6 +129,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[[CCDirector sharedDirector] end];
+	[[OFHandler sharedInstance] dealloc];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {

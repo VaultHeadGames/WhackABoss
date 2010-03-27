@@ -136,7 +136,7 @@
 	
 	//long nextLevelTick = ((([[[ScoreManager get] level] intValue] - 1) * LEVEL_TICK_MIGRATION_MODIFIER) + 30);
 	
-	if (levelTickCounts >= 30) {
+	if (levelTickCounts > 30) {
 		gState = GAMESTATE_LEVELCHANGE;
 		[self doLevelChange];
 		return;
@@ -185,20 +185,22 @@
 		// pick a new creature to popup!
 		int newCreatureIndex = round(arc4random() % 8);
 		NSLog(@"<GameRunner> Creature index %d signaled to popup",newCreatureIndex);
-		int newCreatureTypeI = round(arc4random() % 7);
+		int newCreatureTypeI = round(arc4random() % 6);
 		CreatureType newCreatureType;
 		switch (newCreatureTypeI) {
 			case 1:
 				newCreatureType = SEXY_TYPE;
 				break;
 			case 2:
-				newCreatureType = JOE_TYPE;
+			case 4:
+				newCreatureType = BOSS_TYPE;
 				break;
 			case 3:
+			case 5:
 				newCreatureType = CARL_TYPE;
 				break;
 			default:
-				newCreatureType = BOSS_TYPE;
+				newCreatureType = JOE_TYPE;
 				break;
 		}
 		switch (newCreatureIndex) {
@@ -264,25 +266,26 @@
 
 -(void) doLevelChange
 {
-	if ([[[ScoreManager get] level] intValue] == 15) {
+	if ([[[ScoreManager get] level] intValue] == LAST_LEVEL) {
 		NSLog(@"LAST LEVEL! WE WIN!");
 		[self doEndGame:ENDGAME_WIN];
 		return;
 	}
 	NSLog(@"LEVEL CHANGE");
 	//[self reset];
-	//overlaySprite = [CCSprite spriteWithFile:@"message_level_up.png"];
-	//overlaySprite.position = ccp(120,160); // center screen
-	//overlaySprite.opacity = 0;
-	//[self addChild:overlaySprite z:20];
-	//[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCFadeTo actionWithDuration:2 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
+	overlaySprite = [CCSprite spriteWithFile:@"message_level_up.png"];
+	overlaySprite.anchorPoint = ccp(0.5,0.5);
+	overlaySprite.position = ccp(160,240); // center screen
+	overlaySprite.opacity = 0;
+	[self addChild:overlaySprite z:20];
+	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
 	[[ScoreManager get] levelUp];
 	[self schedule:@selector(completeLevelChange:) interval:3];
 }
 
 -(void) completeLevelChange:(id)sender
 {
-	//[self removeChild:overlaySprite cleanup:TRUE];
+	[self removeChild:overlaySprite cleanup:TRUE];
 	levelTickCounts = 0;
 	[self unschedule:@selector(completeLevelChange:)];
 	gState = GAMESTATE_RUNNING;

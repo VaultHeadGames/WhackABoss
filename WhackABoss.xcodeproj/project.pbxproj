@@ -701,6 +701,7 @@
 		2F168492115C0E4600492CF8 /* WABSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F168491115C0E4600492CF8 /* WABSettings.m */; };
 		2F26D2D8111F5AF300C99E6B /* OFHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2D7111F5AF300C99E6B /* OFHandler.mm */; };
 		2F26D35A111F613300C99E6B /* OFAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D359111F613300C99E6B /* OFAppDelegate.mm */; };
+		2F271243115D59E000BA01C4 /* message_level_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F271242115D59E000BA01C4 /* message_level_up.png */; };
 		2F2BB327115BE5F000E0B762 /* settingsscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB324115BE5F000E0B762 /* settingsscreen.png */; };
 		2F2BB328115BE5F000E0B762 /* slider_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB325115BE5F000E0B762 /* slider_bg.png */; };
 		2F2BB329115BE5F000E0B762 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB326115BE5F000E0B762 /* slider.png */; };
@@ -2066,6 +2067,7 @@
 		2F26D2D7111F5AF300C99E6B /* OFHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OFHandler.mm; sourceTree = "<group>"; };
 		2F26D358111F613300C99E6B /* OFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFAppDelegate.h; sourceTree = "<group>"; };
 		2F26D359111F613300C99E6B /* OFAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OFAppDelegate.mm; sourceTree = "<group>"; };
+		2F271242115D59E000BA01C4 /* message_level_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_level_up.png; sourceTree = "<group>"; };
 		2F2BB324115BE5F000E0B762 /* settingsscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsscreen.png; sourceTree = "<group>"; };
 		2F2BB325115BE5F000E0B762 /* slider_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_bg.png; sourceTree = "<group>"; };
 		2F2BB326115BE5F000E0B762 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
@@ -2361,7 +2363,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2F26D33B111F607C00C99E6B /* OpenFeint */,
 				2F134A0E111F37F400241F0F /* OpenFeint */,
 				1F3B9A820EF2151B00286867 /* WhackABoss_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -2397,6 +2398,7 @@
 				2F5A3561115B15DC008C548A /* Controllers */,
 				2F5A3562115B15E9008C548A /* Logic */,
 				2F5A3565115B1611008C548A /* UI */,
+				2F26D33B111F607C00C99E6B /* OpenFeint */,
 				2F26D24A111F565C00C99E6B /* Constants.h */,
 				1F3B9A2C0EF2145700286867 /* WhackABossAppDelegate.h */,
 				1F3B9A2B0EF2145700286867 /* WhackABossAppDelegate.m */,
@@ -5237,7 +5239,14 @@
 				2F26D359111F613300C99E6B /* OFAppDelegate.mm */,
 			);
 			name = OpenFeint;
-			path = Classes;
+			sourceTree = "<group>";
+		};
+		2F271241115D59CF00BA01C4 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				2F271242115D59E000BA01C4 /* message_level_up.png */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		2F2BB32A115BE5F400E0B762 /* Settings */ = {
@@ -5273,6 +5282,7 @@
 		2F2BB337115BE62A00E0B762 /* Game Layers */ = {
 			isa = PBXGroup;
 			children = (
+				2F271241115D59CF00BA01C4 /* Messages */,
 				2FB45A3C114BFF780014E5F3 /* office-V2_01.png */,
 				2FB45A3D114BFF780014E5F3 /* office-V2_02.png */,
 				2FB45A3E114BFF780014E5F3 /* office-V2_03.png */,
@@ -6083,6 +6093,7 @@
 				2F16843C115C07A200492CF8 /* aboutscreen_back.png in Resources */,
 				2F16843D115C07A200492CF8 /* aboutscreen_for.png in Resources */,
 				2F5CC09C115C3BA500D65780 /* character_sheet.plist in Resources */,
+				2F271243115D59E000BA01C4 /* message_level_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

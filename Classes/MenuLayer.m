@@ -23,7 +23,7 @@
 		[self addChild: background z:-1];
 		
 		// create and initialize our labels
-		versionLabel = [CCLabel labelWithString:[NSString stringWithFormat:@"v.%i.%i.%i",VERSION_MAJOR,VERSION_MINOR,VERSION_REV] fontName:@"Marker Felt" fontSize:12];
+		versionLabel = [CCLabel labelWithString:[NSString stringWithFormat:@"v.%i.%i.%i%@",VERSION_MAJOR,VERSION_MINOR,VERSION_REV,VERSION_TAG] fontName:@"Marker Felt" fontSize:12];
 		
 		startGame = [CCMenuItemImage itemFromNormalImage:@"startgame.png" selectedImage:@"startgameSel.png" target:self selector:@selector(go_start_game:)];
 		leaderboard = [CCMenuItemImage itemFromNormalImage:@"leaderboard.png" selectedImage:@"leaderboardSel.png" target:self selector:@selector(go_leaderboard:)];

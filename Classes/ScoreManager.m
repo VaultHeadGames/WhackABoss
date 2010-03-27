@@ -43,8 +43,12 @@
 			break;
 		case JOE_TYPE:
 			NSLog(@"Struck JOE_TYPE");
-			if ([score intValue] != 0)
+			if ([score intValue] != 0) {
 				score = [NSNumber numberWithInt:[score intValue] - 1];
+			} else {
+				[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_FAIL];
+				return;
+			}
 			break;
 		case SEXY_TYPE:
 			NSLog(@"Struck SEXY_TYPE");
@@ -57,6 +61,16 @@
 		default:
 			NSLog(@"Unknown creature type struck");
 			break;
+	}
+	
+	// check sexy and carl hit counts
+	if (sexyHitCounts > MAXIMUM_SEXY_HITS) {
+		[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_SEXY];
+		return;
+	}
+	if (carlHitCounts > MAXIMUM_CARL_HITS) {
+		[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_POSTAL];
+		return;
 	}
 	
 	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];

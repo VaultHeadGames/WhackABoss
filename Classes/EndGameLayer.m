@@ -29,10 +29,18 @@
 			default:
 				break;
 		}
+		egSprite.anchorPoint = CGPointZero;
 		[self addChild:egSprite z:10];
+		[self schedule:@selector(finish:) interval:8];
 	}
 	
 	return self;
+}
+
+-(void) finish:(id)sender
+{
+	[self unschedule:@selector(finish:)];
+	[[CCDirector sharedDirector] popScene];
 }
 
 @end

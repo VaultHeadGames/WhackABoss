@@ -24,4 +24,6 @@ typedef enum
 
 -(id) initWithEndGame:(EndGameCondition)condition;
 
+-(void) finish:(id)sender;
+
 @end

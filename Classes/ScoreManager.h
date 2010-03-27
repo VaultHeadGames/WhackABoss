@@ -14,14 +14,14 @@
 @private
 	NSNumber *score;
 	NSNumber *level;
-	NSNumber *sexyHitCounts;
-	NSNumber *carlHitCounts;
+	uint sexyHitCounts;
+	uint carlHitCounts;
 }
 
 @property (nonatomic,readonly) NSNumber *score;
 @property (nonatomic,readonly) NSNumber *level;
-@property (nonatomic,readonly) NSNumber *sexyHitCounts;
-@property (nonatomic,readonly) NSNumber *carlHitCounts;
+@property (nonatomic,readonly) uint sexyHitCounts;
+@property (nonatomic,readonly) uint carlHitCounts;
 
 +(ScoreManager *) get;
 
