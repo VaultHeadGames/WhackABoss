@@ -12,7 +12,7 @@
 
 @implementation WBCreature
 
-@synthesize state;
+@synthesize state;//, upPosition, downPosition;
 
 -(id) init
 {
@@ -64,7 +64,7 @@
 				break;
 		}
 		state = STATE_GOING_DOWN;
-		[self schedule:@selector(strikeDown:) interval:0.1];
+		[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:.1], [CCCallFuncN actionWithTarget:self selector:@selector(strikeDown:)], nil]];
 		return true; // let the delegate know we're handing this event
 	}
 	return false;
@@ -72,7 +72,6 @@
 
 -(void) strikeDown:(id)sender
 {
-	
 	switch (_creatureType) {
 		case BOSS_TYPE:
 			[self removeChild:_creatureSprite cleanup:TRUE];
@@ -97,12 +96,12 @@
 		default:
 			break;
 	}
-	[self schedule:@selector(completeStrikeDown:) interval:0.45];
+	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:.45], [CCCallFuncN actionWithTarget:self selector:@selector(completeStrikeDown:)], nil]];
 }
 
 -(void) completeStrikeDown:(id)sender
 {	
-	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.25 position:ccp(self.position.x, self.position.y - (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.25 position:downPosition], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
 }
 
 -(CreatureType) creatureType
@@ -115,6 +114,12 @@
 	// make sure we pass scale down to the creature scale
 	[_creatureSprite setScale:s];
 	[super setScale:s];
+}
+
+-(void) setUpPosition:(CGPoint)p
+{
+	upPosition = p;
+	downPosition = ccp(p.x, p.y - (_creatureSprite.contentSize.height * self.scale));
 }
 
 -(void) changeCreatureType:(CreatureType)targetType
@@ -142,28 +147,35 @@
 {
 	if (state != STATE_IDLE)
 		return;
+	[self reset];
 	state = STATE_GOING_UP;
-	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:ccp(self.position.x, self.position.y + (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(upCompleted:)], nil]];
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:upPosition], [CCCallFuncN actionWithTarget:self selector:@selector(upCompleted:)], nil]];
 }
 
 -(void) upCompleted:(id)sender
 {
 	state = STATE_HOLDING;
-	[self schedule:@selector(goDown:) interval:[[ScoreManager get] creatureFadeOutTime]];
+	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:[[ScoreManager get] creatureFadeOutTime]],[CCCallFuncN actionWithTarget:self selector:@selector(goDown:)],nil]];
 }
 
 -(void) goDown: (id)sender
 {
-	[self unschedule:@selector(goDown:)];
 	if (state != STATE_HOLDING)
 		return;
 	state = STATE_GOING_DOWN;
-	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:ccp(self.position.x, self.position.y - (_creatureSprite.contentSize.height * self.scale))], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:downPosition], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
 }
 
 -(void) downCompleted: (id)sender
 {
 	state = STATE_IDLE;
+}
+
+-(void) reset
+{
+	[self stopAllActions];
+	state = STATE_IDLE;
+	self.position = downPosition;
 }
 
 @end

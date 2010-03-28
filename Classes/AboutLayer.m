@@ -24,13 +24,12 @@
 		[self addChild: background z:-1];
 		[self addChild: foreground z: 2];
 		
-		
 		backButton = [CCMenuItemImage itemFromNormalImage:@"aboutBack.png" selectedImage:@"aboutBackSel.png" target:self selector:@selector(backToMainMenu:)];
-		backButton.anchorPoint = CGPointZero;
-		backButton.position = ccp(33.5,74.5);
+		backButton.position = ccp(73,104);
 		backMenu = [CCMenu menuWithItems:backButton,nil];
 		backMenu.position = CGPointZero;
-		[self addChild:backMenu z:4];
+		[self addChild:backMenu z:3];
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:backMenu priority:1 swallowsTouches:FALSE];
 	}
 	
 	return self;

@@ -89,6 +89,8 @@
 
 -(void) reset
 {
+	carlHitCounts = 0;
+	sexyHitCounts = 0;
 	score = [NSNumber numberWithInt:0];
 	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
 	level = [NSNumber numberWithInt:1];

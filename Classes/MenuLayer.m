@@ -54,6 +54,7 @@
 
 - (void) go_start_game:(id)e
 {	
+	
 	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:[[WhackABossAppDelegate get] gameScene] withColor:ccWHITE];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];

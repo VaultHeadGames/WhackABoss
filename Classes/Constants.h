@@ -22,4 +22,4 @@
 #define MAXIMUM_CARL_HITS 5
 #define MAXIMUM_SEXY_HITS 3
 
-#define LAST_LEVEL 6
+#define LAST_LEVEL 15

@@ -43,56 +43,44 @@
 		// ROW ONE
 		c11 = [[WBCreature alloc] init];
 		[c11 setScale:ROW_ONE_SCALE];
-		c11.position = ccp(45,ROW_ONE_X_BOTTOM);
+		[c11 setUpPosition:ccp(45,ROW_ONE_X_BOTTOM)];
 		[self addChild:c11 z:6];
 		c12 = [[WBCreature alloc] init];
 		[c12 setScale:ROW_ONE_SCALE];
-		c12.position = ccp(160,ROW_ONE_X_BOTTOM);
+		[c12 setUpPosition:ccp(160,ROW_ONE_X_BOTTOM)];
 		[self addChild:c12 z:6];
 		c13 = [[WBCreature alloc] init];
 		[c13 setScale:ROW_ONE_SCALE];
-		c13.position = ccp(275,ROW_ONE_X_BOTTOM);
+		[c13 setUpPosition:ccp(275,ROW_ONE_X_BOTTOM)];
 		[self addChild:c13 z:6];
 		// ROW TWO
 		c21 = [[WBCreature alloc] init];
 		[c21 setScale:ROW_TWO_SCALE];
-		c21.position = ccp(68,ROW_TWO_X_BOTTOM);
+		[c21 setUpPosition:ccp(68,ROW_TWO_X_BOTTOM)];
 		[self addChild:c21 z:4];
 		c22 = [[WBCreature alloc] init];
 		[c22 setScale:ROW_TWO_SCALE];
-		c22.position = ccp(160,ROW_TWO_X_BOTTOM);
+		[c22 setUpPosition:ccp(160,ROW_TWO_X_BOTTOM)];
 		[self addChild:c22 z:4];
 		c23 = [[WBCreature alloc] init];
 		[c23 setScale:ROW_TWO_SCALE];
-		c23.position = ccp(257,ROW_TWO_X_BOTTOM);
+		[c23 setUpPosition:ccp(257,ROW_TWO_X_BOTTOM)];
 		[self addChild:c23 z:4];
 		// ROW THREE
 		c31 = [[WBCreature alloc] init];
 		[c31 setScale:ROW_THREE_SCALE];
-		c31.position = ccp(77,ROW_THREE_X_BOTTOM);
+		[c31 setUpPosition:ccp(77,ROW_THREE_X_BOTTOM)];
 		[self addChild:c31 z:2];
 		c32 = [[WBCreature alloc] init];
 		[c32 setScale:ROW_THREE_SCALE];
-		c32.position = ccp(160,ROW_THREE_X_BOTTOM);
+		[c32 setUpPosition:ccp(160,ROW_THREE_X_BOTTOM)];
 		[self addChild:c32 z:2];
 		c33 = [[WBCreature alloc] init];
 		[c33 setScale:ROW_THREE_SCALE];
-		c33.position = ccp(243,ROW_THREE_X_BOTTOM);
+		[c33 setUpPosition:ccp(243,ROW_THREE_X_BOTTOM)];
 		[self addChild:c33 z:2];
 		
-		[c11 goDown:self];
-		[c12 goDown:self];
-		[c13 goDown:self];
-		[c21 goDown:self];
-		[c22 goDown:self];
-		[c23 goDown:self];
-		[c31 goDown:self];
-		[c32 goDown:self];
-		[c33 goDown:self];
-		
-		gState = GAMESTATE_STOPPED;
-		levelTickCounts = 0;
-		[self schedule:@selector(mainTick:) interval:1];
+		[self reset];
 	}
 	
 	return self;
@@ -102,15 +90,18 @@
 {
 	if (nil == c11)
 		return;
-	[c11 goDown:self];
-	[c12 goDown:self];
-	[c13 goDown:self];
-	[c21 goDown:self];
-	[c22 goDown:self];
-	[c23 goDown:self];
-	[c31 goDown:self];
-	[c32 goDown:self];
-	[c33 goDown:self];
+	gState = GAMESTATE_STOPPED;
+	levelTickCounts = 0;
+	[c11 reset];
+	[c12 reset];
+	[c13 reset];
+	[c21 reset];
+	[c22 reset];
+	[c23 reset];
+	[c31 reset];
+	[c32 reset];
+	[c33 reset];
+	[[ScoreManager get] reset];
 }
 
 -(void) scheduleStart
@@ -118,11 +109,13 @@
 	[self schedule:@selector(doScheduledStart:) interval:4];
 	// TODO - flash a message to start
 	gState = GAMESTATE_STARTUP;
+	[self reset];
 }
 
 -(void) doScheduledStart:(id)sender
 {
 	[self unschedule:@selector(doScheduledStart:)];
+	[self schedule:@selector(mainTick:) interval:1];
 	gState = GAMESTATE_RUNNING;
 }
 
@@ -292,6 +285,7 @@
 
 -(void) doEndGame:(EndGameCondition)condition
 {
+	[self unschedule:@selector(tick:)];
 	gState = GAMESTATE_END;
 	
 	CCScene *scene = [[CCScene alloc] init];
@@ -302,6 +296,7 @@
 	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.2 scene:scene withColor:ccBLACK];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
+	gState = GAMESTATE_STOPPED;
 }
 
 @end

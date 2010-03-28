@@ -25,4 +25,6 @@
 
 + (OFHandler*) sharedInstance;
 
+- (void) registerHighScore:(NSNumber *)score;
+
 @end

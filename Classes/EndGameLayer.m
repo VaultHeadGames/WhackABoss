@@ -8,6 +8,8 @@
 
 #import "EndGameLayer.h"
 #import "WhackABossAppDelegate.h"
+#import "OFHandler.h"
+#import "ScoreManager.h"
 
 @implementation EndGameLayer
 
@@ -40,6 +42,8 @@
 
 -(void) finish:(id)sender
 {
+	if ([[OFHandler sharedInstance] feintIsActive])
+		[[OFHandler sharedInstance] registerHighScore:[[ScoreManager get] score]];
 	[self unschedule:@selector(finish:)];
 	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];

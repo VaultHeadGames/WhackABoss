@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "OpenFeint.h"
 #import "OFAppDelegate.h"
+#import "OFHighScoreService.h"
 
 @implementation OFHandler
 	
@@ -65,6 +66,11 @@
 	}
 	
 	return instance;
+}
+
+- (void) registerHighScore:(NSNumber *)score
+{
+	[OFHighScoreService setHighScore:[score longValue] forLeaderboard:@"267053" onSuccess:OFDelegate() onFailure:OFDelegate()];
 }
 
 @end

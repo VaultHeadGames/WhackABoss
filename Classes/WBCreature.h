@@ -32,9 +32,13 @@ typedef enum
 @private
 	CreatureType _creatureType;
 	CCSprite *_creatureSprite;
+	CGPoint upPosition;
+	CGPoint downPosition;
 }
 
 @property (nonatomic) CreatureState state;
+//@property (nonatomic) CGPoint upPosition;
+//@property (nonatomic) CGPoint downPosition;
 @property (nonatomic,readonly) CreatureType creatureType;
 
 -(void) changeCreatureType:(CreatureType)targetType;
@@ -44,5 +48,7 @@ typedef enum
 -(void) strikeDown:(id)sender;
 -(void) goDown:(id)sender;
 -(void) downCompleted: (id)sender;
+-(void) reset;
+-(void) setUpPosition:(CGPoint)p;
 
 @end
