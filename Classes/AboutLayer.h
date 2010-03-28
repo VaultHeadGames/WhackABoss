@@ -11,10 +11,12 @@
 @interface AboutLayer : CCLayer {
 
 @private
+	CCSprite *aboutInfo;
 	CCMenu *backMenu;
 	CCMenuItem *backButton;
 }
 
+-(void) resetScroll:(id)sender;
 -(void) backToMainMenu:(id)sender;
 
 @end

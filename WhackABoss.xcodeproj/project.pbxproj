@@ -11,7 +11,6 @@
 		1F3B9A2D0EF2145700286867 /* WhackABossAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* WhackABossAppDelegate.m */; };
 		2F00338B115B05C800B16D7C /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F003388115B05C800B16D7C /* MenuLayer.m */; };
 		2F00338C115B05C800B16D7C /* Splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F00338A115B05C800B16D7C /* Splash.m */; };
-		2F12872B112C8C630066D543 /* boss-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F12872A112C8C630066D543 /* boss-test.png */; };
 		2F1349F4111F363D00241F0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F3111F363D00241F0F /* Security.framework */; };
 		2F1349F6111F363D00241F0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1349F5111F363D00241F0F /* SystemConfiguration.framework */; };
 		2F134A07111F373B00241F0F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F134A06111F373B00241F0F /* libsqlite3.dylib */; };
@@ -760,6 +759,7 @@
 		2FC92B4E115FE83A00F96CB3 /* sexy-no.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B4C115FE83A00F96CB3 /* sexy-no.caf */; };
 		2FC92B5F115FECAF00F96CB3 /* fired.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B5E115FECAF00F96CB3 /* fired.caf */; };
 		2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B66115FEDC100F96CB3 /* thanks.png */; };
+		2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92C03115FF5FE00F96CB3 /* uhoh.caf */; };
 		2FF6A0D8115CDE3900BDFB7B /* EndGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -964,7 +964,6 @@
 		2F003388115B05C800B16D7C /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		2F003389115B05C800B16D7C /* Splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Splash.h; sourceTree = "<group>"; };
 		2F00338A115B05C800B16D7C /* Splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Splash.m; sourceTree = "<group>"; };
-		2F12872A112C8C630066D543 /* boss-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boss-test.png"; sourceTree = "<group>"; };
 		2F1349F3111F363D00241F0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2F1349F5111F363D00241F0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2F134A06111F373B00241F0F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -2158,6 +2157,7 @@
 		2FC92B4C115FE83A00F96CB3 /* sexy-no.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sexy-no.caf"; path = "Sounds/sexy-no.caf"; sourceTree = "<group>"; };
 		2FC92B5E115FECAF00F96CB3 /* fired.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fired.caf; path = Sounds/fired.caf; sourceTree = "<group>"; };
 		2FC92B66115FEDC100F96CB3 /* thanks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thanks.png; sourceTree = "<group>"; };
+		2FC92C03115FF5FE00F96CB3 /* uhoh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = uhoh.caf; path = Sounds/uhoh.caf; sourceTree = "<group>"; };
 		2FF6A0D6115CDE3900BDFB7B /* EndGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameLayer.h; sourceTree = "<group>"; };
 		2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameLayer.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -5418,6 +5418,7 @@
 		2FC92AD8115FE11400F96CB3 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				2FC92C03115FF5FE00F96CB3 /* uhoh.caf */,
 				2FC92B5E115FECAF00F96CB3 /* fired.caf */,
 				2FC92B4B115FE83A00F96CB3 /* sexy-hit.caf */,
 				2FC92B4C115FE83A00F96CB3 /* sexy-no.caf */,
@@ -5673,7 +5674,6 @@
 				2F2BB32A115BE5F400E0B762 /* Settings */,
 				2F8EE863114F17CF00C220B4 /* Main Menu */,
 				2FB45B7F114C28C70014E5F3 /* scoreCharMap.png */,
-				2F12872A112C8C630066D543 /* boss-test.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
@@ -6133,7 +6133,6 @@
 				2F1351AC111F37F900241F0F /* OFDashboardTabNowPlayingPortrait.png in Resources */,
 				2F1351AD111F37F900241F0F /* OFDashboardTabNowPlayingPortraitDisabled.png in Resources */,
 				2F1351AE111F37F900241F0F /* OFDashboardTabNowPlayingPortraitHit.png in Resources */,
-				2F12872B112C8C630066D543 /* boss-test.png in Resources */,
 				2FB45A40114BFF780014E5F3 /* office-V2_01.png in Resources */,
 				2FB45A41114BFF780014E5F3 /* office-V2_02.png in Resources */,
 				2FB45A42114BFF780014E5F3 /* office-V2_03.png in Resources */,
@@ -6182,6 +6181,7 @@
 				2FC92B4E115FE83A00F96CB3 /* sexy-no.caf in Resources */,
 				2FC92B5F115FECAF00F96CB3 /* fired.caf in Resources */,
 				2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */,
+				2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

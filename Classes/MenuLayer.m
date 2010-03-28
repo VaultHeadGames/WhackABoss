@@ -86,7 +86,7 @@
 - (void) go_about:(id)e
 {	
 	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
-	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] aboutScene]];
+	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:1 scene:[[WhackABossAppDelegate get] aboutScene]];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 }

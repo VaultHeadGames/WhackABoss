@@ -283,13 +283,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>37</integer>
+									<integer>42</integer>
 									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 331}, {259, 860}}</string>
+							<string>{{0, 0}, {259, 860}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -326,7 +326,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AboutLayer.h</string>
+								<string>EndGameLayer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -334,11 +334,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AboutLayer.h</string>
+										<string>EndGameLayer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2FC92BA6115FF0D000F96CB3</string>
+										<string>2FC92C02115FF5D700F96CB3</string>
 										<key>history</key>
 										<array>
 											<string>2F31A25B111F3B080095C1EB</string>
@@ -409,9 +409,6 @@
 											<string>2F30F1AC115E8CA000B5AFE2</string>
 											<string>2F30F1FF115E924700B5AFE2</string>
 											<string>2F30F200115E924700B5AFE2</string>
-											<string>2F30F21F115E931800B5AFE2</string>
-											<string>2F30F242115E95CE00B5AFE2</string>
-											<string>2FEFA127115FA3DD00713F27</string>
 											<string>2F1EB1DE115FACB1006095DB</string>
 											<string>2F1EB210115FB512006095DB</string>
 											<string>2F1EB211115FB512006095DB</string>
@@ -434,26 +431,29 @@
 											<string>2FC92AE0115FE17B00F96CB3</string>
 											<string>2FC92AF0115FE21100F96CB3</string>
 											<string>2FC92AF6115FE27B00F96CB3</string>
-											<string>2FC92AF9115FE27B00F96CB3</string>
 											<string>2FC92B05115FE2F600F96CB3</string>
-											<string>2FC92B0C115FE3AD00F96CB3</string>
 											<string>2FC92B2F115FE5E700F96CB3</string>
 											<string>2FC92B30115FE5E700F96CB3</string>
-											<string>2FC92B56115FE86C00F96CB3</string>
-											<string>2FC92B58115FE86C00F96CB3</string>
 											<string>2FC92B62115FECB800F96CB3</string>
-											<string>2FC92B63115FECB800F96CB3</string>
 											<string>2FC92B64115FECB800F96CB3</string>
-											<string>2FC92B68115FEDFB00F96CB3</string>
 											<string>2FC92B69115FEDFB00F96CB3</string>
-											<string>2FC92B9E115FF0D000F96CB3</string>
 											<string>2FC92B9F115FF0D000F96CB3</string>
 											<string>2FC92BA0115FF0D000F96CB3</string>
 											<string>2FC92BA1115FF0D000F96CB3</string>
 											<string>2FC92BA2115FF0D000F96CB3</string>
-											<string>2FC92BA3115FF0D000F96CB3</string>
-											<string>2FC92BA4115FF0D000F96CB3</string>
-											<string>2FC92BA5115FF0D000F96CB3</string>
+											<string>2FC92BAC115FF1DC00F96CB3</string>
+											<string>2FC92BB5115FF28600F96CB3</string>
+											<string>2FC92BB8115FF28600F96CB3</string>
+											<string>2FC92BB9115FF28600F96CB3</string>
+											<string>2FC92BCB115FF31200F96CB3</string>
+											<string>2FC92BD7115FF3E100F96CB3</string>
+											<string>2FC92BD9115FF3E100F96CB3</string>
+											<string>2FC92BEF115FF4FC00F96CB3</string>
+											<string>2FC92BF0115FF4FC00F96CB3</string>
+											<string>2FC92BF1115FF4FC00F96CB3</string>
+											<string>2FC92C00115FF5D700F96CB3</string>
+											<string>2FC92C01115FF5D700F96CB3</string>
+											<string>2FC92BB6115FF28600F96CB3</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -651,6 +651,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>2FC92BC7115FF2C300F96CB3</string>
+		<string>2FC92BBF115FF28600F96CB3</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>2F135CAC111E073400E5FC30</string>

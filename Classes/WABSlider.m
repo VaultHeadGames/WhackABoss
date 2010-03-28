@@ -8,6 +8,7 @@
 
 #import "WABSlider.h"
 #import "AudioController.h"
+#import "WABSettings.h"
 
 @implementation WABSlider
 
@@ -80,6 +81,7 @@
 	NSLog(@"MOVE FINISHED");
 	_moving = FALSE;
 	_currentState = _value;
+	[[WABSettings get] saveSettings];
 }
 
 @end

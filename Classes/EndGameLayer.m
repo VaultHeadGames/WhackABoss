@@ -39,6 +39,7 @@
 				if ([WABSettings get].vibrateEnabled)
 					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 				egSprite = [CCSprite spriteWithFile:@"endGame_harassment.png"];
+				[[AudioController sharedInstance] playEffect:@"uhoh.caf"];
 				break;
 			default:
 				break;

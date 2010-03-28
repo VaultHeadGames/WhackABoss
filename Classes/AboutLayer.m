@@ -25,15 +25,31 @@
 		[self addChild: background z:-1];
 		[self addChild: foreground z: 2];
 		
+		aboutInfo = [CCSprite spriteWithFile:@"thanks.png"];
+		aboutInfo.anchorPoint = ccp(0,1);
+		aboutInfo.position = ccp(75,140);
+		[self addChild:aboutInfo z:0];
+		
 		backButton = [CCMenuItemImage itemFromNormalImage:@"aboutBack.png" selectedImage:@"aboutBackSel.png" target:self selector:@selector(backToMainMenu:)];
 		backButton.position = ccp(73,104);
 		backMenu = [CCMenu menuWithItems:backButton,nil];
 		backMenu.position = CGPointZero;
 		[self addChild:backMenu z:3];
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:backMenu priority:1 swallowsTouches:FALSE];
 	}
 	
 	return self;
+}
+
+-(void) onEnter
+{
+	[super onEnter];
+	[self resetScroll:nil];
+}
+
+-(void) resetScroll:(id)sender
+{
+	aboutInfo.position = ccp(75,120);
+	[aboutInfo runAction:[CCSequence actions:[CCMoveTo actionWithDuration:30 position:ccp(75,900)],[CCCallFuncN actionWithTarget:self selector:@selector(resetScroll:)],nil]];
 }
 
 -(void) backToMainMenu:(id)sender
