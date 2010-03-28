@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "EndGameLayer.h"
 
 @interface WABSettings : NSObject {
 	NSUserDefaults* savedSettings;
@@ -17,6 +17,8 @@
 	BOOL carlWarningShown;
 	BOOL internWarningShown;
 	BOOL joeWarningShown;
+	EndGameCondition lastEnd;
+	EndGameCondition last2End;
 }
 
 + (WABSettings *)get;
@@ -30,5 +32,7 @@
 @property (nonatomic,readwrite) BOOL carlWarningShown;
 @property (nonatomic,readwrite) BOOL internWarningShown;
 @property (nonatomic,readwrite) BOOL joeWarningShown;
+@property (nonatomic,readwrite) EndGameCondition lastEnd;
+@property (nonatomic,readwrite) EndGameCondition last2End;
 
 @end

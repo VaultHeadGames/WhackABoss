@@ -12,10 +12,11 @@
 #import "WABSettings.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "AudioController.h"
+#import "OFHandler.h"
 
 @implementation ScoreManager
 
-@synthesize score, level, sexyHitCounts, carlHitCounts;
+@synthesize score, level, sexyHitCounts, carlHitCounts, struckNonBoss, struckNonIntern, struckNonJoe, struckNonCarl;
 
 +(ScoreManager *) get
 {
@@ -41,16 +42,22 @@
 {
 	switch (cType) {
 		case BOSS_TYPE:
+			struckNonJoe = TRUE;
+			struckNonCarl = TRUE;
+			struckNonIntern = TRUE;
 			NSLog(@"Struck BOSS_TYPE");
-			score = [NSNumber numberWithInt:[score intValue] + 1];
+			score = [[NSNumber numberWithInt:[score intValue] + 1] retain];
 			break;
 		case JOE_TYPE:
 			NSLog(@"Struck JOE_TYPE");
+			struckNonBoss = TRUE;
+			struckNonCarl = TRUE;
+			struckNonIntern = TRUE;
 			if ([WABSettings get].vibrateEnabled)
 				AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 			if (joeWarningShown) {
 				if ([score intValue] != 0) {
-					score = [NSNumber numberWithInt:[score intValue] - 1];
+					score = [[NSNumber numberWithInt:[score intValue] - 1] retain];
 				} else {
 					[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_FAIL];
 					return;
@@ -65,6 +72,9 @@
 			break;
 		case SEXY_TYPE:
 			NSLog(@"Struck SEXY_TYPE");
+			struckNonBoss = TRUE;
+			struckNonJoe = TRUE;
+			struckNonCarl = TRUE;
 			if ([WABSettings get].vibrateEnabled)
 				AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 			if (internWarningShown) {
@@ -81,6 +91,9 @@
 			break;
 		case CARL_TYPE:
 			NSLog(@"Struck CARL_TYPE");
+			struckNonBoss = TRUE;
+			struckNonJoe = TRUE;
+			struckNonIntern = TRUE;
 			if ([WABSettings get].vibrateEnabled)
 				AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 			if (carlWarningShown) {
@@ -115,8 +128,16 @@
 
 -(void) levelUp
 {
-	level = [NSNumber numberWithInt:[level intValue] + 1];
+	level = [[NSNumber numberWithInt:[level intValue] + 1] retain];
 	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
+	if ([[OFHandler sharedInstance] feintIsActive]) {
+		if ([level intValue] == 2)
+			[[OFHandler sharedInstance] registerAchivement:SURVIVED_YOUR_FIRST_DAY];
+		if ([level intValue] == 6)
+			[[OFHandler sharedInstance] registerAchivement:BARHOPPIN_];
+		if ([level intValue] == 11)
+			[[OFHandler sharedInstance] registerAchivement:THANKS_FOR_THE_PEANUTS];
+	}
 }
 
 -(double) creatureFadeOutTime
@@ -128,6 +149,10 @@
 {
 	carlHitCounts = 0;
 	sexyHitCounts = 0;
+	struckNonBoss = FALSE;
+	struckNonJoe = FALSE;
+	struckNonCarl = FALSE;
+	struckNonIntern = FALSE;
 	carlWarningShown = [[WABSettings get] carlWarningShown];
 	internWarningShown = [[WABSettings get] internWarningShown];
 	joeWarningShown = [[WABSettings get] joeWarningShown];

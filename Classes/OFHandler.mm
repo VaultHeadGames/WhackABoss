@@ -13,6 +13,7 @@
 #import "OpenFeint.h"
 #import "OFAppDelegate.h"
 #import "OFHighScoreService.h"
+#import "OFAchievementService.h"
 
 @implementation OFHandler
 	
@@ -71,6 +72,11 @@
 - (void) registerHighScore:(NSNumber *)score
 {
 	[OFHighScoreService setHighScore:[score longValue] forLeaderboard:@"267053" onSuccess:OFDelegate() onFailure:OFDelegate()];
+}
+
+- (void) registerAchivement:(NSString *)achievement
+{
+	[OFAchievementService unlockAchievement:achievement];
 }
 
 @end

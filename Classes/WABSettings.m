@@ -10,7 +10,7 @@
 
 @implementation WABSettings
 
-@synthesize vibrateEnabled, awesomeEnabled, soundEnabled, savedSettings, carlWarningShown, internWarningShown, joeWarningShown;
+@synthesize vibrateEnabled, awesomeEnabled, soundEnabled, savedSettings, carlWarningShown, internWarningShown, joeWarningShown, lastEnd, last2End;
 
 -(void) loadSettings:(BOOL)overrideDefaults withDelegate:(id)target withSelector:(SEL)completionSelector
 {
@@ -25,6 +25,8 @@
 		joeWarningShown = FALSE;
 		carlWarningShown = FALSE;
 		internWarningShown = FALSE;
+		lastEnd = -1;
+		last2End = -1;
 	} else {
 		NSLog(@"	using saved");
 		vibrateEnabled = (BOOL)[savedSettings valueForKey:@"vibrate_on"];
@@ -33,6 +35,8 @@
 		carlWarningShown = (BOOL)[savedSettings valueForKey:@"carlWarningShown"];
 		internWarningShown = (BOOL)[savedSettings valueForKey:@"internWarningShown"];
 		joeWarningShown = (BOOL)[savedSettings valueForKey:@"joeWarningShown"];
+		lastEnd = (int)[savedSettings valueForKey:@"lastEnd"];
+		last2End = (int)[savedSettings valueForKey:@"last2End"];
 	}
 	if (target && completionSelector && [target respondsToSelector:completionSelector])
 	{
@@ -50,6 +54,8 @@
 	[savedSettings setObject:[NSString stringWithFormat:@"%i",joeWarningShown] forKey:@"joeWarningShown"];
 	[savedSettings setObject:[NSString stringWithFormat:@"%i",carlWarningShown] forKey:@"carlWarningShown"];
 	[savedSettings setObject:[NSString stringWithFormat:@"%i",internWarningShown] forKey:@"internWarningShown"];
+	[savedSettings setObject:[NSNumber numberWithInt:lastEnd] forKey:@"lastEnd"];
+	[savedSettings setObject:[NSNumber numberWithInt:last2End] forKey:@"last2End"];
 	[savedSettings setObject:@"no" forKey:@"use_defaults"];
 	[savedSettings synchronize];
 }

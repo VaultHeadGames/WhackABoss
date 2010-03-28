@@ -20,12 +20,20 @@
 	BOOL internWarningShown;
 	BOOL carlWarningShown;
 	BOOL joeWarningShown;
+	BOOL struckNonBoss;
+	BOOL struckNonIntern;
+	BOOL struckNonJoe;
+	BOOL struckNonCarl;
 }
 
 @property (nonatomic,readonly) NSNumber *score;
 @property (nonatomic,readonly) NSNumber *level;
 @property (nonatomic,readonly) uint sexyHitCounts;
 @property (nonatomic,readonly) uint carlHitCounts;
+@property (nonatomic,readonly) BOOL struckNonBoss;
+@property (nonatomic,readonly) BOOL struckNonIntern;
+@property (nonatomic,readonly) BOOL struckNonJoe;
+@property (nonatomic,readonly) BOOL struckNonCarl;
 
 +(ScoreManager *) get;
 

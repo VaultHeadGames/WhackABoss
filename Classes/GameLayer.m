@@ -13,6 +13,7 @@
 #import "ScoreManager.h"
 #import "Constants.h"
 #import "EndGameLayer.h"
+#import "OFHandler.h"
 
 @implementation GameLayer
 
@@ -118,8 +119,18 @@
 -(void) doScheduledStart:(id)sender
 {
 //	[self unschedule:@selector(doScheduledStart:)];
-	[self schedule:@selector(mainTick:) interval:1];
+	[self schedule:@selector(mainTick:) interval:0.73414159];
 	gState = GAMESTATE_RUNNING;
+	if ([[OFHandler sharedInstance] feintIsActive]) {
+		NSDate *today = [NSDate date];
+		NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		NSDateComponents *weekdayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:today];
+		NSInteger weekday = [weekdayComponents weekday];
+		if (weekday == 2)
+			[[OFHandler sharedInstance] registerAchivement:CASE_OF_THE_MONDAYS];
+		else if (weekday == 7)
+			[[OFHandler sharedInstance] registerAchivement:I_WANNA_GET_THE_HELL_OUTTA_HERE_];
+	}
 }
 
 -(void) mainTick:(ccTime)dt
@@ -132,9 +143,15 @@
 	
 	//long nextLevelTick = ((([[[ScoreManager get] level] intValue] - 1) * LEVEL_TICK_MIGRATION_MODIFIER) + 30);
 	
-	if (levelTickCounts > 30) {
+	if (levelTickCounts > 45) {
 		gState = GAMESTATE_LEVELCHANGE;
 		[self doLevelChange];
+		return;
+	}
+	
+	// dtermine random skip probability
+	if ((arc4random() % 1) > 0.8499) {
+		NSLog(@"<GameRunner> Skip tick");
 		return;
 	}
 	
@@ -163,8 +180,23 @@
 	
 	NSLog(@"<GameRunner> Currently have %d creatures up", creaturesUp);
 	
-	int creatureMin = 1 + (floor([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER) / 2);
-	int creatureMax = 2 + floor([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER);
+	int creatureMin;
+	int creatureMax;
+	
+	if ([[[ScoreManager get] level] intValue] <= 5) {
+		creatureMin = 1 + round([[[ScoreManager get] level] intValue] * 0.125);
+	} else if ([[[ScoreManager get] level] intValue] > 10) {
+		creatureMin = 5;
+	} else {
+		creatureMin = 3 + round([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER);
+	}
+	if ([[[ScoreManager get] level] intValue] <= 5) {
+		creatureMax = 2 + round([[[ScoreManager get] level] intValue] * 0.125);
+	} else if ([[[ScoreManager get] level] intValue] > 10) {
+		creatureMax = 9;
+	} else {
+		creatureMax = round(3 + ([[[ScoreManager get] level] intValue] * MAXIMUM_CREATURE_LEVEL_MODIFIER));
+	}
 	int newCreatureProbability = 0;
 	
 	if (creaturesUp < creatureMax) {
@@ -172,7 +204,7 @@
 		if (creaturesUp < creatureMin)
 			newCreatureProbability = 1;
 		else
-			newCreatureProbability = (((creatureMax / creaturesUp) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * [[[ScoreManager get] level] intValue]));
+			newCreatureProbability = arc4random();//(((creatureMax / creaturesUp) * TICK_NEW_CREATURE_PROBABILITY_MODIFIER) + (MAXIMUM_CREATURE_LEVEL_MODIFIER * [[[ScoreManager get] level] intValue]));
 	}
 	
 	NSLog(@"<GameRunner> Current probability to popup new creature is %d", newCreatureProbability);
@@ -181,24 +213,16 @@
 		// pick a new creature to popup!
 		int newCreatureIndex = round(arc4random() % 8);
 		NSLog(@"<GameRunner> Creature index %d signaled to popup",newCreatureIndex);
-		int newCreatureTypeI = round(arc4random() % 6);
+		int newCreatureTypeI = arc4random() % 4;
 		CreatureType newCreatureType;
-		switch (newCreatureTypeI) {
-			case 1:
-				newCreatureType = SEXY_TYPE;
-				break;
-			case 2:
-			case 4:
-				newCreatureType = BOSS_TYPE;
-				break;
-			case 3:
-			case 5:
-				newCreatureType = CARL_TYPE;
-				break;
-			default:
-				newCreatureType = JOE_TYPE;
-				break;
-		}
+		if (newCreatureTypeI <= 0)
+			newCreatureType = SEXY_TYPE;
+		else if (newCreatureTypeI <= 1)
+			newCreatureType = BOSS_TYPE;
+		else if (newCreatureTypeI <= 2.5)
+			newCreatureType = CARL_TYPE;
+		else
+			newCreatureType = JOE_TYPE;
 		switch (newCreatureIndex) {
 			case 0:
 				if (c11.state != STATE_IDLE)

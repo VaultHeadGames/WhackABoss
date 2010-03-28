@@ -49,6 +49,8 @@ typedef enum {
 @property (nonatomic, readonly) GameState gState;
 @property (nonatomic, retain) ScoreLayer *scoreLayer;
 
+
+-(void) updateSecondTick:(ccTime)dt;
 -(void) reset;
 -(void) scheduleStart;
 -(void) doScheduledStart:(id)sender;

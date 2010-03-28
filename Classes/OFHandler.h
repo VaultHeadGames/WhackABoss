@@ -27,4 +27,6 @@
 
 - (void) registerHighScore:(NSNumber *)score;
 
+- (void) registerAchivement:(NSString *)achievement;
+
 @end
