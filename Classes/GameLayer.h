@@ -23,11 +23,12 @@ typedef enum {
 	GAMESTATE_STARTUP,
 	GAMESTATE_RUNNING,
 	GAMESTATE_PAUSED,
+	GAMESTATE_WARNING,
 	GAMESTATE_LEVELCHANGE,
 	GAMESTATE_END
 } GameState;
 
-@interface GameLayer : CCLayer {
+@interface GameLayer : CCLayer <CCTargetedTouchDelegate> {
 	ScoreLayer *scoreLayer;
 	
 @private
@@ -57,5 +58,8 @@ typedef enum {
 -(void) doLevelChange;
 -(void) completeLevelChange:(id)sender;
 -(void) doEndGame:(EndGameCondition)condition;
+
+-(void) showCreatureWarning:(CreatureType) type;
+-(void) removeWarning:(id)sender;
 
 @end

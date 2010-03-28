@@ -15,6 +15,7 @@
 #import "GameLayer.h"
 #import "AboutLayer.h"
 #import "SettingsLayer.h"
+#import "AudioController.h"
 
 @implementation WhackABossAppDelegate
 

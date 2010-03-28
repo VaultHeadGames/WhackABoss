@@ -9,6 +9,7 @@
 #import "SettingsLayer.h"
 #import "WABSettings.h"
 #import "WhackABossAppDelegate.h"
+#import "AudioController.h"
 
 @implementation SettingsLayer
 
@@ -49,6 +50,12 @@
 
 -(void) backToMainMenu:(id)sender
 {
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
+	[WABSettings get].vibrateEnabled = vibrateSlider.value;
+	[WABSettings get].soundEnabled = soundSlider.value;
+	[WABSettings get].awesomeEnabled = awesomeSlider.value;
+	[[WABSettings get] saveSettings];
+	
 	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];
 }

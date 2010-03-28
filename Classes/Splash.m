@@ -9,6 +9,7 @@
 #import "Splash.h"
 #import "WhackABossAppDelegate.h"
 #import "WABSettings.h"
+#import "AudioController.h"
 
 @implementation Splash
 
@@ -25,7 +26,12 @@
 -(void) onEnter
 {
 	//[self performSelector:@selector(switchScenes) withObject:nil afterDelay:2];
+	[[AudioController sharedInstance] preload];
+#if TARGET_IPHONE_SIMULATOR
 	[[WABSettings get] loadSettings:TRUE withDelegate:self withSelector:@selector(switchScenes:)];
+#else
+	[[WABSettings get] loadSettings:FALSE withDelegate:self withSelector:@selector(switchScenes:)];
+#endif
 }
 
 -(void) switchScenes:(id)sender

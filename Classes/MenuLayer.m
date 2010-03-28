@@ -10,6 +10,7 @@
 #import "WhackABossAppDelegate.h"
 #import "Constants.h"
 #import "OFHandler.h"
+#import "AudioController.h"
 
 @implementation MenuLayer
 -(id) init
@@ -54,7 +55,7 @@
 
 - (void) go_start_game:(id)e
 {	
-	
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:[[WhackABossAppDelegate get] gameScene] withColor:ccWHITE];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
@@ -64,16 +65,19 @@
 
 - (void) go_leaderboard:(id)e
 {
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	[[OFHandler sharedInstance] showLeaderboard];
 }
 
 - (void) go_achievements:(id)e
 {
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	[[OFHandler sharedInstance] showAchievements];
 }
 
 - (void) go_settings:(id)e
 {	
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] settingsScene]];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
@@ -81,6 +85,7 @@
 
 - (void) go_about:(id)e
 {	
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] aboutScene]];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];

@@ -10,6 +10,9 @@
 #import "WhackABossAppDelegate.h"
 #import "OFHandler.h"
 #import "ScoreManager.h"
+#import "WABSettings.h"
+#import "AudioController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation EndGameLayer
 
@@ -21,12 +24,20 @@
 				egSprite = [CCSprite spriteWithFile:@"endGame_win.png"];
 				break;
 			case ENDGAME_FAIL:
+				if ([WABSettings get].vibrateEnabled)
+					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 				egSprite = [CCSprite spriteWithFile:@"endGame_fired.png"];
+				[[AudioController sharedInstance] playEffect:@"fired.caf"];
 				break;
 			case ENDGAME_POSTAL:
+				if ([WABSettings get].vibrateEnabled)
+					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 				egSprite = [CCSprite spriteWithFile:@"endGame_postal.png"];
+				[[AudioController sharedInstance] playEffect:@"postal-end.caf"];
 				break;
 			case ENDGAME_SEXY:
+				if ([WABSettings get].vibrateEnabled)
+					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 				egSprite = [CCSprite spriteWithFile:@"endGame_harassment.png"];
 				break;
 			default:

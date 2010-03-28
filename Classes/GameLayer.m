@@ -80,6 +80,8 @@
 		[c33 setUpPosition:ccp(243,ROW_THREE_X_BOTTOM)];
 		[self addChild:c33 z:2];
 		
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:FALSE];
+		
 		[self reset];
 	}
 	
@@ -106,15 +108,16 @@
 
 -(void) scheduleStart
 {
-	[self schedule:@selector(doScheduledStart:) interval:4];
+//	[self schedule:@selector(doScheduledStart:) interval:4];
 	// TODO - flash a message to start
 	gState = GAMESTATE_STARTUP;
 	[self reset];
+	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:4],[CCCallFuncN actionWithTarget:self selector:@selector(doScheduledStart:)],nil]];
 }
 
 -(void) doScheduledStart:(id)sender
 {
-	[self unschedule:@selector(doScheduledStart:)];
+//	[self unschedule:@selector(doScheduledStart:)];
 	[self schedule:@selector(mainTick:) interval:1];
 	gState = GAMESTATE_RUNNING;
 }
@@ -270,22 +273,23 @@
 	overlaySprite.anchorPoint = CGPointZero;
 	overlaySprite.opacity = 0;
 	[self addChild:overlaySprite z:20];
-	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
+	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCIntervalAction actionWithDuration:2.5],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
 	[[ScoreManager get] levelUp];
-	[self schedule:@selector(completeLevelChange:) interval:3];
+	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:3],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];
+//	[self schedule:@selector(completeLevelChange:) interval:3];
 }
 
 -(void) completeLevelChange:(id)sender
 {
 	[self removeChild:overlaySprite cleanup:TRUE];
 	levelTickCounts = 0;
-	[self unschedule:@selector(completeLevelChange:)];
+//	[self unschedule:@selector(completeLevelChange:)];
 	gState = GAMESTATE_RUNNING;
 }
 
 -(void) doEndGame:(EndGameCondition)condition
 {
-	[self unschedule:@selector(tick:)];
+	[self unschedule:@selector(mainTick:)];
 	gState = GAMESTATE_END;
 	
 	CCScene *scene = [[CCScene alloc] init];
@@ -297,6 +301,54 @@
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 	gState = GAMESTATE_STOPPED;
+}
+
+-(void) showCreatureWarning:(CreatureType) type
+{
+	switch (type) {
+		case SEXY_TYPE:
+			gState = GAMESTATE_WARNING;
+			overlaySprite = [CCSprite spriteWithFile:@"message_intern_warning.png"];
+			overlaySprite.anchorPoint = CGPointZero;
+			overlaySprite.opacity = 0;
+			[self addChild:overlaySprite z:20];
+			[overlaySprite runAction:[CCFadeTo actionWithDuration:0.33 opacity:255]];
+			break;
+		case JOE_TYPE:
+			gState = GAMESTATE_WARNING;
+			overlaySprite = [CCSprite spriteWithFile:@"message_joe_warning.png"];
+			overlaySprite.anchorPoint = CGPointZero;
+			overlaySprite.opacity = 0;
+			[self addChild:overlaySprite z:20];
+			[overlaySprite runAction:[CCFadeTo actionWithDuration:0.33 opacity:255]];
+			break;
+		case CARL_TYPE:
+			gState = GAMESTATE_WARNING;
+			overlaySprite = [CCSprite spriteWithFile:@"message_carl_warning.png"];
+			overlaySprite.anchorPoint = CGPointZero;
+			overlaySprite.opacity = 0;
+			[self addChild:overlaySprite z:20];
+			[overlaySprite runAction:[CCFadeTo actionWithDuration:0.33 opacity:255]];
+			break;
+		default:
+			return;
+			break;
+	}
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	if (gState != GAMESTATE_WARNING)
+		return FALSE;
+	
+	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(removeWarning:)],nil]];
+	return TRUE;
+}
+
+-(void) removeWarning:(id)sender
+{
+	[self removeChild:overlaySprite cleanup:TRUE];
+	gState = GAMESTATE_RUNNING;
 }
 
 @end

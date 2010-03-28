@@ -16,6 +16,10 @@
 	NSNumber *level;
 	uint sexyHitCounts;
 	uint carlHitCounts;
+	
+	BOOL internWarningShown;
+	BOOL carlWarningShown;
+	BOOL joeWarningShown;
 }
 
 @property (nonatomic,readonly) NSNumber *score;

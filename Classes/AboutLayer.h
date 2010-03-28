@@ -11,7 +11,6 @@
 @interface AboutLayer : CCLayer {
 
 @private
-	CCLabel *aboutInformation;
 	CCMenu *backMenu;
 	CCMenuItem *backButton;
 }

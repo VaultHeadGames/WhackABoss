@@ -9,6 +9,7 @@
 #import "WBCreature.h"
 #import "ScoreManager.h"
 #import "WhackABossAppDelegate.h"
+#import "AudioController.h"
 
 @implementation WBCreature
 
@@ -41,21 +42,25 @@
 		[[ScoreManager get] tallyScoreChange:_creatureType];
 		switch (_creatureType) {
 			case BOSS_TYPE:
+				[[AudioController sharedInstance] playRandomHit];
 				[self removeChild:_creatureSprite cleanup:TRUE];
 				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"boss_strike.png"];
 				[self addChild:_creatureSprite];
 				break;
 			case SEXY_TYPE:
+				[[AudioController sharedInstance] playEffect:@"sexy-hit.caf"];
 				[self removeChild:_creatureSprite cleanup:TRUE];
 				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"intern_strike.png"];
 				[self addChild:_creatureSprite];
 				break;
 			case JOE_TYPE:
+				[[AudioController sharedInstance] playRandomHit];
 				[self removeChild:_creatureSprite cleanup:TRUE];
 				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_strike.png"];
 				[self addChild:_creatureSprite];
 				break;
 			case CARL_TYPE:
+				[[AudioController sharedInstance] playRandomHit];
 				[self removeChild:_creatureSprite cleanup:TRUE];
 				_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"carl_strike.png"];
 				[self addChild:_creatureSprite];

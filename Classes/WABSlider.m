@@ -7,6 +7,7 @@
 //
 
 #import "WABSlider.h"
+#import "AudioController.h"
 
 @implementation WABSlider
 
@@ -46,6 +47,7 @@
 	CGRect myRect = CGRectMake(self.position.x - _sliderBg.contentSize.width / 2, self.position.y - _sliderBg.contentSize.height / 2, _sliderBg.contentSize.width, _sliderBg.contentSize.height);
 	// are we actually being clicked?
 	if (CGRectContainsPoint(myRect, location)) {
+		[[AudioController sharedInstance] playEffect:@"IncDec5a.caf"];
 		_value = !_value;
 		[self updateSlidePosition];
 		return true; // let the delegate know we're handing this event

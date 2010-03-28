@@ -7,6 +7,7 @@
 //
 
 #import "AboutLayer.h"
+#import "AudioController.h"
 #import "WhackABossAppDelegate.h"
 
 @implementation AboutLayer
@@ -35,13 +36,9 @@
 	return self;
 }
 
--(void) onEnter
-{
-	// this is where we should do some sort of logic to pop up messages on the about screen
-}
-
 -(void) backToMainMenu:(id)sender
 {
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
 	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];
 }

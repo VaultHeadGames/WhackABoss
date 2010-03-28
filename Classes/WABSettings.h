@@ -14,9 +14,12 @@
 	BOOL soundEnabled;
 	BOOL vibrateEnabled;
 	BOOL awesomeEnabled;
+	BOOL carlWarningShown;
+	BOOL internWarningShown;
+	BOOL joeWarningShown;
 }
 
-+ (WABSettings *)sharedInstance;
++ (WABSettings *)get;
 -(void) loadSettings:(BOOL)overrideDefaults withDelegate:(id)target withSelector:(SEL)completionSelector;
 -(void) saveSettings;
 
@@ -24,5 +27,8 @@
 @property (nonatomic,readwrite) BOOL soundEnabled;
 @property (nonatomic,readwrite) BOOL vibrateEnabled;
 @property (nonatomic,readwrite) BOOL awesomeEnabled;
+@property (nonatomic,readwrite) BOOL carlWarningShown;
+@property (nonatomic,readwrite) BOOL internWarningShown;
+@property (nonatomic,readwrite) BOOL joeWarningShown;
 
 @end
