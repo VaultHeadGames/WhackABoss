@@ -128,7 +128,7 @@
 		NSInteger weekday = [weekdayComponents weekday];
 		if (weekday == 2)
 			[[OFHandler sharedInstance] registerAchivement:CASE_OF_THE_MONDAYS];
-		else if (weekday == 7)
+		else if (weekday == 6)
 			[[OFHandler sharedInstance] registerAchivement:I_WANNA_GET_THE_HELL_OUTTA_HERE_];
 	}
 }
