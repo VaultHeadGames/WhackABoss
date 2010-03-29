@@ -312,7 +312,7 @@
 	[self addChild:overlaySprite z:20];
 	[overlaySprite runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.33 opacity:255],[CCIntervalAction actionWithDuration:2.5],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];;
 	[[ScoreManager get] levelUp];
-	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:3],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];
+//	[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:3],[CCCallFuncN actionWithTarget:self selector:@selector(completeLevelChange:)],nil]];
 //	[self schedule:@selector(completeLevelChange:) interval:3];
 }
 
