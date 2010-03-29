@@ -20,5 +20,6 @@
 }
 
 -(void) backToMainMenu:(id)sender;
+-(void) saveSettings;
 
 @end

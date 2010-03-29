@@ -40,6 +40,7 @@
 -(void) tallyScoreChange:(CreatureType) cType;
 -(void) levelUp;
 -(double) creatureFadeOutTime;
+-(double) creatureMovementTime;
 
 -(void) reset;
 

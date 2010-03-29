@@ -52,10 +52,10 @@
 
 -(void) playRandomHit
 {
-	int myPick = arc4random() % 5;
-	if (myPick >= 1)
+	int myPick = arc4random() % 3;
+	if (myPick <= 1)
 		[self playEffect:@"hit1.caf"];
-	else if (myPick >= 3)
+	else if (myPick <= 2)
 		[self playEffect:@"hit2.caf"];
 	else 
 		[self playEffect:@"hit3.caf"];

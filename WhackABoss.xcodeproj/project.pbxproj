@@ -760,6 +760,7 @@
 		2FC92B5F115FECAF00F96CB3 /* fired.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B5E115FECAF00F96CB3 /* fired.caf */; };
 		2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B66115FEDC100F96CB3 /* thanks.png */; };
 		2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92C03115FF5FE00F96CB3 /* uhoh.caf */; };
+		2FC92D2511603B3D00F96CB3 /* openfeint_offline_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92D2411603B3D00F96CB3 /* openfeint_offline_config.xml */; };
 		2FF6A0D8115CDE3900BDFB7B /* EndGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -2158,6 +2159,7 @@
 		2FC92B5E115FECAF00F96CB3 /* fired.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fired.caf; path = Sounds/fired.caf; sourceTree = "<group>"; };
 		2FC92B66115FEDC100F96CB3 /* thanks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thanks.png; sourceTree = "<group>"; };
 		2FC92C03115FF5FE00F96CB3 /* uhoh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = uhoh.caf; path = Sounds/uhoh.caf; sourceTree = "<group>"; };
+		2FC92D2411603B3D00F96CB3 /* openfeint_offline_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = openfeint_offline_config.xml; sourceTree = "<group>"; };
 		2FF6A0D6115CDE3900BDFB7B /* EndGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameLayer.h; sourceTree = "<group>"; };
 		2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameLayer.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -5674,6 +5676,7 @@
 				2F2BB32A115BE5F400E0B762 /* Settings */,
 				2F8EE863114F17CF00C220B4 /* Main Menu */,
 				2FB45B7F114C28C70014E5F3 /* scoreCharMap.png */,
+				2FC92D2411603B3D00F96CB3 /* openfeint_offline_config.xml */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
@@ -6182,6 +6185,7 @@
 				2FC92B5F115FECAF00F96CB3 /* fired.caf in Resources */,
 				2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */,
 				2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */,
+				2FC92D2511603B3D00F96CB3 /* openfeint_offline_config.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

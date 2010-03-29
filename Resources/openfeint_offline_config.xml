@@ -1,0 +1,38 @@
+<resources>
+<game_profile_page_info>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+  <has_leaderboards>true</has_leaderboards>
+  <suggestions_topic_id>119124</suggestions_topic_id>
+  <has_achievements>true</has_achievements>
+  <has_featured_application>false</has_featured_application>
+  <short_name>Whack-A-Boss</short_name>
+  <has_chat_rooms>true</has_chat_rooms>
+  <name>Whack-A-Boss</name>
+  <has_ipurchase>false</has_ipurchase>
+  <has_challenges>false</has_challenges>
+  <id>54224</id>
+</game_profile_page_info>
+<offline>
+  <leaderboards>
+    <leaderboard>
+      <active>true</active>
+      <allow_posting_lower_scores>false</allow_posting_lower_scores>
+      <client_application_id>54224</client_application_id>
+      <created_at>2010-03-28T15:56:46Z</created_at>
+      <custom_data nil="true"></custom_data>
+      <descending_sort_order>true</descending_sort_order>
+      <display_text nil="true"></display_text>
+      <end_version>9999.99.99</end_version>
+      <id>267053</id>
+      <is_aggregate>false</is_aggregate>
+      <name>High Scores</name>
+      <reached_at nil="true"></reached_at>
+      <score nil="true"></score>
+      <start_version>0000.00.00</start_version>
+      <updated_at>2010-03-28T15:56:46Z</updated_at>
+      <visible>true</visible>
+    </leaderboard>
+  </leaderboards>
+</offline>
+
+</resources>

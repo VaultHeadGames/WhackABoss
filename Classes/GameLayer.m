@@ -143,7 +143,7 @@
 	
 	//long nextLevelTick = ((([[[ScoreManager get] level] intValue] - 1) * LEVEL_TICK_MIGRATION_MODIFIER) + 30);
 	
-	if (levelTickCounts > 45) {
+	if (levelTickCounts > (45 + ([[[ScoreManager get] level] intValue] * LEVEL_TICK_MIGRATION_MODIFIER))) {
 		gState = GAMESTATE_LEVELCHANGE;
 		[self doLevelChange];
 		return;
@@ -213,16 +213,29 @@
 		// pick a new creature to popup!
 		int newCreatureIndex = round(arc4random() % 8);
 		NSLog(@"<GameRunner> Creature index %d signaled to popup",newCreatureIndex);
-		int newCreatureTypeI = arc4random() % 4;
+		int newCreatureTypeI = arc4random() % 10;
+		int bossCreatureProbability;
+		int specialCreatureProbability;
+		// grab probability ratios
+		if ([[[ScoreManager get] level] intValue] >= 5)
+			bossCreatureProbability = LEVEL_SET_ONE_DISTRIBUTION_BOSS * 10;
+		else if ([[[ScoreManager get] level] intValue] >= 13)
+			bossCreatureProbability = LEVEL_SET_TWO_DISTRIBUTION_BOSS * 10;
+		else if ([[[ScoreManager get] level] intValue] >= 19)
+			bossCreatureProbability = LEVEL_SET_THREE_DISTRIBUTION_BOSS * 10;
+		else
+			bossCreatureProbability = LEVEL_SET_FOUR_DISTRIBUTION_BOSS * 10;
+		specialCreatureProbability = (10 - bossCreatureProbability) / 3;
+		// determine what we're creating
 		CreatureType newCreatureType;
-		if (newCreatureTypeI <= 0)
+		if (newCreatureTypeI <= specialCreatureProbability)
 			newCreatureType = SEXY_TYPE;
-		else if (newCreatureTypeI <= 1)
-			newCreatureType = BOSS_TYPE;
-		else if (newCreatureTypeI <= 2.5)
+		else if (newCreatureTypeI <= (specialCreatureProbability * 2))
+			newCreatureType = JOE_TYPE;
+		else if (newCreatureTypeI <= (specialCreatureProbability * 3))
 			newCreatureType = CARL_TYPE;
 		else
-			newCreatureType = JOE_TYPE;
+			newCreatureType = BOSS_TYPE;
 		switch (newCreatureIndex) {
 			case 0:
 				if (c11.state != STATE_IDLE)

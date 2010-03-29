@@ -142,7 +142,19 @@
 
 -(double) creatureFadeOutTime
 {
-	return 3 - ((([level intValue] * BASELINE_DIFFICULTY_MODIFIER) * ([level intValue] * BASELINE_DIFFICULTY_MODIFIER)) / (BASELINE_DIFFICULTY_MODIFIER * 10));
+	return MAX(0,3 - ((([level intValue] * BASELINE_DIFFICULTY_MODIFIER) * ([level intValue] * BASELINE_DIFFICULTY_MODIFIER)) / (BASELINE_DIFFICULTY_MODIFIER * 10)));
+}
+
+-(double) creatureMovementTime
+{
+	double calculatedTime;
+	if ([level intValue] >= 5)
+		calculatedTime = 0.8;
+	else if ([level intValue] >= 15)
+		calculatedTime = 0.8 - ([level intValue] * (BASELINE_DIFFICULTY_MODIFIER * 0.1));
+	else
+		calculatedTime = 0.8 - ([level intValue] * (BASELINE_DIFFICULTY_MODIFIER * 0.18));
+	return MAX(0.25,calculatedTime);
 }
 
 -(void) reset

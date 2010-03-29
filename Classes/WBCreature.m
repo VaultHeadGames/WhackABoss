@@ -69,7 +69,7 @@
 				break;
 		}
 		state = STATE_GOING_DOWN;
-		[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:.1], [CCCallFuncN actionWithTarget:self selector:@selector(strikeDown:)], nil]];
+		[self runAction:[CCSequence actions:[CCIntervalAction actionWithDuration:.08], [CCCallFuncN actionWithTarget:self selector:@selector(strikeDown:)], nil]];
 		return true; // let the delegate know we're handing this event
 	}
 	return false;
@@ -154,7 +154,7 @@
 		return;
 	[self reset];
 	state = STATE_GOING_UP;
-	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:upPosition], [CCCallFuncN actionWithTarget:self selector:@selector(upCompleted:)], nil]];
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:[[ScoreManager get] creatureMovementTime] position:upPosition], [CCCallFuncN actionWithTarget:self selector:@selector(upCompleted:)], nil]];
 }
 
 -(void) upCompleted:(id)sender
@@ -168,7 +168,7 @@
 	if (state != STATE_HOLDING)
 		return;
 	state = STATE_GOING_DOWN;
-	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.8 position:downPosition], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
+	[self runAction:[CCSequence actions:[CCMoveTo actionWithDuration:[[ScoreManager get] creatureMovementTime] position:downPosition], [CCCallFuncN actionWithTarget:self selector:@selector(downCompleted:)], nil]];
 }
 
 -(void) downCompleted: (id)sender
