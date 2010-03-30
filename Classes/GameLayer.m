@@ -213,19 +213,14 @@
 		// pick a new creature to popup!
 		int newCreatureIndex = round(arc4random() % 8);
 		NSLog(@"<GameRunner> Creature index %d signaled to popup",newCreatureIndex);
-		int newCreatureTypeI = arc4random() % 10;
+		int newCreatureTypeI = arc4random() % 100;
+		NSLog(@"<GameRunner> Creature roll is %i",newCreatureTypeI);
 		int bossCreatureProbability;
 		int specialCreatureProbability;
 		// grab probability ratios
-		if ([[[ScoreManager get] level] intValue] >= 5)
-			bossCreatureProbability = LEVEL_SET_ONE_DISTRIBUTION_BOSS * 10;
-		else if ([[[ScoreManager get] level] intValue] >= 13)
-			bossCreatureProbability = LEVEL_SET_TWO_DISTRIBUTION_BOSS * 10;
-		else if ([[[ScoreManager get] level] intValue] >= 19)
-			bossCreatureProbability = LEVEL_SET_THREE_DISTRIBUTION_BOSS * 10;
-		else
-			bossCreatureProbability = LEVEL_SET_FOUR_DISTRIBUTION_BOSS * 10;
-		specialCreatureProbability = (10 - bossCreatureProbability) / 3;
+		bossCreatureProbability = 75 - (([[[ScoreManager get] level] intValue] ^ 3) / 250) + (([[[ScoreManager get] level] intValue] ^ 2) / 30);
+		specialCreatureProbability = (100 - bossCreatureProbability) / 4;
+		NSLog(@"<GameRunner> Probabilities are %d boss, %d special",bossCreatureProbability,specialCreatureProbability);
 		// determine what we're creating
 		CreatureType newCreatureType;
 		if (newCreatureTypeI <= specialCreatureProbability)
