@@ -34,6 +34,7 @@ typedef enum
 	CCSprite *_creatureSprite;
 	CGPoint upPosition;
 	CGPoint downPosition;
+	BOOL _struckThisRound;
 }
 
 @property (nonatomic) CreatureState state;

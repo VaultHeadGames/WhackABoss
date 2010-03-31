@@ -23,26 +23,27 @@
 		background.anchorPoint = CGPointZero;
 		[self addChild: background z:-1];
 		
-		vibrateSlider = [[WABSlider alloc] init];
+		vibrateSlider = [[[WABSlider alloc] init] retain];
 		vibrateSlider.position = ccp(222,348);
-		[vibrateSlider setValue: [[WABSettings get] vibrateEnabled]];
-		[self addChild:vibrateSlider z:0];
 		
-		soundSlider = [[WABSlider alloc] init];
+		soundSlider = [[[WABSlider alloc] init] retain];
 		soundSlider.position = ccp(222,287);
-		[soundSlider setValue: [[WABSettings get] soundEnabled]];
-		[self addChild:soundSlider z:0];
 		
-		awesomeSlider = [[WABSlider alloc] init];
+		awesomeSlider = [[[WABSlider alloc] init] retain];
 		awesomeSlider.position = ccp(222,224);
-		[awesomeSlider setValue: [[WABSettings get] awesomeEnabled]];
-		[self addChild:awesomeSlider z:0];
 		
 		backButton = [CCMenuItemImage itemFromNormalImage:@"settingsBack.png" selectedImage:@"settingsBackSel.png" target:self selector:@selector(backToMainMenu:)];
 		backButton.anchorPoint = CGPointZero;
 		backMenu = [CCMenu menuWithItems:backButton,nil];
 		backMenu.position = CGPointZero;
 		[self addChild:backMenu z:1];
+		
+		[vibrateSlider setValue: [[WABSettings get] vibrateEnabled]];
+		[self addChild:vibrateSlider z:0];
+		[soundSlider setValue: [[WABSettings get] soundEnabled]];
+		[self addChild:soundSlider z:0];
+		[awesomeSlider setValue: [[WABSettings get] awesomeEnabled]];
+		[self addChild:awesomeSlider z:0];
 	}
 	
 	return self;

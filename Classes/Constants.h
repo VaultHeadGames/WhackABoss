@@ -11,7 +11,7 @@
 
 #define VERSION_MAJOR	0
 #define VERSION_MINOR	3
-#define VERSION_REV		0
+#define VERSION_REV		2
 #define VERSION_TAG		@"D"
 
 #define BASELINE_DIFFICULTY_MODIFIER 0.13
@@ -23,12 +23,6 @@
 #define MAXIMUM_SEXY_HITS 3
 
 #define LAST_LEVEL 25
-
-// Probability distributions
-#define LEVEL_SET_ONE_DISTRIBUTION_BOSS 0.8
-#define LEVEL_SET_TWO_DISTRIBUTION_BOSS 0.7
-#define LEVEL_SET_THREE_DISTRIBUTION_BOSS 0.55
-#define LEVEL_SET_FOUR_DISTRIBUTION_BOSS 0.4
 
 // OpenFeint Achivements
 #pragma once 

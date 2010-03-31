@@ -39,6 +39,12 @@
 	[_engine preloadEffect:@"hit1.caf"];
 	[_engine preloadEffect:@"hit2.caf"];
 	[_engine preloadEffect:@"hit3.caf"];
+	[_engine preloadEffect:@"hit4.caf"];
+	[_engine preloadEffect:@"hit5.caf"];
+	[_engine preloadEffect:@"hit6.caf"];
+	[_engine preloadEffect:@"hit7.caf"];
+	[_engine preloadEffect:@"hit8.caf"];
+	[_engine preloadEffect:@"hit9.caf"];
 	[_engine preloadEffect:@"carl-laugh.caf"];
 	[_engine preloadEffect:@"sexy-hit.caf"];
 	[_engine preloadEffect:@"sexy-no.caf"];
@@ -52,14 +58,25 @@
 
 -(void) playRandomHit
 {
-	int myPick = arc4random() % 3;
-	if (myPick <= 1)
+	int myPick = arc4random() % 9;
+	if (myPick == 0)
 		[self playEffect:@"hit1.caf"];
-	else if (myPick <= 2)
+	else if (myPick == 1)
 		[self playEffect:@"hit2.caf"];
-	else 
+	else if (myPick == 2)
 		[self playEffect:@"hit3.caf"];
-
+	else if (myPick == 3)
+		[self playEffect:@"hit4.caf"];
+	else if (myPick == 4)
+		[self playEffect:@"hit5.caf"];
+	else if (myPick == 5)
+		[self playEffect:@"hit6.caf"];
+	else if (myPick == 6)
+		[self playEffect:@"hit7.caf"];
+	else if (myPick == 7)
+		[self playEffect:@"hit8.caf"];
+	else
+		[self playEffect:@"hit9.caf"];
 }
 
 @end
