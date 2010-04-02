@@ -40,33 +40,7 @@
 		[self addChild:scoreLayer z:6];
 				
 		[self addChild:[[WhackABossAppDelegate get] spriteSheet] z:-1];
-		
-		// ROW ONE
-		c11 = [[WBCreature alloc] init];
-		[c11 setScale:ROW_ONE_SCALE];
-		[c11 setUpPosition:ccp(45,ROW_ONE_X_BOTTOM)];
-		[self addChild:c11 z:6];
-		c12 = [[WBCreature alloc] init];
-		[c12 setScale:ROW_ONE_SCALE];
-		[c12 setUpPosition:ccp(160,ROW_ONE_X_BOTTOM)];
-		[self addChild:c12 z:6];
-		c13 = [[WBCreature alloc] init];
-		[c13 setScale:ROW_ONE_SCALE];
-		[c13 setUpPosition:ccp(275,ROW_ONE_X_BOTTOM)];
-		[self addChild:c13 z:6];
-		// ROW TWO
-		c21 = [[WBCreature alloc] init];
-		[c21 setScale:ROW_TWO_SCALE];
-		[c21 setUpPosition:ccp(68,ROW_TWO_X_BOTTOM)];
-		[self addChild:c21 z:4];
-		c22 = [[WBCreature alloc] init];
-		[c22 setScale:ROW_TWO_SCALE];
-		[c22 setUpPosition:ccp(160,ROW_TWO_X_BOTTOM)];
-		[self addChild:c22 z:4];
-		c23 = [[WBCreature alloc] init];
-		[c23 setScale:ROW_TWO_SCALE];
-		[c23 setUpPosition:ccp(257,ROW_TWO_X_BOTTOM)];
-		[self addChild:c23 z:4];
+
 		// ROW THREE
 		c31 = [[WBCreature alloc] init];
 		[c31 setScale:ROW_THREE_SCALE];
@@ -80,6 +54,33 @@
 		[c33 setScale:ROW_THREE_SCALE];
 		[c33 setUpPosition:ccp(243,ROW_THREE_X_BOTTOM)];
 		[self addChild:c33 z:2];
+		// ROW TWO
+		c21 = [[WBCreature alloc] init];
+		[c21 setScale:ROW_TWO_SCALE];
+		[c21 setUpPosition:ccp(68,ROW_TWO_X_BOTTOM)];
+		[self addChild:c21 z:4];
+		c22 = [[WBCreature alloc] init];
+		[c22 setScale:ROW_TWO_SCALE];
+		[c22 setUpPosition:ccp(160,ROW_TWO_X_BOTTOM)];
+		[self addChild:c22 z:4];
+		c23 = [[WBCreature alloc] init];
+		[c23 setScale:ROW_TWO_SCALE];
+		[c23 setUpPosition:ccp(257,ROW_TWO_X_BOTTOM)];
+		[self addChild:c23 z:4];
+		// ROW ONE
+		c11 = [[WBCreature alloc] init];
+		[c11 setScale:ROW_ONE_SCALE];
+		[c11 setUpPosition:ccp(45,ROW_ONE_X_BOTTOM)];
+		[self addChild:c11 z:6];
+		c12 = [[WBCreature alloc] init];
+		[c12 setScale:ROW_ONE_SCALE];
+		[c12 setUpPosition:ccp(160,ROW_ONE_X_BOTTOM)];
+		[self addChild:c12 z:6];
+		c13 = [[WBCreature alloc] init];
+		[c13 setScale:ROW_ONE_SCALE];
+		[c13 setUpPosition:ccp(275,ROW_ONE_X_BOTTOM)];
+		[self addChild:c13 z:6];
+
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:FALSE];
 		
