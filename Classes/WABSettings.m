@@ -59,10 +59,10 @@
 	[savedSettings setObject:[NSNumber numberWithInt:last2End] forKey:@"last2End"];
 	[savedSettings setObject:@"no" forKey:@"use_defaults"];
 	[savedSettings synchronize];
-	if (!soundEnabled)
-		[[AudioController sharedInstance] stopMusic];
+	if (soundEnabled == FALSE)
+		[[AudioController sharedInstance] mute];
 	else
-		[[AudioController sharedInstance] startMusic];
+		[[AudioController sharedInstance] unMute];
 }
 
 -(id) init

@@ -69,9 +69,19 @@
 	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
+-(void) mute
+{
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
+}
+
+-(void) unMute
+{
+	[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.4f];
+}
+
 -(void) playRandomHit
 {
-	int myPick = arc4random() % 9;
+	int myPick = arc4random() % 8;
 	if (myPick == 0)
 		[self playEffect:@"hit1.caf"];
 	else if (myPick == 1)
@@ -86,10 +96,8 @@
 		[self playEffect:@"hit6.caf"];
 	else if (myPick == 6)
 		[self playEffect:@"hit7.caf"];
-	else if (myPick == 7)
-		[self playEffect:@"hit8.caf"];
 	else
-		[self playEffect:@"hit9.caf"];
+		[self playEffect:@"hit8.caf"];
 }
 
 @end

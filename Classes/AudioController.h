@@ -25,4 +25,7 @@
 -(void) startMusic;
 -(void) stopMusic;
 
+-(void) mute;
+-(void) unMute;
+
 @end

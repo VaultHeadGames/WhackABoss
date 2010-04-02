@@ -733,6 +733,7 @@
 		2F5A3568115B164D008C548A /* WABSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A3567115B164D008C548A /* WABSlider.m */; };
 		2F5CC09C115C3BA500D65780 /* character_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5CC09B115C3BA500D65780 /* character_sheet.plist */; };
 		2F5CC19B115C54D600D65780 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5CC19A115C54D600D65780 /* ScoreManager.m */; };
+		2F6D25B8116669360047C42C /* hit7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2F6D25B7116669360047C42C /* hit7.caf */; };
 		2F76E70F1129D19F0086DE06 /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7051129D19F0086DE06 /* FontLabel.m */; };
 		2F76E7101129D19F0086DE06 /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7071129D19F0086DE06 /* FontLabelStringDrawing.m */; };
 		2F76E7111129D19F0086DE06 /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76E7091129D19F0086DE06 /* FontManager.m */; };
@@ -771,9 +772,7 @@
 		2FF2594F1162C7C700FAFE24 /* hit4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594C1162C7C700FAFE24 /* hit4.caf */; };
 		2FF259501162C7C700FAFE24 /* hit5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594D1162C7C700FAFE24 /* hit5.caf */; };
 		2FF259511162C7C700FAFE24 /* hit6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594E1162C7C700FAFE24 /* hit6.caf */; };
-		2FF2595F1162C92700FAFE24 /* hit7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2595D1162C92700FAFE24 /* hit7.caf */; };
 		2FF259601162C92700FAFE24 /* hit8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2595E1162C92700FAFE24 /* hit8.caf */; };
-		2FF259631162C99000FAFE24 /* hit9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF259621162C99000FAFE24 /* hit9.caf */; };
 		2FF6A0D8115CDE3900BDFB7B /* EndGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -2139,6 +2138,7 @@
 		2F5CC09B115C3BA500D65780 /* character_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_sheet.plist; sourceTree = "<group>"; };
 		2F5CC199115C54D600D65780 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		2F5CC19A115C54D600D65780 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
+		2F6D25B7116669360047C42C /* hit7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit7.caf; path = Sounds/hit7.caf; sourceTree = "<group>"; };
 		2F76E7041129D19F0086DE06 /* FontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabel.h; sourceTree = "<group>"; };
 		2F76E7051129D19F0086DE06 /* FontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontLabel.m; sourceTree = "<group>"; };
 		2F76E7061129D19F0086DE06 /* FontLabelStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontLabelStringDrawing.h; sourceTree = "<group>"; };
@@ -2183,9 +2183,7 @@
 		2FF2594C1162C7C700FAFE24 /* hit4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit4.caf; path = Sounds/hit4.caf; sourceTree = "<group>"; };
 		2FF2594D1162C7C700FAFE24 /* hit5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit5.caf; path = Sounds/hit5.caf; sourceTree = "<group>"; };
 		2FF2594E1162C7C700FAFE24 /* hit6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit6.caf; path = Sounds/hit6.caf; sourceTree = "<group>"; };
-		2FF2595D1162C92700FAFE24 /* hit7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit7.caf; path = Sounds/hit7.caf; sourceTree = "<group>"; };
 		2FF2595E1162C92700FAFE24 /* hit8.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit8.caf; path = Sounds/hit8.caf; sourceTree = "<group>"; };
-		2FF259621162C99000FAFE24 /* hit9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit9.caf; path = Sounds/hit9.caf; sourceTree = "<group>"; };
 		2FF6A0D6115CDE3900BDFB7B /* EndGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameLayer.h; sourceTree = "<group>"; };
 		2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameLayer.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -5452,9 +5450,8 @@
 		2FC92AD8115FE11400F96CB3 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				2F6D25B7116669360047C42C /* hit7.caf */,
 				2F2A77E1116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 */,
-				2FF259621162C99000FAFE24 /* hit9.caf */,
-				2FF2595D1162C92700FAFE24 /* hit7.caf */,
 				2FF2595E1162C92700FAFE24 /* hit8.caf */,
 				2FF2594C1162C7C700FAFE24 /* hit4.caf */,
 				2FF2594D1162C7C700FAFE24 /* hit5.caf */,
@@ -6225,9 +6222,7 @@
 				2FF2594F1162C7C700FAFE24 /* hit4.caf in Resources */,
 				2FF259501162C7C700FAFE24 /* hit5.caf in Resources */,
 				2FF259511162C7C700FAFE24 /* hit6.caf in Resources */,
-				2FF2595F1162C92700FAFE24 /* hit7.caf in Resources */,
 				2FF259601162C92700FAFE24 /* hit8.caf in Resources */,
-				2FF259631162C99000FAFE24 /* hit9.caf in Resources */,
 				2F2A77AF116633DB00C03012 /* end-00-pre-win-screen.png in Resources */,
 				2F2A77B0116633DB00C03012 /* end-01-win-screen.png in Resources */,
 				2F2A77B1116633DB00C03012 /* end-10-pre-postal-screen.png in Resources */,
@@ -6238,6 +6233,7 @@
 				2F2A77B81166352500C03012 /* settingsReset.png in Resources */,
 				2F2A77B91166352500C03012 /* settingsResetSel.png in Resources */,
 				2F2A77E2116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 in Resources */,
+				2F6D25B8116669360047C42C /* hit7.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6841,6 +6837,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PRODUCT_NAME = "Whack-Your-Boss";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
@@ -6856,6 +6853,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PRODUCT_NAME = "Whack-Your-Boss";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Release;

@@ -1,15 +1,15 @@
 <resources>
 <game_profile_page_info>
-  <is_owned_by_local_player>true</is_owned_by_local_player>
-  <has_leaderboards>true</has_leaderboards>
-  <suggestions_topic_id>119124</suggestions_topic_id>
-  <has_achievements>true</has_achievements>
   <has_featured_application>false</has_featured_application>
-  <short_name>Whack-A-Boss</short_name>
+  <has_achievements>true</has_achievements>
   <has_chat_rooms>true</has_chat_rooms>
-  <name>Whack-A-Boss</name>
   <has_ipurchase>false</has_ipurchase>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
   <has_challenges>false</has_challenges>
+  <short_name>WhackABoss</short_name>
+  <has_leaderboards>true</has_leaderboards>
+  <name>Whack-Your-Boss</name>
+  <suggestions_topic_id>119124</suggestions_topic_id>
   <id>54224</id>
 </game_profile_page_info>
 <offline>
@@ -26,6 +26,7 @@
       <id>267053</id>
       <is_aggregate>false</is_aggregate>
       <name>High Scores</name>
+      <position>0</position>
       <reached_at nil="true"></reached_at>
       <score nil="true"></score>
       <start_version>0000.00.00</start_version>

@@ -36,6 +36,7 @@
 
 -(void) switchScenes:(id)sender
 {
+	[[AudioController sharedInstance] startMusic];
 	@synchronized (self) {
 		if (is_fading)
 			return;
