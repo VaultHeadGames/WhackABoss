@@ -42,7 +42,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	if (_moving)
+	if ((_moving) || ([[CCDirector sharedDirector] runningScene] != [[WhackABossAppDelegate get] settingsScene]))
 		return false;
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];

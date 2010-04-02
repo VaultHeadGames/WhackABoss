@@ -220,7 +220,7 @@
 		int specialCreatureProbability;
 		// grab probability ratios
 		bossCreatureProbability = 75 - (([[[ScoreManager get] level] intValue] ^ 3) / 250) + (([[[ScoreManager get] level] intValue] ^ 2) / 30);
-		specialCreatureProbability = (100 - bossCreatureProbability) / 4;
+		specialCreatureProbability = (100 - bossCreatureProbability) / 3;
 		NSLog(@"<GameRunner> Probabilities are %d boss, %d special",bossCreatureProbability,specialCreatureProbability);
 		// determine what we're creating
 		CreatureType newCreatureType;

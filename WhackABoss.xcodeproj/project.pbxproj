@@ -761,6 +761,12 @@
 		2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92B66115FEDC100F96CB3 /* thanks.png */; };
 		2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92C03115FF5FE00F96CB3 /* uhoh.caf */; };
 		2FC92D2511603B3D00F96CB3 /* openfeint_offline_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FC92D2411603B3D00F96CB3 /* openfeint_offline_config.xml */; };
+		2FF2594F1162C7C700FAFE24 /* hit4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594C1162C7C700FAFE24 /* hit4.caf */; };
+		2FF259501162C7C700FAFE24 /* hit5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594D1162C7C700FAFE24 /* hit5.caf */; };
+		2FF259511162C7C700FAFE24 /* hit6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2594E1162C7C700FAFE24 /* hit6.caf */; };
+		2FF2595F1162C92700FAFE24 /* hit7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2595D1162C92700FAFE24 /* hit7.caf */; };
+		2FF259601162C92700FAFE24 /* hit8.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF2595E1162C92700FAFE24 /* hit8.caf */; };
+		2FF259631162C99000FAFE24 /* hit9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2FF259621162C99000FAFE24 /* hit9.caf */; };
 		2FF6A0D8115CDE3900BDFB7B /* EndGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -2160,6 +2166,12 @@
 		2FC92B66115FEDC100F96CB3 /* thanks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thanks.png; sourceTree = "<group>"; };
 		2FC92C03115FF5FE00F96CB3 /* uhoh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = uhoh.caf; path = Sounds/uhoh.caf; sourceTree = "<group>"; };
 		2FC92D2411603B3D00F96CB3 /* openfeint_offline_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = openfeint_offline_config.xml; sourceTree = "<group>"; };
+		2FF2594C1162C7C700FAFE24 /* hit4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit4.caf; path = Sounds/hit4.caf; sourceTree = "<group>"; };
+		2FF2594D1162C7C700FAFE24 /* hit5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit5.caf; path = Sounds/hit5.caf; sourceTree = "<group>"; };
+		2FF2594E1162C7C700FAFE24 /* hit6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit6.caf; path = Sounds/hit6.caf; sourceTree = "<group>"; };
+		2FF2595D1162C92700FAFE24 /* hit7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit7.caf; path = Sounds/hit7.caf; sourceTree = "<group>"; };
+		2FF2595E1162C92700FAFE24 /* hit8.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit8.caf; path = Sounds/hit8.caf; sourceTree = "<group>"; };
+		2FF259621162C99000FAFE24 /* hit9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit9.caf; path = Sounds/hit9.caf; sourceTree = "<group>"; };
 		2FF6A0D6115CDE3900BDFB7B /* EndGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameLayer.h; sourceTree = "<group>"; };
 		2FF6A0D7115CDE3900BDFB7B /* EndGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameLayer.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -5420,6 +5432,12 @@
 		2FC92AD8115FE11400F96CB3 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				2FF259621162C99000FAFE24 /* hit9.caf */,
+				2FF2595D1162C92700FAFE24 /* hit7.caf */,
+				2FF2595E1162C92700FAFE24 /* hit8.caf */,
+				2FF2594C1162C7C700FAFE24 /* hit4.caf */,
+				2FF2594D1162C7C700FAFE24 /* hit5.caf */,
+				2FF2594E1162C7C700FAFE24 /* hit6.caf */,
 				2FC92C03115FF5FE00F96CB3 /* uhoh.caf */,
 				2FC92B5E115FECAF00F96CB3 /* fired.caf */,
 				2FC92B4B115FE83A00F96CB3 /* sexy-hit.caf */,
@@ -6186,6 +6204,12 @@
 				2FC92B67115FEDC100F96CB3 /* thanks.png in Resources */,
 				2FC92C04115FF5FE00F96CB3 /* uhoh.caf in Resources */,
 				2FC92D2511603B3D00F96CB3 /* openfeint_offline_config.xml in Resources */,
+				2FF2594F1162C7C700FAFE24 /* hit4.caf in Resources */,
+				2FF259501162C7C700FAFE24 /* hit5.caf in Resources */,
+				2FF259511162C7C700FAFE24 /* hit6.caf in Resources */,
+				2FF2595F1162C92700FAFE24 /* hit7.caf in Resources */,
+				2FF259601162C92700FAFE24 /* hit8.caf in Resources */,
+				2FF259631162C99000FAFE24 /* hit9.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

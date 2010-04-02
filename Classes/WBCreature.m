@@ -21,6 +21,7 @@
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
 		_creatureSprite = [CCSprite spriteWithSpriteFrameName:@"joe_normal.png"];
 		_creatureType = JOE_TYPE;
+		_struckThisRound = FALSE;
 		state = STATE_HOLDING;
 		[self addChild:_creatureSprite];
 	}
@@ -33,12 +34,15 @@
 	// handle click
 	if ((state == STATE_IDLE) || ([[[WhackABossAppDelegate get] gameLayer] gState] != GAMESTATE_RUNNING))
 		return false;
+	if (_struckThisRound)
+		return false;
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];
 	CGRect myRect = CGRectMake(self.position.x - (_creatureSprite.contentSize.width * self.scale) / 2, self.position.y - (_creatureSprite.contentSize.height * self.scale) / 2, (_creatureSprite.contentSize.width * self.scale), (_creatureSprite.contentSize.height * self.scale));
 	// are we actually being clicked?
 	if (CGRectContainsPoint(myRect, location)) {
 		NSLog(@"Ceature reports touch");
+		_struckThisRound = TRUE;
 		[[ScoreManager get] tallyScoreChange:_creatureType];
 		switch (_creatureType) {
 			case BOSS_TYPE:
@@ -173,6 +177,7 @@
 
 -(void) downCompleted: (id)sender
 {
+	_struckThisRound = FALSE;
 	state = STATE_IDLE;
 }
 
