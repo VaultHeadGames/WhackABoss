@@ -7,6 +7,7 @@
 //
 
 #import "WABSettings.h"
+#import "AudioController.h"
 
 @implementation WABSettings
 
@@ -58,6 +59,10 @@
 	[savedSettings setObject:[NSNumber numberWithInt:last2End] forKey:@"last2End"];
 	[savedSettings setObject:@"no" forKey:@"use_defaults"];
 	[savedSettings synchronize];
+	if (!soundEnabled)
+		[[AudioController sharedInstance] stopMusic];
+	else
+		[[AudioController sharedInstance] startMusic];
 }
 
 -(id) init

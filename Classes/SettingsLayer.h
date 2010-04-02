@@ -17,9 +17,11 @@
 	WABSlider *awesomeSlider;
 	CCMenu *backMenu;
 	CCMenuItem *backButton;
+	CCMenuItem *warningsReset;
 }
 
 -(void) backToMainMenu:(id)sender;
+-(void) doResetWarnings:(id)sender;
 -(void) saveSettings;
 
 @end

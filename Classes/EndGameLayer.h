@@ -20,10 +20,13 @@ typedef enum
 	
 @private
 	CCSprite *egSprite;
+	CCSprite *eg2Sprite;
+	EndGameCondition _condition;
 }
 
 -(id) initWithEndGame:(EndGameCondition)condition;
-
+-(void) checkFeintAchivementsAndPlaySound;
 -(void) finish:(id)sender;
+-(void) fadeBackToMenu:(id)sender;
 
 @end

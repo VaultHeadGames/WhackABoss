@@ -22,4 +22,7 @@
 -(void) playEffect:(NSString *)file;
 -(void) playRandomHit;
 
+-(void) startMusic;
+-(void) stopMusic;
+
 @end

@@ -56,6 +56,19 @@
 		[_engine playEffect:file];
 }
 
+-(void) startMusic
+{
+	if ([[WABSettings get] soundEnabled]) {
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bossa_06_nightjuice_L2.mp3" loop:TRUE];
+		[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.4f];
+	}
+}
+
+-(void) stopMusic
+{
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+}
+
 -(void) playRandomHit
 {
 	int myPick = arc4random() % 9;

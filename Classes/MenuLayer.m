@@ -49,6 +49,7 @@
 		
 		[self addChild: versionLabel];
 		[self addChild: mainMenu];
+		[[AudioController sharedInstance] startMusic];
 	}
 	return self;
 }

@@ -701,13 +701,20 @@
 		2F26D2D8111F5AF300C99E6B /* OFHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2D7111F5AF300C99E6B /* OFHandler.mm */; };
 		2F26D35A111F613300C99E6B /* OFAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D359111F613300C99E6B /* OFAppDelegate.mm */; };
 		2F271243115D59E000BA01C4 /* message_level_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F271242115D59E000BA01C4 /* message_level_up.png */; };
+		2F2A77AF116633DB00C03012 /* end-00-pre-win-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77A8116633DB00C03012 /* end-00-pre-win-screen.png */; };
+		2F2A77B0116633DB00C03012 /* end-01-win-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77A9116633DB00C03012 /* end-01-win-screen.png */; };
+		2F2A77B1116633DB00C03012 /* end-10-pre-postal-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77AA116633DB00C03012 /* end-10-pre-postal-screen.png */; };
+		2F2A77B2116633DB00C03012 /* end-11-postal-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77AB116633DB00C03012 /* end-11-postal-screen.png */; };
+		2F2A77B3116633DB00C03012 /* end-20-pre-fired-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77AC116633DB00C03012 /* end-20-pre-fired-screen.png */; };
+		2F2A77B4116633DB00C03012 /* end-21-fired-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77AD116633DB00C03012 /* end-21-fired-screen.png */; };
+		2F2A77B5116633DB00C03012 /* end-30-pre-harassment-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77AE116633DB00C03012 /* end-30-pre-harassment-screen.png */; };
+		2F2A77B81166352500C03012 /* settingsReset.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77B61166352500C03012 /* settingsReset.png */; };
+		2F2A77B91166352500C03012 /* settingsResetSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77B71166352500C03012 /* settingsResetSel.png */; };
+		2F2A77E2116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F2A77E1116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 */; };
 		2F2BB327115BE5F000E0B762 /* settingsscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB324115BE5F000E0B762 /* settingsscreen.png */; };
 		2F2BB328115BE5F000E0B762 /* slider_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB325115BE5F000E0B762 /* slider_bg.png */; };
 		2F2BB329115BE5F000E0B762 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB326115BE5F000E0B762 /* slider.png */; };
-		2F2BB333115BE62200E0B762 /* endGame_fired.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB32F115BE62200E0B762 /* endGame_fired.png */; };
-		2F2BB334115BE62200E0B762 /* endGame_harassment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB330115BE62200E0B762 /* endGame_harassment.png */; };
-		2F2BB335115BE62200E0B762 /* endGame_postal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB331115BE62200E0B762 /* endGame_postal.png */; };
-		2F2BB336115BE62200E0B762 /* endGame_win.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB332115BE62200E0B762 /* endGame_win.png */; };
+		2F2BB334115BE62200E0B762 /* end-31-harassment-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2BB330115BE62200E0B762 /* end-31-harassment-screen.png */; };
 		2F30F196115E8ACC00B5AFE2 /* message_carl_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F30F192115E8ACC00B5AFE2 /* message_carl_warning.png */; };
 		2F30F197115E8ACC00B5AFE2 /* message_go.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F30F193115E8ACC00B5AFE2 /* message_go.png */; };
 		2F30F198115E8ACC00B5AFE2 /* message_intern_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F30F194115E8ACC00B5AFE2 /* message_intern_warning.png */; };
@@ -2094,13 +2101,20 @@
 		2F26D358111F613300C99E6B /* OFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFAppDelegate.h; sourceTree = "<group>"; };
 		2F26D359111F613300C99E6B /* OFAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OFAppDelegate.mm; sourceTree = "<group>"; };
 		2F271242115D59E000BA01C4 /* message_level_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_level_up.png; sourceTree = "<group>"; };
+		2F2A77A8116633DB00C03012 /* end-00-pre-win-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-00-pre-win-screen.png"; path = "final-screens/end-00-pre-win-screen.png"; sourceTree = "<group>"; };
+		2F2A77A9116633DB00C03012 /* end-01-win-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-01-win-screen.png"; path = "final-screens/end-01-win-screen.png"; sourceTree = "<group>"; };
+		2F2A77AA116633DB00C03012 /* end-10-pre-postal-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-10-pre-postal-screen.png"; path = "final-screens/end-10-pre-postal-screen.png"; sourceTree = "<group>"; };
+		2F2A77AB116633DB00C03012 /* end-11-postal-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-11-postal-screen.png"; path = "final-screens/end-11-postal-screen.png"; sourceTree = "<group>"; };
+		2F2A77AC116633DB00C03012 /* end-20-pre-fired-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-20-pre-fired-screen.png"; path = "final-screens/end-20-pre-fired-screen.png"; sourceTree = "<group>"; };
+		2F2A77AD116633DB00C03012 /* end-21-fired-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-21-fired-screen.png"; path = "final-screens/end-21-fired-screen.png"; sourceTree = "<group>"; };
+		2F2A77AE116633DB00C03012 /* end-30-pre-harassment-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-30-pre-harassment-screen.png"; path = "final-screens/end-30-pre-harassment-screen.png"; sourceTree = "<group>"; };
+		2F2A77B61166352500C03012 /* settingsReset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsReset.png; sourceTree = "<group>"; };
+		2F2A77B71166352500C03012 /* settingsResetSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsResetSel.png; sourceTree = "<group>"; };
+		2F2A77E1116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bossa_06_nightjuice_L2.mp3; path = Music/bossa_06_nightjuice_L2.mp3; sourceTree = "<group>"; };
 		2F2BB324115BE5F000E0B762 /* settingsscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsscreen.png; sourceTree = "<group>"; };
 		2F2BB325115BE5F000E0B762 /* slider_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_bg.png; sourceTree = "<group>"; };
 		2F2BB326115BE5F000E0B762 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
-		2F2BB32F115BE62200E0B762 /* endGame_fired.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endGame_fired.png; sourceTree = "<group>"; };
-		2F2BB330115BE62200E0B762 /* endGame_harassment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endGame_harassment.png; sourceTree = "<group>"; };
-		2F2BB331115BE62200E0B762 /* endGame_postal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endGame_postal.png; sourceTree = "<group>"; };
-		2F2BB332115BE62200E0B762 /* endGame_win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endGame_win.png; sourceTree = "<group>"; };
+		2F2BB330115BE62200E0B762 /* end-31-harassment-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end-31-harassment-screen.png"; sourceTree = "<group>"; };
 		2F30F192115E8ACC00B5AFE2 /* message_carl_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_carl_warning.png; sourceTree = "<group>"; };
 		2F30F193115E8ACC00B5AFE2 /* message_go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_go.png; sourceTree = "<group>"; };
 		2F30F194115E8ACC00B5AFE2 /* message_intern_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_intern_warning.png; sourceTree = "<group>"; };
@@ -5310,6 +5324,8 @@
 		2F2BB32A115BE5F400E0B762 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2F2A77B61166352500C03012 /* settingsReset.png */,
+				2F2A77B71166352500C03012 /* settingsResetSel.png */,
 				2F30F19A115E8AEC00B5AFE2 /* settingsBack.png */,
 				2F30F19B115E8AEC00B5AFE2 /* settingsBackSel.png */,
 				2F2BB325115BE5F000E0B762 /* slider_bg.png */,
@@ -5334,10 +5350,14 @@
 		2F2BB32E115BE61400E0B762 /* End Games */ = {
 			isa = PBXGroup;
 			children = (
-				2F2BB32F115BE62200E0B762 /* endGame_fired.png */,
-				2F2BB330115BE62200E0B762 /* endGame_harassment.png */,
-				2F2BB331115BE62200E0B762 /* endGame_postal.png */,
-				2F2BB332115BE62200E0B762 /* endGame_win.png */,
+				2F2A77A8116633DB00C03012 /* end-00-pre-win-screen.png */,
+				2F2A77A9116633DB00C03012 /* end-01-win-screen.png */,
+				2F2A77AA116633DB00C03012 /* end-10-pre-postal-screen.png */,
+				2F2A77AB116633DB00C03012 /* end-11-postal-screen.png */,
+				2F2A77AC116633DB00C03012 /* end-20-pre-fired-screen.png */,
+				2F2A77AD116633DB00C03012 /* end-21-fired-screen.png */,
+				2F2A77AE116633DB00C03012 /* end-30-pre-harassment-screen.png */,
+				2F2BB330115BE62200E0B762 /* end-31-harassment-screen.png */,
 			);
 			name = "End Games";
 			sourceTree = "<group>";
@@ -5432,6 +5452,7 @@
 		2FC92AD8115FE11400F96CB3 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				2F2A77E1116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 */,
 				2FF259621162C99000FAFE24 /* hit9.caf */,
 				2FF2595D1162C92700FAFE24 /* hit7.caf */,
 				2FF2595E1162C92700FAFE24 /* hit8.caf */,
@@ -6173,10 +6194,7 @@
 				2F2BB327115BE5F000E0B762 /* settingsscreen.png in Resources */,
 				2F2BB328115BE5F000E0B762 /* slider_bg.png in Resources */,
 				2F2BB329115BE5F000E0B762 /* slider.png in Resources */,
-				2F2BB333115BE62200E0B762 /* endGame_fired.png in Resources */,
-				2F2BB334115BE62200E0B762 /* endGame_harassment.png in Resources */,
-				2F2BB335115BE62200E0B762 /* endGame_postal.png in Resources */,
-				2F2BB336115BE62200E0B762 /* endGame_win.png in Resources */,
+				2F2BB334115BE62200E0B762 /* end-31-harassment-screen.png in Resources */,
 				2F168433115C066A00492CF8 /* character_sheet.png in Resources */,
 				2F16843C115C07A200492CF8 /* aboutscreen_back.png in Resources */,
 				2F16843D115C07A200492CF8 /* aboutscreen_for.png in Resources */,
@@ -6210,6 +6228,16 @@
 				2FF2595F1162C92700FAFE24 /* hit7.caf in Resources */,
 				2FF259601162C92700FAFE24 /* hit8.caf in Resources */,
 				2FF259631162C99000FAFE24 /* hit9.caf in Resources */,
+				2F2A77AF116633DB00C03012 /* end-00-pre-win-screen.png in Resources */,
+				2F2A77B0116633DB00C03012 /* end-01-win-screen.png in Resources */,
+				2F2A77B1116633DB00C03012 /* end-10-pre-postal-screen.png in Resources */,
+				2F2A77B2116633DB00C03012 /* end-11-postal-screen.png in Resources */,
+				2F2A77B3116633DB00C03012 /* end-20-pre-fired-screen.png in Resources */,
+				2F2A77B4116633DB00C03012 /* end-21-fired-screen.png in Resources */,
+				2F2A77B5116633DB00C03012 /* end-30-pre-harassment-screen.png in Resources */,
+				2F2A77B81166352500C03012 /* settingsReset.png in Resources */,
+				2F2A77B91166352500C03012 /* settingsResetSel.png in Resources */,
+				2F2A77E2116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

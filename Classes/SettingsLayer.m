@@ -24,17 +24,22 @@
 		[self addChild: background z:-1];
 		
 		vibrateSlider = [[[WABSlider alloc] init] retain];
-		vibrateSlider.position = ccp(222,348);
+		vibrateSlider.position = ccp(222,378);
 		
 		soundSlider = [[[WABSlider alloc] init] retain];
-		soundSlider.position = ccp(222,287);
+		soundSlider.position = ccp(222,317);
 		
 		awesomeSlider = [[[WABSlider alloc] init] retain];
-		awesomeSlider.position = ccp(222,224);
+		awesomeSlider.position = ccp(222,254);
 		
 		backButton = [CCMenuItemImage itemFromNormalImage:@"settingsBack.png" selectedImage:@"settingsBackSel.png" target:self selector:@selector(backToMainMenu:)];
 		backButton.anchorPoint = CGPointZero;
-		backMenu = [CCMenu menuWithItems:backButton,nil];
+		
+		warningsReset = [CCMenuItemImage itemFromNormalImage:@"settingsReset.png" selectedImage:@"settingsResetSel.png" target:self selector:@selector(doResetWarnings:)];
+		warningsReset.anchorPoint = ccp(0.5,0.5);
+		warningsReset.position = ccp(160,200);
+		
+		backMenu = [CCMenu menuWithItems:backButton,warningsReset,nil];
 		backMenu.position = CGPointZero;
 		[self addChild:backMenu z:1];
 		
@@ -55,6 +60,16 @@
 	
 	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];
+}
+
+-(void) doResetWarnings:(id)sender
+{
+	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
+	
+	[WABSettings get].joeWarningShown = FALSE;
+	[WABSettings get].carlWarningShown = FALSE;
+	[WABSettings get].internWarningShown = FALSE;
+	[[WABSettings get] saveSettings];
 }
 
 -(void) saveSettings
