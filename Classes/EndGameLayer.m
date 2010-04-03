@@ -30,7 +30,7 @@
 				if ([WABSettings get].vibrateEnabled)
 					AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 				egSprite = [CCSprite spriteWithFile:@"end-20-pre-fired-screen.png"];
-				eg2Sprite = [CCSprite spriteWithFile:@"end-21-pre-fired-screen.png"];
+				eg2Sprite = [CCSprite spriteWithFile:@"end-21-fired-screen.png"];
 				break;
 			case ENDGAME_POSTAL:
 				if ([WABSettings get].vibrateEnabled)

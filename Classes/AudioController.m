@@ -58,10 +58,11 @@
 
 -(void) startMusic
 {
-	if ([[WABSettings get] soundEnabled]) {
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bossa_06_nightjuice_L2.mp3" loop:TRUE];
-		[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.4f];
-	}
+	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bossa_06_nightjuice_L2.mp3" loop:TRUE];
+	if ([[WABSettings get] soundEnabled])
+		[self unMute];
+	else
+		[self mute];
 }
 
 -(void) stopMusic

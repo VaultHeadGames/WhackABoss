@@ -726,6 +726,7 @@
 		2F31A21D111F392C0095C1EB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F31A21C111F392C0095C1EB /* MapKit.framework */; };
 		2F31A24D111F39FE0095C1EB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F31A24C111F39FE0095C1EB /* CFNetwork.framework */; };
 		2F31A251111F3A090095C1EB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F31A250111F3A090095C1EB /* CoreLocation.framework */; };
+		2F448B7A1166DB1C00480C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F448B791166DB1C00480C21 /* Entitlements.plist */; };
 		2F5A348E115B0BE3008C548A /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A348D115B0BE3008C548A /* GameLayer.m */; };
 		2F5A353C115B1242008C548A /* ScoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A353B115B1242008C548A /* ScoreLayer.m */; };
 		2F5A3559115B14C6008C548A /* WBCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A3558115B14C6008C548A /* WBCreature.m */; };
@@ -2125,6 +2126,7 @@
 		2F31A21C111F392C0095C1EB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2F31A24C111F39FE0095C1EB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2F31A250111F3A090095C1EB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2F448B791166DB1C00480C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		2F5A348C115B0BE3008C548A /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		2F5A348D115B0BE3008C548A /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		2F5A353A115B1242008C548A /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
@@ -2422,6 +2424,7 @@
 				50F414EB1069373D002A0D5E /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				2F448B791166DB1C00480C21 /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -6234,6 +6237,7 @@
 				2F2A77B91166352500C03012 /* settingsResetSel.png in Resources */,
 				2F2A77E2116639CE00C03012 /* bossa_06_nightjuice_L2.mp3 in Resources */,
 				2F6D25B8116669360047C42C /* hit7.caf in Resources */,
+				2F448B7A1166DB1C00480C21 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6795,6 +6799,63 @@
 			};
 			name = Release;
 		};
+		2F448B531166DAA100480C21 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				PRODUCT_NAME = "Whack-Your-Boss";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.0;
+			};
+			name = Distribution;
+		};
+		2F448B541166DAA100480C21 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vault Head Games";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WhackABoss_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WhackABoss;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F48FF903-DF25-40FB-8954-6064751C73E4";
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Distribution;
+		};
+		2F448B551166DAA100480C21 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "cocos2d libraries";
+				ZERO_LINK = NO;
+			};
+			name = Distribution;
+		};
 		506EE05F10304ED500A389B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6866,6 +6927,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				2F448B541166DAA100480C21 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6875,6 +6937,7 @@
 			buildConfigurations = (
 				506EE05F10304ED500A389B3 /* Debug */,
 				506EE06010304ED500A389B3 /* Release */,
+				2F448B551166DAA100480C21 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -6884,6 +6947,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				2F448B531166DAA100480C21 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
