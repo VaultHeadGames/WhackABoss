@@ -7,7 +7,7 @@
 //
 
 #import "Splash.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 #import "WABSettings.h"
 #import "AudioController.h"
 
@@ -42,7 +42,7 @@
 			return;
 		is_fading = TRUE;
 				
-		CCTransitionScene *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+		CCTransitionScene *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[SmackABossAppDelegate get] menuScene]];
 				
 		[[CCDirector sharedDirector] replaceScene:transition];
 //		[transition release];

@@ -7,7 +7,7 @@
 //
 
 #import "EndGameLayer.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 #import "OFHandler.h"
 #import "ScoreManager.h"
 #import "WABSettings.h"
@@ -135,7 +135,7 @@
 
 -(void) fadeBackToMenu:(id)sender
 {
-	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[SmackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];
 }
 

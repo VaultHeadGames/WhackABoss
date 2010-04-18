@@ -7,7 +7,7 @@
 //
 
 #import "MenuLayer.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 #import "Constants.h"
 #import "OFHandler.h"
 #import "AudioController.h"
@@ -57,11 +57,11 @@
 - (void) go_start_game:(id)e
 {	
 	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
-	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:[[WhackABossAppDelegate get] gameScene] withColor:ccWHITE];
+	CCTransitionScene *trans = [CCFadeTransition transitionWithDuration:.5 scene:[[SmackABossAppDelegate get] gameScene] withColor:ccWHITE];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 	
-	[[[WhackABossAppDelegate get] gameLayer] scheduleStart];
+	[[[SmackABossAppDelegate get] gameLayer] scheduleStart];
 }
 
 - (void) go_leaderboard:(id)e
@@ -79,7 +79,7 @@
 - (void) go_settings:(id)e
 {	
 	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
-	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] settingsScene]];
+	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[SmackABossAppDelegate get] settingsScene]];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 }
@@ -87,7 +87,7 @@
 - (void) go_about:(id)e
 {	
 	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
-	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:1 scene:[[WhackABossAppDelegate get] aboutScene]];
+	CCTransitionScene *trans = [CCCrossFadeTransition transitionWithDuration:1 scene:[[SmackABossAppDelegate get] aboutScene]];
 	
 	[[CCDirector sharedDirector] replaceScene:trans];
 }

@@ -1,16 +1,16 @@
 <resources>
 <game_profile_page_info>
-  <has_featured_application>false</has_featured_application>
-  <has_achievements>true</has_achievements>
-  <has_chat_rooms>true</has_chat_rooms>
   <has_ipurchase>false</has_ipurchase>
+  <has_achievements>true</has_achievements>
   <is_owned_by_local_player>true</is_owned_by_local_player>
   <has_challenges>false</has_challenges>
-  <short_name>WhackABoss</short_name>
-  <has_leaderboards>true</has_leaderboards>
-  <name>Whack-Your-Boss</name>
+  <short_name>Smack A Boss</short_name>
   <suggestions_topic_id>119124</suggestions_topic_id>
+  <name>Smack A Boss</name>
+  <has_featured_application>false</has_featured_application>
+  <has_leaderboards>true</has_leaderboards>
   <id>54224</id>
+  <has_chat_rooms>true</has_chat_rooms>
 </game_profile_page_info>
 <offline>
   <leaderboards>

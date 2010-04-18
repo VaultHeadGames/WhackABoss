@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'SmackABoss' target in the 'SmackABoss' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+	#import "OpenFeintPrefix.pch"
+#endif

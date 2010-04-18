@@ -8,7 +8,7 @@
 
 #import "AboutLayer.h"
 #import "AudioController.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 
 @implementation AboutLayer
 
@@ -55,7 +55,7 @@
 -(void) backToMainMenu:(id)sender
 {
 	[[AudioController sharedInstance] playEffect:@"Select5.caf"];
-	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[WhackABossAppDelegate get] menuScene]];
+	CCCrossFadeTransition *transition = [CCCrossFadeTransition transitionWithDuration:0.5 scene:[[SmackABossAppDelegate get] menuScene]];
 	[[CCDirector sharedDirector] replaceScene:transition];
 }
 

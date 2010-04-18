@@ -9,7 +9,7 @@
 #import "GameLayer.h"
 #import "ScoreLayer.h"
 #import "WBCreature.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 #import "ScoreManager.h"
 #import "Constants.h"
 #import "EndGameLayer.h"
@@ -39,7 +39,7 @@
 		scoreLayer.anchorPoint = CGPointZero;
 		[self addChild:scoreLayer z:6];
 				
-		[self addChild:[[WhackABossAppDelegate get] spriteSheet] z:-1];
+		[self addChild:[[SmackABossAppDelegate get] spriteSheet] z:-1];
 
 		// ROW THREE
 		c31 = [[WBCreature alloc] init];

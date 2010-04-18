@@ -57,7 +57,6 @@ extern NSString * cocos2dVersion(void);
 // calculates delta time since last time it was called
 -(void) calculateDeltaTime;
 
--(void) redisplayDefaultImageBeforeRunWithFirstScene;
 
 @end
 
@@ -602,32 +601,11 @@ static CCDirector *_sharedDirector = nil;
 
 #pragma mark Director Scene Management
 
-- (void)redisplayDefaultImageBeforeRunWithFirstScene
-{
-	CCTexture2D *defTex	= [[CCTextureCache sharedTextureCache] addImage:@"Default.png"];
-	NSAssert(defTex != nil, @"Default.png not found. You probably used a different name. In which case you need to get over here: CCDirector.m :: redisplayDefaultImageBeforeRunWithFirstScene and change the name of the first graphic to whatever you are using.");
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glPushMatrix();
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnable(GL_TEXTURE_2D);
-	glBlendFunc(GL_ONE, GL_ZERO);
-	[defTex drawAtPoint:CGPointZero];
-	[[[CCDirector sharedDirector] openGLView] swapBuffers];
-	glDisable(GL_TEXTURE_2D);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glPopMatrix();
-	[[CCTextureCache sharedTextureCache] removeTexture:defTex];
-}
-
 - (void)runWithScene:(CCScene*) scene
 {
 	NSAssert( scene != nil, @"Argument must be non-nil");
 	NSAssert( runningScene_ == nil, @"You can't run an scene if another Scene is running. Use replaceScene or pushScene instead");
 	
-	[self redisplayDefaultImageBeforeRunWithFirstScene];
 	[self pushScene:scene];
 	[self startAnimation];
 }
@@ -638,11 +616,6 @@ static CCDirector *_sharedDirector = nil;
 
 	NSUInteger index = [scenesStack_ count];
 
-	if(runningScene_ == nil){
-			[self runWithScene:scene];
-			return;
-	}
-	
 	[scenesStack_ replaceObjectAtIndex:index-1 withObject:scene];
 	nextScene = scene;	// nextScene is a weak ref
 }

@@ -7,7 +7,7 @@
 //
 
 #import "ScoreManager.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 #import "Constants.h"
 #import "WABSettings.h"
 #import <AudioToolbox/AudioToolbox.h>
@@ -59,11 +59,11 @@
 				if ([score intValue] != 0) {
 					score = [[NSNumber numberWithInt:[score intValue] - 1] retain];
 				} else {
-					[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_FAIL];
+					[[[SmackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_FAIL];
 					return;
 				}
 			} else {
-				[[[WhackABossAppDelegate get] gameLayer] showCreatureWarning:JOE_TYPE];
+				[[[SmackABossAppDelegate get] gameLayer] showCreatureWarning:JOE_TYPE];
 				joeWarningShown = TRUE;
 				[WABSettings get].joeWarningShown = TRUE;
 				[[WABSettings get] saveSettings];
@@ -82,7 +82,7 @@
 				if (sexyHitCounts == (MAXIMUM_SEXY_HITS - 1))
 					[[AudioController sharedInstance] playEffect:@"sexy-no.caf"];
 			} else {
-				[[[WhackABossAppDelegate get] gameLayer] showCreatureWarning:SEXY_TYPE];
+				[[[SmackABossAppDelegate get] gameLayer] showCreatureWarning:SEXY_TYPE];
 				internWarningShown = TRUE;
 				[WABSettings get].internWarningShown = TRUE;
 				[[WABSettings get] saveSettings];
@@ -101,7 +101,7 @@
 				if (carlHitCounts == (MAXIMUM_CARL_HITS - 1))
 					[[AudioController sharedInstance] playEffect:@"carl-laugh.caf"];
 			} else {
-				[[[WhackABossAppDelegate get] gameLayer] showCreatureWarning:CARL_TYPE];
+				[[[SmackABossAppDelegate get] gameLayer] showCreatureWarning:CARL_TYPE];
 				carlWarningShown = TRUE;
 				[WABSettings get].carlWarningShown = TRUE;
 				[[WABSettings get] saveSettings];
@@ -115,21 +115,21 @@
 	
 	// check sexy and carl hit counts
 	if (sexyHitCounts == MAXIMUM_SEXY_HITS) {
-		[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_SEXY];
+		[[[SmackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_SEXY];
 		return;
 	}
 	if (carlHitCounts == MAXIMUM_CARL_HITS) {
-		[[[WhackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_POSTAL];
+		[[[SmackABossAppDelegate get] gameLayer] doEndGame:ENDGAME_POSTAL];
 		return;
 	}
 	
-	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
+	[[[[SmackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
 }
 
 -(void) levelUp
 {
 	level = [[NSNumber numberWithInt:[level intValue] + 1] retain];
-	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
+	[[[[SmackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
 	if ([[OFHandler sharedInstance] feintIsActive]) {
 		if ([level intValue] == 2)
 			[[OFHandler sharedInstance] registerAchivement:SURVIVED_YOUR_FIRST_DAY];
@@ -169,9 +169,9 @@
 	internWarningShown = [[WABSettings get] internWarningShown];
 	joeWarningShown = [[WABSettings get] joeWarningShown];
 	score = [NSNumber numberWithInt:0];
-	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
+	[[[[SmackABossAppDelegate get] gameLayer] scoreLayer] updateScore:score];
 	level = [NSNumber numberWithInt:1];
-	[[[[WhackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
+	[[[[SmackABossAppDelegate get] gameLayer] scoreLayer] updateLevel:level];
 }
 
 @end

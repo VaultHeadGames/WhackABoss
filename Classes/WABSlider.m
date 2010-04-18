@@ -9,7 +9,7 @@
 #import "WABSlider.h"
 #import "AudioController.h"
 #import "WABSettings.h"
-#import "WhackABossAppDelegate.h"
+#import "SmackABossAppDelegate.h"
 
 @implementation WABSlider
 
@@ -42,7 +42,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	if ((_moving) || ([[CCDirector sharedDirector] runningScene] != [[WhackABossAppDelegate get] settingsScene]))
+	if ((_moving) || ([[CCDirector sharedDirector] runningScene] != [[SmackABossAppDelegate get] settingsScene]))
 		return false;
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	CGPoint	location = [[CCDirector sharedDirector] convertToGL: touchLocation];
@@ -50,7 +50,7 @@
 	// are we actually being clicked?
 	if (CGRectContainsPoint(myRect, location)) {
 		_value = !_value;
-		[[[WhackABossAppDelegate get] settingsLayer] saveSettings];
+		[[[SmackABossAppDelegate get] settingsLayer] saveSettings];
 		[[AudioController sharedInstance] playEffect:@"IncDec5a.caf"];
 		[self updateSlidePosition];
 		return true; // let the delegate know we're handing this event
