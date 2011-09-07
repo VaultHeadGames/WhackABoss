@@ -19,7 +19,7 @@ We spent a lot of time, and a lot of money, putting Whack The Boss together.  Mo
 us so that we may justify our spending time on our projects to our wives.  If you find any of our code or assets useful, your donation is *greatly* 
 appreciated!
 
-[!['Click here to lend your support to: Whack The Boss for iPhone and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/15993.png)](http://pledgie.com/campaigns/15993)
+[![Click here to lend your support to: Whack The Boss for iPhone and make a donation at www.pledgie.com !](https://www.pledgie.com/campaigns/15993.png?skin_name=chrome)](http://pledgie.com/campaigns/15993)
 
 
 ### License ###
