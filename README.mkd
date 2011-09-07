@@ -1,0 +1,35 @@
+Whack The Boss for iPhone
+=========================
+
+Whack The Boss was an iPhone/iOS game created by me and my team at Vault Head Games.  It was written purely in Objective-C in X-code using the 
+[Cocos2d game engine](http://www.cocos2d-iphone.org/).  It was originally released in April 2010. However, when push came to shove, we were unwilling to continue 
+with Apple's developer agreement and decided to pull the game off the market.  A few months later, it was decided that we should open source the game's 
+code and assets for the world to use.
+
+
+### Requirements ###
+
+Whack The Boss was written in X-Code against the iOS 3 SDK.  Most of the code has not been updated to the latest SDK, but it should work.  Whack The Boss 
+was also written using the Open-Source [Cocos2d](http://www.cocos2d-iphone.org/) game engine.
+
+
+### Support Us ###
+
+We spent a lot of time, and a lot of money, putting Whack The Boss together.  Most of this was lost and has never been seen again.  Please help support 
+us so that we may justify our spending time on our projects to our wives.  If you find any of our code or assets useful, your donation is *greatly* 
+appreciated!
+
+[!['Click here to lend your support to: Whack The Boss for iPhone and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/15993.png)](http://pledgie.com/campaigns/15993)
+
+
+### License ###
+
+Whack The Boss is copyright (c) 2010-2011: Jonathan Enzinna D/B/A Vault Head Games and is released Open-Source under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+A copy of the license is available in the LICENSE file.
